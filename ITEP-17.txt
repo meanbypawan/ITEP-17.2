@@ -1,0 +1,141 @@
+
+    Why Java ?
+     Mahabharat :-
+     Console Based
+     Desktop Application
+     Enterprise Application
+     Distributed Application
+     Socket Application
+     Mobile [Android]
+     ML Application
+     
+    Why Javascript ?
+      Web-Developement :-
+      FrontEnd [ReactJS, Angular]
+      Backed End [NodeJS]
+      
+    Why python  
+      Web Application-------------> Python
+      AI/ML/DS Application ----> Python
+       
+    AI--->ML
+    Java FullStack
+    Python FullStack
+    MERN/Javascript FullStack------------------------> ReactJS
+    
+    
+    What is Software ?
+    Types of Software ?
+    Desktop Application
+    Web-application
+    Mobile application
+    Hybrid Mobile application
+    Native mobile application
+    Front End
+    Back End
+    UI/UX
+-------------------------------------------------------------------------
+what is Javascript :-
+
+---------------------------------------------------------------------------
+Language Categorization 
+  1. basis of level :-
+     Low Level
+     Hign Level
+  2. on basis of paradigm
+       Pop [Procedure Oriented Programming/Function Oriented] ---> C
+       OOP [Object Oriented Programming]--> Java
+       Multi-paradigm [Python, Javascript]
+ Top-Down
+ Bottom Up :-- Specialization/ Generalization ?
+ Why Object Oriented ?
+ What is Object Oriented
+ How :-
+   Object
+   Inheritance
+   Encapulation
+   Polymorphism
+   Abstraction       
+----------------------------------------------------------------
+  OOPS Concept :-
+    Object :-  It is real world entity.
+    Object may have certain number properties or behaviour or may both.
+    If a thing is an object then it must be in existance.
+    Object belongs to factory.
+    Objet is runtime entity.
+    
+    Class :- It is user defined type.
+    Class is the collection of similar type of object
+    Once we define a class then we can create "n" number of object.
+    Class is a blue print of object.
+    Example :-  LG, USHA, Dell, Mahindra
+    
+    Encapsulation :- Wrapping of data and function into the single unit.
+    e.g. Capsule, College Bag,
+    
+    Abstraction :- Hiding unnecessary information from the user and showing only essentails things.
+       or.
+     Use the thing witout knowing it's background details
+     
+    Polymorphism :- One thing have different different implementation.
+    
+    Inheritance :- When object of one class acquire the properties of another object.
+      or
+    By using existing thing to develop something new. But there should not be any changes in 
+    existing thing.
+ --------------------------------------------------------------------------------------------------------------
+ Function Oriented :-
+ Object Oriented :-        
+---------------------------------------------------------------
+Java , LiveScript------>Javascript
+
+Language Categorization :-
+  1. Basis of Level
+      aa. Low
+      bb. High [Javascript]
+  2. Basic Of Paradigm
+      aa. POP
+      bb. OOPS
+      cc. Multiparadigm [Javascript]
+  3. Basis of Typed.
+      aa. Typed/Statically Typed [c,c++,java]
+      bb. Dynamically Typed [Javascript]
+
+c,c++,java :--    20
+               int x;      
+Javascript :- 
+  1. Javascript is client side as well as server side scripting language.
+  2. Javascript is dynamically typed.     
+     x = 20;
+     x = "hello"
+     x = true
+  3. Javascript has a capability to convert html into the dhtml[Dynamic HTML]
+  4. Javascript is function oriented, Object oriented multiparadigm scripting language.
+  5. Javascript is synchronous by default.
+  6. Javascript is Single Threaded.
+  7. Java is compiler or it is interpreted, Its Depend .
+  
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
