@@ -114,7 +114,57 @@ Javascript :-
   5. Javascript is synchronous by default.
   6. Javascript is Single Threaded.
   7. Java is compiler or it is interpreted, Its Depend .
+---------------------------------------------------------------------------------
+  Why Object oriented ? 
+    To encapsulate the data and function into the single unit.
+  What is Object Oriented :- It is stye of programming.
   
+  How :-
+    OOPS :-
+     Object :-
+      1. It is a real world entity
+      2. Object have certain number of properties or behaviour or may both
+      3. If a thing is a object then it must be in existanc.
+      4. Objet Belongs to factory
+      5. Object is a runtime entity.
+      Example :- Human, Car, Fan
+      Property of Object :-  Data related with object
+      Human :-  name, height, weight, complexion
+      Behaviour :- Action which can be performed by the object
+      Human :-   listening(), walking(), eating() etc...
+      
+     Class :- It is user defined type
+     2. Class is the collection of Similar type of object
+     3. Once we define a class then we can create "n" number of object
+     4. Class is blue print of object.
+     
+     class TATA{
+        // properties...
+        engine;
+        tyres;
+        stearing;
+        
+        // behaviour
+        start(){----}
+        stop(){----}
+        hb(){------}
+     }
+     
+     Object :-   property :---[engine,tyres, stearing]
+               behaviour :- start(),stop(), hb()
+     class Animal{
+         eat(){}
+         sleep(){}
+         speak(){}
+     }
+     
+     Animal cat; // cat.eat(), cat.sleep(), cat.speak()
+----------------------------------------------------------------------------------------------------------------     
+     
+     
+     
+     
+        
      
 
 
