@@ -160,7 +160,8 @@ Javascript :-
      
      Animal cat; // cat.eat(), cat.sleep(), cat.speak()
 ----------------------------------------------------------------------------------------------------------------     
-     
+   Encapsulation, Abstraction, Inheritance, Polymorphism
+   Code  
      
      
      
