@@ -1,0 +1,22 @@
+<script>
+  /*
+    Conditional Oprator :-
+    syntax :-
+    
+    (condition/exp1) ? expression-2 : express-3;
+        true --- expression-2
+        false --- expressio-3
+   
+    WAP enter two number and find greatest.
+
+    */
+    var a = prompt("Enter 1st number") * 1;
+    var b = prompt("Enter 2nd number") * 1;
+    var c = prompt("Enter 3rd number") * 1;
+    /*
+    var max = (a > b) ? a : b;
+    max > c ? document.write("Greater : "+max) : document.write("Greater : "+c);
+   */
+  
+  (a > b && a > c) ? document.write(a+" is greater") : (b > c) ? document.write(b+" is greater") : document.write(c+" is greater");
+</script>
