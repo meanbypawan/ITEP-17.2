@@ -1,0 +1,33 @@
+<script>
+    /*
+      WAP to enter the basic salary of an employee.
+      If basic salary is greater then 10000 then
+      hra=10%, ta = 5%, da = 3% of basic salary is given
+      to the employee otherwise hra=5%, ta=3% of basic salary
+      is given to the employee. Calculate the gross salary.
+      
+      DRY :-- Do not repeat yourself
+      KISS :- Keep It Simple & Short
+    */
+   var basicSalary = prompt("Enter Basic Salary") * 1;
+   var hra, ta, da, gs;
+
+   if(basicSalary >= 10000){
+     hra = (basicSalary*10)/100;
+     ta = (basicSalary*5)/100;
+     da = (basicSalary*3)/100;
+     gs = hra + ta + da + basicSalary;
+     document.write("<br>HRA : "+hra);
+     document.write("<br>TA : "+ta);
+     document.write("<br>DA : "+da);
+     document.write("<br>Gross Salary : "+gs);
+   }
+   else{
+     hra = (basicSalary*5)/100;
+     ta = (basicSalary*3)/100;
+     gs = hra + ta + basicSalary;
+     document.write("<br>HRA : "+hra);
+     document.write("<br>TA : "+ta);
+     document.write("<br>Gross Salary : "+gs);
+   }
+</script>

@@ -1,0 +1,21 @@
+<script>
+
+    var basicSalary = prompt("Enter Basic Salary") * 1;
+    var hra, ta, da, gs;
+    if (basicSalary >= 10000) {
+        hra = (basicSalary * 10) / 100;
+        ta = (basicSalary * 5) / 100;
+        da = (basicSalary * 3) / 100;
+    }
+    else {
+        hra = (basicSalary * 5) / 100;
+        ta = (basicSalary * 3) / 100;
+        da=0;
+    }
+    gs = hra + ta + da + basicSalary;
+    document.write("<br>HRA : " + hra);
+    document.write("<br>TA : " + ta);
+    da && document.write("<br>DA : " + da);
+    document.write("<br>Gross Salary : " + gs);
+
+</script>
