@@ -1,0 +1,20 @@
+<script>
+    var a = 20;
+    var b = 10;
+    var c = 30;
+
+    var min, max;
+    min = a;
+    max = a;
+
+    if(b > max) // min = 20, max =  20
+     max = b;
+    if(b < min) // min = 10, max = 20
+     min = b;
+    if(c > max) // min = 10, max = 30
+      max = c;
+    if(c < min)
+     min = c;
+    document.write("Max : "+max);
+    document.write("<br>Min : "+min); 
+</script>
