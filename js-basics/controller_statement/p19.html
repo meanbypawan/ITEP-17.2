@@ -1,0 +1,20 @@
+<script>
+  /*
+   1 2 3 4 5 6 ..... n
+   Calculate the sum of even element --- esum
+   Calculate the sum of odd element --- osum
+  */
+  let i = 1;
+  let n = prompt("Enter limit") * 1;
+  let esum =0, osum = 0;
+  while(i <= n){
+    if(i%2==0)
+     esum = esum + i;
+    else
+     osum = osum + i;
+
+    i++; 
+  }
+  document.write("<br>Even Element Sum : "+esum);
+  document.write("<br>Odd Element Sum : "+osum);
+</script>
