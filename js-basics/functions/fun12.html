@@ -1,0 +1,13 @@
+<script>
+    // callback = 
+    function f1(callback){ // f1 is higher order function
+       document.write("<br>F1 is called....");
+       //--------
+       callback();
+    }
+
+    f1(function(){ // callback function
+        document.write("<br>I am callback function");
+        document.write("<br>I am here to explain callback concept");
+    });
+</script>

@@ -1,0 +1,14 @@
+<script>
+    // WAP to perform the addition of two number then check whether
+    // result is even or odd using callback function
+
+    const addition = (a,b,callback)=>{
+        let result = a + b;
+        document.write("<br>Addition : "+result);
+        callback(result);
+    }
+
+    addition(20,11,(n)=>{
+      n%2 ? document.write("<br>ODD") : document.write("<br>EVEN");
+    });
+</script>

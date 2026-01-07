@@ -1,0 +1,25 @@
+<script>
+    /*
+      Factory :- Class :-- Object
+      class TATA{} --- new TATA();
+      class Error{} --- new Error();
+    */
+    const addition = (a,b,callback)=>{
+       if(typeof(a)!="number" || typeof(b)!="number"){
+        let err = new Error("Inputs are not number"); 
+        callback(err);
+       } 
+       else{
+         let result = a + b;
+         callback(null,result);
+       }
+    }
+
+    addition(20,"10",(err,result)=>{
+        if(err)
+         document.write(err);
+        else
+         document.write(result);
+
+    });
+</script>
