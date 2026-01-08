@@ -1,0 +1,36 @@
+<script>
+    console.log("At the start......");
+    const firstTask = (firstKaCallback)=>{
+        setTimeout(()=>{
+            console.log("First Task is completed.....");
+            firstKaCallback();
+        },3000);
+    } // 3000
+    const secondTask = (secondKaCallback)=>{
+        setTimeout(()=>{
+            console.log("Second Task is completed...");
+            secondKaCallback();
+        },4000);
+    } // 4000
+    const thirdTask = (thirdKaCallback)=>{
+        setTimeout(()=>{
+            console.log("Third Task is completed....");
+            thirdKaCallback();
+        },1500);
+    } // 1500
+    const fourthTask = ()=>{
+        setTimeout(()=>{
+            console.log("Fourth Task is completed....");
+        },1800);
+    } //1800
+
+    // Callback Hell --- Promise
+    firstTask(()=>{  // Asynchronoue Code // 3000
+        secondTask(()=>{
+            thirdTask(()=>{
+                fourthTask();
+            });
+        });
+    });
+    console.log("At the end....");
+</script>

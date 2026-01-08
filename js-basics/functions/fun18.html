@@ -1,16 +1,14 @@
 <script>
     console.log("At the start...");
-    const eatingPizza = (callback)=>{ // 4000 
+    const eatingPizza = ()=>{ // 4000 
       setTimeout(()=>{
         console.log("Pizza Done....");
-        callback();
       },4000);
     }
 
-    const servicingCar = (callback)=>{ // 5000
+    const servicingCar = ()=>{ // 5000
       setTimeout(()=>{
         console.log("Servicing Done...");
-        callback();
       },5000);
     }
     const meetingWithFriends = ()=>{ // 3000
@@ -18,10 +16,8 @@
         console.log("Meeting Done...");
        },3000);
     }
-    eatingPizza(()=>{
-        servicingCar(()=>{
-            meetingWithFriends();
-        });
-    });
+    eatingPizza();
+    servicingCar();
+    meetingWithFriends();
     console.log("At the end...");
 </script>
