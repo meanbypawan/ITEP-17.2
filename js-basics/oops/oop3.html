@@ -1,0 +1,29 @@
+<script>
+    class Operation{
+        #a;
+        #b;
+        addition(){
+            document.write(this.#a+this.#b);
+        } 
+        setA(a){
+            this.#a = a;
+        }
+        setB(b){
+          this.#b = b;
+        }
+        getA(){
+            return this.#a;
+        }
+        getB(){
+            return this.#b;
+        }
+        // display(){
+        //     document.write("<br>a : "+this.#a);
+        //     document.write("<br>b :"+this.#b);
+        // }
+    }
+    let obj = new Operation(); // obj: {a:undefined,b:undefined}
+    obj.setA(20);
+    obj.setB(10);
+    document.write(obj.getB());
+</script>
