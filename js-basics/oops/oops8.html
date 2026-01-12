@@ -1,0 +1,28 @@
+<script>
+    /*
+      this :- 
+      In a instance method this refer the current method
+      In a static method this refer to the class.
+    */
+    class Test{
+        static a=1000;
+        b = 500;
+        
+        static display(){
+          document.write("<br>a : "+Test.a);
+          document.write("<br>b : "+this.b);
+        }
+
+        increment(){
+            Test.a++;
+            this.b++;
+        }
+    }
+    let obj1 = new Test(); // Test:a = 1000, obj1: {b:500}
+    obj1.increment(); // {Test: a}
+    Test.display(); // a = 10001, 501
+
+    let obj2 = new Test(); // Test:a1001, obj2: {b:500}
+    obj2.increment(); // Test: a 1002, obj2:{b:501}
+    Test.display();
+</script>

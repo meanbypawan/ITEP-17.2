@@ -1,0 +1,17 @@
+<script>
+    function f1(){
+        let x = 400;
+        return function(){
+            let y = 401;
+            return function(){
+                let z = 402;
+                console.log("x : "+x);
+                console.log("y : "+y);
+                console.log("z : "+z);
+            }
+        }
+    }
+    const f2 = f1();
+    const f3 =f2();
+    f3();
+</script>

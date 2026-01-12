@@ -1,0 +1,29 @@
+<script>
+    /*
+      How to acheive encapsulation in Javascript.
+      Encapsulation :- Wrapping of data and function into the
+      single unit is called encapsulation.
+      1. Class
+      2. Closure
+      */
+    class Operation{
+        #a;
+        #b; // Data
+        constructor(a,b){
+           this.#a = a;
+           this.#b = b;
+        }
+        add(){ // Method
+            return this.#a + this.#b;
+        }
+        mulitplication(){
+            return this.#a * this.#b;
+        }
+    }
+
+    let obj1 = new Operation(50,40);
+    let result =  obj1.add();
+    document.write("<br>Addition : "+result);
+    result = obj1.mulitplication();
+    document.write("<br>Multiplication : "+result);
+</script>

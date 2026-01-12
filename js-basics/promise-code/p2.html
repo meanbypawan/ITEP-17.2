@@ -19,14 +19,16 @@
     */
 
    let p1 = new Promise((resolve,reject)=>{
-      resolve();
-      //reject();
+      //resolve("Promise is resolved....");
+      reject(404);
    });
 
-   p1.then(()=>{
-    console.log("Promise is resolved....");
-   }).catch(()=>{
-    console.log("Promise is rejected....");
+   p1.then((resolvedValue)=>{
+    console.log(resolvedValue);
+    console.log("then callback is executed....");
+   }).catch((rejectValie)=>{
+    console.log("Promise is rejected...."+rejectValie);
+    console.log("catch callback is executed....");
    });   
 </script>
 

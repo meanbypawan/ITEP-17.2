@@ -1,0 +1,43 @@
+<script>
+    // Promise Chaining
+    const firstTask = (n)=>{
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+              console.log("First task executed."+n);
+                resolve(n+2);    
+            },4000);
+        });
+    }
+
+    const secondTask = (n)=>{
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                console.log("Second Task Executed.."+n);
+                resolve(n+2);   
+            },2000);
+        });
+    }
+    const thirdTask = (n)=>{
+        return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+              console.log("Third Task Executed..."+n);
+              resolve(n+2);  
+            },3500);
+        });
+    }
+    const fourthTask = (n)=>{
+        return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+              console.log("Fourth Task Executed..."+n);
+              resolve(n+2);    
+            },2800);
+        });
+    }
+    async function executeTask(){
+        let result =  await firstTask(10);
+        result = await secondTask(result);
+        result =  await thirdTask(result);
+        result = await fourthTask(result);
+    }
+    executeTask();
+</script>
