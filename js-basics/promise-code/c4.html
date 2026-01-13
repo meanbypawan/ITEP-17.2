@@ -1,0 +1,14 @@
+<script>
+    function f1(){
+        let x = 401;
+        console.log("Inside f1 : "+x);
+        function f2(){
+            let y = 402;
+            console.log("Inside f2 : "+x);
+            console.log("Inside f2 : "+y);
+        }
+
+        f2();
+    }
+    f1();
+</script>
