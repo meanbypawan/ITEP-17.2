@@ -1,0 +1,13 @@
+<script>
+    // IIFE Immediatly Invoke Function Expression
+    // (function(n){
+    //     console.log("IIFE Executed...."+n);
+    // }(20))
+    for(var i=1; i<=5; i++){
+        (function(i){
+            setTimeout(()=>{
+             document.write("<br>"+i);
+            },1000);
+        }(i));
+    }
+</script>
