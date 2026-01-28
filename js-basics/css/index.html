@@ -1,0 +1,384 @@
+<html>
+
+<head>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        header {
+            background-color: black;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header div {
+            height: 55px;
+            box-sizing: border-box;
+        }
+
+        .left {
+            width: 25%;
+            display: flex;
+        }
+
+        .right {
+            width: 30%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .mid {
+            width: 40%;
+            display: flex;
+            align-items: center;
+        }
+
+        .mid select {
+            height: 50px;
+            background-color: gray;
+            width: 40px;
+        }
+
+        input[type="text"] {
+            width: 423px;
+            height: 50px;
+        }
+
+        .mid div {
+            background-color: orange;
+            width: 52px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left img {
+            width: 45%;
+        }
+
+        .left-text {
+            width: 50%;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right div {
+            color:white;
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+        }
+        nav{
+            background-color: #232F3E;
+            height: 40px;
+            display: flex;
+            justify-content: space-around;
+            color: white;
+            align-items: center;
+            font-weight: bold;
+        }
+        .banner{
+            height: 500px;
+            border: 1px solid black;
+            position: relative;
+            background-image: url("https://images-eu.ssl-images-amazon.com/images/G/31/IMG25/Home/2025/BAU/GW/Hero/Dec/Mega_home_sale_BAU_PC_-_Trendy_showpieces._CB776559147_.jpg");
+            background-size: cover;
+        }
+        .card-section{
+            position: relative;
+            height: 900px;
+            background-color: #E3E6E6;
+            margin-top: -250px;
+        }
+        .row{
+            height: 400px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .card{
+            width: 20%;
+            height: 350px;
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .image-container{
+            display: flex;
+            justify-content: space-between;
+        }
+        .inner-image-div{
+          display: flex;
+          flex-direction: column;
+          width: 45%;
+          height: 100px;
+          row-gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+     AOS.init();
+    </script>
+    <header>
+        <div class="left">
+            <img src="./images/logo.png" height="53px" />
+            <div class="left-text">
+                <small>Delivering to Bhopal</small>
+                <span>Update location</span>
+            </div>
+        </div>
+        <div class="mid">
+            <select></select>
+            <input type="text" placeholder="Search product" />
+            <div>ICON</div>
+        </div>
+        <div class="right">
+            <select>
+                <option>EN</option>
+            </select>
+            <div>
+                <small>Hello, sign in</small>
+                <b>Accouns & list</b>
+            </div>
+            <div>
+                <small>Return</small>
+                <b>& orders</b>
+            </div>
+            <div>
+                <b>Cart</b>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <span>All</span>
+        <span>MX Player</span>
+        <span>Sell</span>
+        <span>Bestsellers</span>
+        <span>Todays' deals</span>
+        <span>Mobile</span>
+        <span>Customer Service</span>
+        <span>Prime</span>
+        <span>New release</span>
+        <span>Amazon pay</span>
+        <span>Electronics</span>
+        <span>Fashion</span>
+        <span>Home & Kitchen</span>
+        <span>Books</span>
+    </nav>
+    <section class="banner"></section>
+    <section class="card-section">
+        <div class="row">
+            <div class="card">
+                <h2>Appliances for your home | Up to 55% off</h2>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <label style="color: blue;">See more</label>
+            </div>
+            <div class="card">
+                <h2>Appliances for your home | Up to 55% off</h2>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <label style="color: blue;">See more</label>
+            </div>
+            <div class="card">
+                <h2>Appliances for your home | Up to 55% off</h2>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <label style="color: blue;">See more</label>
+            </div>
+            <div class="card">
+                <h2>Appliances for your home | Up to 55% off</h2>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <label style="color: blue;">See more</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
+                <h2>Appliances for your home | Up to 55% off</h2>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <label style="color: blue;">See more</label>
+            </div>
+            <div class="card">
+                <h2>Appliances for your home | Up to 55% off</h2>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <label style="color: blue;">See more</label>
+            </div>
+            <div class="card">
+                <h2>Appliances for your home | Up to 55% off</h2>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <label style="color: blue;">See more</label>
+            </div>
+            <div class="card">
+                <h2>Appliances for your home | Up to 55% off</h2>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                    <div class="inner-image-div">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"/>
+                        <small>Hello..</small>
+                    </div>
+                </div>
+                <label style="color: blue;">See more</label>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
