@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <!-- https://startbootstrap.com/previews/business-frontpage -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        header{
+            min-height: 70px;
+        }
+        .header-div-size{
+            min-height: 50px;
+        }
+        .row-size{
+            min-height: 70px;
+        }
+        .logo-text-size{
+            font-size: 20px;
+        }
+        .nav{
+            padding-right: 100px;
+        }
+        .banner{
+            height: 600px;
+        }
+        .banner-div-size{
+            height: 450px;
+            width: 40%;
+        }
+        .display-4{
+            font-size: 50px;
+        }
+        #btn-learn-more:hover{
+            background-color: white;
+            color:black !important;
+        }
+    </style>
+</head>
+
+<body>
+  <header class="bg-dark container-fluid">
+    <div class="row  row-size d-flex justify-content-between align-items-center">
+        <div class="d-flex logo-text-size justify-content-center font-weight-bolder text-white align-items-center header-div-size col-md-3">Start Bootstrap</div>
+        <div class="nav d-flex align-items-center justify-content-md-end justify-content-center header-div-size col-md-6 text-center">
+            <a class="ml-3 text-white">Home</a>
+            <a class="ml-3 text-white">About</a>
+            <a class="ml-3 text-white">Contact</a>
+            <a class="ml-3 text-white">Services</a>
+        </div>
+    </div>
+  </header>
+  <section class="banner d-flex justify-content-center align-items-center bg-dark">
+     <div class="d-flex flex-column justify-content-center align-items-center banner-div-size">
+        <p class="display-4 text-white text-center font-weight-bold">Present your business in a whole new way</p>
+        <p class="text-white text-center">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+        <div class="button-group">
+            <button class="btn btn-lg btn-primary">Get started</button>
+            <button id="btn-learn-more" class="btn ml-5 btn-lg btn-outline-dark text-white border">Learn more</button>
+        </div> 
+    </div>
+  </section>
+</body>
+</html>
