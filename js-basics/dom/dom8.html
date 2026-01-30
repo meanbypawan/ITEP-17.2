@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Example</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Chnage Theme</h2>
+<button onclick="changeTheme('#25343F','#BFC9D1')">Blue</button>
+<button onclick="changeTheme('#E6501B','#C3110C')">Orange</button>
+<button onclick="changeTheme('#40513B','#628141')">Green</button>
+<table id="data-table" style="margin-top: 20px;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1</td><td>Amit</td><td>21</td><td>Java</td><td>Pune</td></tr>
+        <tr><td>2</td><td>Rohit</td><td>22</td><td>Python</td><td>Mumbai</td></tr>
+        <tr><td>3</td><td>Sneha</td><td>20</td><td>React</td><td>Delhi</td></tr>
+        <tr><td>4</td><td>Neha</td><td>23</td><td>Spring</td><td>Bangalore</td></tr>
+        <tr><td>5</td><td>Vikas</td><td>24</td><td>NodeJS</td><td>Chennai</td></tr>
+        <tr><td>6</td><td>Priya</td><td>21</td><td>Angular</td><td>Pune</td></tr>
+        <tr><td>7</td><td>Rahul</td><td>22</td><td>Java</td><td>Indore</td></tr>
+        <tr><td>8</td><td>Pooja</td><td>20</td><td>Python</td><td>Jaipur</td></tr>
+        <tr><td>9</td><td>Ankit</td><td>23</td><td>Spring</td><td>Noida</td></tr>
+        <tr><td>10</td><td>Kiran</td><td>25</td><td>DevOps</td><td>Hyderabad</td></tr>
+        <tr><td>11</td><td>Meena</td><td>21</td><td>React</td><td>Surat</td></tr>
+        <tr><td>12</td><td>Sachin</td><td>22</td><td>Java</td><td>Nagpur</td></tr>
+        <tr><td>13</td><td>Ritu</td><td>20</td><td>Python</td><td>Lucknow</td></tr>
+        <tr><td>14</td><td>Manoj</td><td>24</td><td>NodeJS</td><td>Bhopal</td></tr>
+        <tr><td>15</td><td>Kavita</td><td>23</td><td>Angular</td><td>Ahmedabad</td></tr>
+    </tbody>
+</table>
+<script>
+    function changeTheme(evenRowColor,oddRowColor){
+       let tableObj = document.getElementById("data-table");
+       let tableRows = tableObj.rows;
+       for(let i =0; i<tableRows.length; i++){
+        if(i%2)
+         tableRows[i].style.backgroundColor = oddRowColor;
+        else
+         tableRows[i].style.backgroundColor = evenRowColor;
+       }
+    }
+</script>
+</body>
+</html>
