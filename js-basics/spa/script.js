@@ -61,6 +61,32 @@ function option1Action(text,mainContainer){
    if(text == "Sign in"){
       SignInComponent(mainContainer);
    }
+   else if(text == "View cart"){
+      ViewCartComponent(mainContainer);
+   }
+}
+function ViewCartComponent(mainContainer){
+   let cardContainer = document.querySelector("#card-container");
+   mainContainer.removeChild(cardContainer);
+   let container = document.createElement("div");
+   container.setAttribute("class","container mt-3");
+   container.setAttribute("id","card-container");
+   let containerRow = document.createElement("div");
+   containerRow.setAttribute("class","row");
+   containerRow.setAttribute("style","height:450px;");
+   
+   let containerItems = document.createElement("div");
+   containerItems.setAttribute("class","col-md-8");
+   containerItems.setAttribute("style","height:400px; box-shadow: 10px 10px 10px grey;");
+   containerRow.appendChild(containerItems);
+
+   let orderContainer = document.createElement("div");
+   orderContainer.setAttribute("class","col-md-4");
+   orderContainer.setAttribute("style","height:200px; box-shadow: 10px 10px 10px grey;");
+   containerRow.appendChild(orderContainer);
+
+   container.appendChild(containerRow);
+   mainContainer.appendChild(container);
 }
 function option2Action(text,mainContainer){
    if(text == "Sign up"){
@@ -302,6 +328,9 @@ function ViewMoreComponent(product){
    addToCart.setAttribute("class","btn btn-outline-secondary");
    addToCart.setAttribute("style","width:45%;");
    addToCart.innerText = "Add to cart";
+   addToCart.addEventListener("click",function(){
+      addToCartAction(product);
+   });
    buttonContainer.append(addToCart);
    
    let buyNow = document.createElement("button");
@@ -314,8 +343,38 @@ function ViewMoreComponent(product){
    viewMoreContainer.appendChild(row); 
    mainContainer.appendChild(viewMoreContainer);
 }
+function addToCartAction(product){
+   if(isLoggedIn()){
+     let currentUser =  sessionStorage.getItem("currentUser");
+     let usersCart = localStorage.getItem("users-cart");
+     usersCart = JSON.parse(usersCart);
+     if(usersCart[currentUser]){
+       let itemList = usersCart[currentUser];
+       let status = itemList.some((item)=>{return item.id == product.id});
+       if(status)
+         return window.alert("Product is already added in cart");
+       let {id,title,price} = product;
+       itemList.push({id,title,price,qty:1}); 
+       usersCart[currentUser] = itemList;
+       localStorage.setItem("users-cart",JSON.stringify(usersCart));
+       return window.alert("Product is successfully added in cart");  
+    }
+
+     else{
+        let {id,title,price} = product;
+        let p = {id,title,price,qty:1}
+        usersCart[currentUser] = [p];
+        window.alert("Product successfully added in cart");
+        localStorage.setItem("users-cart",JSON.stringify(usersCart));
+     }
+   }
+   else
+     SignInComponent(document.querySelector("#main"));
+   
+}
 function configure(){
    !localStorage.getItem("user-list") && localStorage.setItem("user-list",JSON.stringify([]));
+   !localStorage.getItem("users-cart") && localStorage.setItem("users-cart",JSON.stringify({}));
 }
 function isLoggedIn(){
    return !!sessionStorage.getItem("isLoggedIn"); // "true"
