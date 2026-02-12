@@ -1,0 +1,24 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            fetch("https://dummyjson.com/products")
+            .then(result=>{
+                console.log(result.json().then(data=>{console.log(data)}));
+            }).catch(err=>{
+                console.log(err);
+            });
+            /*
+            let xhttp = new XMLHttpRequest();
+            xhttp.open("GET","https://dummyjson.com/products",true);
+            xhttp.send();
+            xhttp.onreadystatechange = function(){
+              if(xhttp.readyState == 4){
+                let data = xhttp.responseText;
+              }
+            }*/
+        </script>    
+    </body>
+</html>
