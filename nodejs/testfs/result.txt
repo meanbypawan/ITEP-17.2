@@ -1,0 +1,7 @@
+NodeJs is developed by Ryan in 2009
+NodeJs is not programming language.
+NodeJs is javscript runtime enviornment.
+It allow us to write javascript code outside the browser
+NodeJs = V8 + libuv
+NodeJs is built upon google chrome v8 engine
+It is inspored by SingleThread javascript event loop model.
