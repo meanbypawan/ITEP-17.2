@@ -1,0 +1,301 @@
+Listing Database :-
+ show database
+Current Database/Using Database
+ use database_name;
+-------------------------------
+  int, bigint, tinyint ---> Interger Data
+  float---------------------> Floating Point Data
+  char, varchar, text --> String,Text Data
+  date
+  blob, clob
+-------------------------------
+   1. Primary Key
+   2. Unique Key
+   3. Null
+   4. Check Constraing
+   5. Foreign Key Constraing
+   6. Default Value
+   7. Auto-increment 
+-------------------------------
+Creating table
+ create table user(
+  id int primary key auto_increment,
+  name varchar(50) not null,
+  email varchar(100) unique key,
+  contact varchar(10) unique key,
+  age int check(age>=18) 
+ ) 
+ ------------------------------
+ Listing table
+  show tables
+ desc table_name
+ desc user 
+ 
+ 
+ show create table table_name  
+--------------------------------------------------------------------
+insert into user(name,email,contact,age) values('rahul','rh@gamil.com','9009111222',21);    
+insert into user(name,email,contact,age)
+values('sanjana','sanjana@gmail.com','9009111567',23);
+
+
+('atul','atul@gmail.com','9009111399',29),
+('astha','astha@gmail.com','9009111366',30),
+('madhur','madhur@gmail.com','9009111322',29),
+('souraf','souraf@gmail.com','9009111311',27),
+('ganesh','ganesh@gmail.com','9009111338',27),
+('khilesh','khilesh@gmail.com','9009111337',28),
+('arpit','arpit@gmail.com','9009111336',25),
+('aman','aman@gmail.com','9009111335',26),
+('rabi','rabi@gmail.com','9009111334',21)
+
+insert into user values(12,'kuldeep','kuldeep@gmail.com','434343489',25)   
+CRUD :-
+C :--- Create/Insert
+R :- Reterive/Select
+U :--Update
+D :---Delete   
+---------------------------------------------------------------
+  Select :-
+  fetching all record from database table
+  
+  // What Is Projection
+  select * from user;
+  select id,name,age from user;
+  
+  order by
+  select id,name,age from user order by name
+  insert into user(name) values('Aman')  
+  
+  select * from user;
+  Fetch user whose age is >= 25
+  
+  select * from user where age >= 25
+  select * from user where age>=24 and age<=28
+  select * from user where age between 24 and 28
+  select * from user where age = 27 or age = 29 or age = 28
+  select * from user where age in(27,28,29)
+  select * from user where age is not 29
+  select * from user where age = 29
+  
+---------------------------------------------------------------  
+  Wild card character :-
+  % -----> zero or any number of occurance
+  _ -----> fixed position
+  
+  select * from user where name like 'a%'
+  select * from user where name like '%h'
+
+  select * from user where name like '%h__' and age = 29
+  
+  "virat kohli"
+  "vikas"
+  select * from user where name like 'v%k%'
+  '%e%e%' 
+  %ee%
+  ee?????
+  ?????ee
+  ?ee????
+  ???ee??
+  ee
+ ---------------------------------------------------------------------
+  max(), min(), avg(), sum(), count()...
+  select max(age) from user
+  select * from user where age = (select max(age) from user)
+   
+  select * from user order by age desc limit 1
+  
+  select * from user where age = (
+    select max(age) from user where age !=(
+     select max(age) from user));
+  
+  select count(*) from user
+  select count(age) from user
+ ------------------------------------------------------------------------
+ users(id,name,email,contact,age)
+ 
+ categories(id(int),category_name(varchar))
+ 
+ products(id,title,price,brand,category_id(fk))
+ 
+ cart(id,user_id(fk))
+ 
+ insert into categories(category_name)
+ values('c1'),('c2'),('c3'),('c4'),('c5')
+ 
+ insert into product(title,brand,price,category_id)
+ values('p1','b1',10,2),
+ ('p2','b2',20,4),
+ ('p3','b3',50,3),
+ ('p4','b4',65,1),
+ ('p5','b5',34,3)
+ 
+ create table cart_items(
+   cart_id int,
+   product_id int,
+   foreign key(cart_id) references cart(id),
+   foreign key(product_id) references product(id),
+   primary key(cart_id,product_id));
+-----------------------------------------------------------------------
+   One To One :- A,B [user has one cart]
+   If record of table - A is only assoicated with one record of table - B 
+   is called One To One.
+   
+   One To Many : A,B [category has Many Product]
+   If record of table-A is associated with multiple record of table-B then it is one to many.
+   
+   Many To Many : A,B [cart hasMany product, product belongsToMany Cart]
+   If record of table-A is assoicated with multiple record of table-B and record of table-B
+   is associated with multuple record of table-A then it is Many To Many.
+----------------------------------------------------------------------------------   
+   1. inner-join
+   2. left outer join
+   3. right outer join
+   4. self join
+   5. cross join 
+ -------------------------------------
+ category(id,category_name)
+ product(id,title,brand,category_id)
+ 
+ 
+ select product.id,product.title,categories.category_name
+   from product inner join category on product.category_id = category.id
+ 
+ create table country(
+   id int primary key auto_increment,
+   country_name varchar(100));
+	 create table state(
+	   id int primary key auto_increment,
+	   state_name varchar(100),
+	   country_id int,
+	   foreign key(country_id) references country(id));  
+	 create table city(
+	   id int primary key auto_increment,
+	   city_name varchar(100),
+	   state_id int,
+	   foreign key(state_id) references state(id));
+ 
+ insert into country(country_name) values('India'),('Russia')
+ 
+ insert into state(state_name,country_id)
+  values('MP',1),('UP',1),('MH',1),('GJ',1),('Moscow',2)
+ insert into city(city_name,state_id)
+  values('Indore',1),('Jabalpur',1),('Agra',2),('Lucknow',2),
+  ('Pune',3),('Mumbai',3),('Vadodra',4),('Surat',4),('Ahamdabad',4),
+  ('Moscow-city',5)
+  
+  update user set city_id = 1 where id in(1,2,3,4)
+  
+  
+  select user.id,user.name,city.city_name,state.state_name,country.country_name
+  from user inner join city on user.city_id = city.id
+  inner join state on city.state_id = state.id
+  inner join country on state.country_id = country.id
+ 
+  select user.id,user.name,city.city_name
+   from user left outer join city on user.city_id = city.id 
+ 
+    select user.id,user.name,city.city_name
+   from city left outer join user on user.city_id = city.id 
+ 
+   select * from user,city;
+------------------------------------------------------------------------------------
+
+   create table employee(
+     id int primary key auto_increment,
+     name varchar(100),
+     manager_id int); 
+ 
+   insert into employee(name) values('Aman'),('Atul'),('Ankita'),('Yashi')
+ 
+   Employee ----> e1,e2
+   
+   select e1.id, e1.name as EMP_NAME, e2.manager_id as MANAGER 
+    from employee e1 inner join employee e2 on e1.id = e2.manager_id    
+  ------------------------------------------------------------------------------------------
+  select count(*), city_id from user group by city_id 
+ 
+  select city.city_name as CITY, count(*) as Total
+    from user left join city on user.city_id = city.id
+     group by user.city_id	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
