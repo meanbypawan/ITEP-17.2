@@ -1,5 +1,4 @@
 import { Sequelize } from "sequelize";
-
 const sequelize = new Sequelize("backendapis","pawan","root",{
     host: "localhost",
     dialect: "mysql"
