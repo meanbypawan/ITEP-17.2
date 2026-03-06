@@ -1,4 +1,5 @@
 import Category from "../model/category.model.js";
+import Product from "../model/product.model.js";
 export const deleteCategory = async (request,response,next)=>{
    try{
     let category = await Category.findOne({where:{id: request.params.id},raw: true});
@@ -41,7 +42,7 @@ export const fetchById = (request,response,next)=>{
     });
 }
 export const fetchAll = (request,response,next)=>{
-    Category.findAll({raw: true})
+    Category.findAll({include:[{model: Product}]})
     .then(result=>{
       return response.status(200).json(result);
     }).catch(err=>{

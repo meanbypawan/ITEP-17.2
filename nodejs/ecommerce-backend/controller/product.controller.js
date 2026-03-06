@@ -1,6 +1,17 @@
+import Category from "../model/category.model.js";
 import Product from "../model/product.model.js";
-export const save = (request,response,next)=>{
-    console.log(request.body);
+export const save = async (request,response,next)=>{
+   try{ 
+    let {title,brand,price,categoryId} = request.body;
+    let dbCategory = await Category.findByPk(categoryId);
+    if(!dbCategory)
+        return response.status(404).json({error:"Category not found"});
+    let result = await Product.create({title,brand,price,categoryId});
+    return response.status(201).json({message:"product saved..",product: result.dataValues});
+   }
+   catch(err){
+    return response.status(500).json({error: "Internal Server Error"});
+   }
 }
 export const fetchAll = async(request,response,next)=>{
    try{
