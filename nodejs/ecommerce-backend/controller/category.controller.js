@@ -3,10 +3,8 @@ import Product from "../model/product.model.js";
 export const deleteCategory = async (request,response,next)=>{
    try{
     let category = await Category.findOne({where:{id: request.params.id},raw: true});
-
     if(!category)
         return response.status(404).json({error: "Resource not found"});
-    
     await Category.destroy({where:{id: request.params.id}});
     return response.status(200).json({message:"category deleted..."});
    }
@@ -21,9 +19,7 @@ export const update = async (request,response,next)=>{
     let dbCategory = await Category.findOne({where:{id},raw: true});
     if(!dbCategory)
         return response.status(404).json({error: "Requested resource not available | id not found"});
-  
     await Category.update({categoryName: request.body.categoryName},{where:{id}});
-
     return response.status(200).json({message: "Category updated"});
    }
    catch(err){
