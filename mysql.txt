@@ -218,11 +218,54 @@ D :---Delete
   select city.city_name as CITY, count(*) as Total
     from user left join city on user.city_id = city.id
      group by user.city_id	
+ -----------------------------------------------------------------------
+ create table user(
+   id int primary key auto_increment,
+   name varchar(100) not null,
+   email varchar(100) unique key not null,
+   password varchar(10) not null)
+ 
+ create table profile(
+   id int primary key auto_increment,
+   bio varchar(100) not null,
+   userId int unique key not null,
+   foreign key(userId) references user(id));  
+ 
+ insert into user(name,email,password)
+ values('A','a@gmail.com','12345'),
+ ('B','b@gmail.com','12345'),
+ ('C','c@gmail.com','12345')
+ 
+ insert into profile(bio,userId)
+ values('frontend developer',1),
+ 
+ create table post(
+   id int primary key auto_increment,
+   userId int not null,
+   postText varchar(255) not null,
+   foreign key(userId) references user(id));
+   
+ insert into post(userId,postText)
+ values(1,'user 1 first post'),
+ (1, 'user 1 second post'),
+ (1,'user 1 third post'),
+ (2,'user 2 first post'),
+ (2,'user 2 second post')
+-----------------------------------------------------------------------
+ inner join :- fetch only matching record from both the tables
+ 
+ user(id,name,email,password)
+ profile(id,bio,userId)
+ 
+ select user.id, user.name, profile.bio from user inner join profile on user.id = profile.userId
+ 
+ select user.id,user.name, profile.bio from user left outer join profile on user.id = profile.userId
  
  
  
  
  
+  
  
  
  
