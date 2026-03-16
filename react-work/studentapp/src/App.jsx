@@ -10,12 +10,12 @@ class App extends Component{
     }
   }
   addStudent = ()=>{
-    let roll =  document.getElementById("rollInput").value;
-    let name = document.getElementById("nameInput").value;
-    let gender = document.getElementById("genderInput").value;
-    let branch = document.getElementById("branchInput").value;
-    let newStudent = {roll,name,gender,branch};
-    this.setState({studentList: [...this.state.studentList,newStudent]})
+     let roll = this.rollInput.value;
+     let name = this.nameInput.value;
+     let branch = this.branchInput.value;
+     let gender = this.genderInput.value;
+     let newStudent = {roll,name,branch,gender};
+     this.setState({studentList:[...this.state.studentList,newStudent]});
   }
   render(){
     return <>
@@ -25,21 +25,21 @@ class App extends Component{
       <div className="container mt-3 mb-3">
         <div className="row">
           <div className="col-md-6">
-            <input id="rollInput" type="text" placeholder="Enter student roll number" className="form-control"/>
+            <input ref={(rollInputObj)=>{this.rollInput=rollInputObj}} id="rollInput" type="text" placeholder="Enter student roll number" className="form-control"/>
           </div>
           <div className="col-md-6">
-            <input id="nameInput" type="text" placeholder="Enter student name" className="form-control"/>
+            <input ref={(nameInputObj)=>{this.nameInput = nameInputObj}} id="nameInput" type="text" placeholder="Enter student name" className="form-control"/>
           </div>
         </div>
         <div className="row mt-2">
           <div className="col-md-6">
-            <select id="branchInput" className="form-control">
+            <select ref={(branchInputObj)=>this.branchInput = branchInputObj} id="branchInput" className="form-control">
               <option>Select branch</option>
               {this.state.branchList.map((branch,index)=>{return <option key={branch}>{branch}</option>})}
             </select>
           </div>
           <div className="col-md-6">
-            <select id="genderInput" className="form-control">
+            <select ref={(genderInoutObj)=>this.genderInput = genderInoutObj} id="genderInput" className="form-control">
               <option>Select gender</option>
               <option>Male</option>
               <option>Female</option>
