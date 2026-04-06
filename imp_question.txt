@@ -1,0 +1,145 @@
+1. Python Introduction (Interview Qs)
+❓ What is Python?
+
+👉 Python is a high-level, interpreted, dynamically typed, object-oriented programming language.
+
+❓ Why is Python called interpreted?
+
+👉 Code is executed line-by-line by the Python Virtual Machine (PVM) after compilation to bytecode.
+
+❓ Is Python compiled or interpreted?
+
+👉 Both:
+
+Compiled → .pyc (bytecode)
+Interpreted → executed by PVM
+
+❓ What are key features of Python?
+Easy syntax
+Dynamically typed
+Cross-platform
+Large libraries
+Supports OOP & functional programming
+
+❓ What is PVM?
+
+👉 Python Virtual Machine executes bytecode.
+
+🧠 2. Python History
+
+❓ Who developed Python?
+
+👉 Guido van Rossum
+
+❓ When was Python introduced?
+
+👉 1991
+
+
+❓ Why was Python created?
+
+👉 To create a simple, readable, and powerful language
+
+
+❓ Why is it called Python?
+
+👉 Inspired by the comedy show Monty Python’s Flying Circus
+
+❓ Major versions?
+Python 2 (deprecated)
+Python 3 (current)
+
+⚡ 3. Data Types (Important Qs)
+
+❓ What are built-in data types?
+🔹 Numeric:
+int, float, complex
+🔹 Sequence:
+list, tuple, str, range
+🔹 Set:
+set, frozenset
+🔹 Mapping:
+dict
+🔹 Binary:
+bytes, bytearray, memoryview
+🔹 Special:
+NoneType
+
+❓ Mutable vs Immutable?
+Mutable	Immutable
+list, set, dict	int, str, tuple
+
+❓ Difference between list and tuple?
+Feature	List	Tuple
+Mutability	Mutable	Immutable
+Speed	Slower	Faster
+Syntax	[]	()
+
+❓ What is dynamic typing?
+x = 10
+x = "hello"
+
+👉 Type is decided at runtime
+
+❓ What is duck typing?
+
+👉 Object behavior matters, not type
+
+❓ What is None?
+
+👉 Represents absence of value
+
+🔥 4. Operators (Important Qs)
+
+❓ Types of operators in Python?
+1. Arithmetic
++, -, *, /, //, %, **
+2. Comparison
+==, !=, >, <, >=, <=
+3. Logical
+and, or, not
+4. Assignment
+=, +=, -=, *=
+5. Bitwise
+&, |, ^, ~, <<, >>
+6. Membership
+in, not in
+7. Identity
+is, is not
+⚠️ Important Tricky Questions
+
+❓ Difference between == and is?
+== → value comparison
+is → memory comparison
+
+❓ What is floor division?
+5 // 2   # 2
+-5 // 2  # -3
+
+❓ Why 0.1 + 0.2 != 0.3?
+
+👉 Floating-point precision issue
+
+❓ What is short-circuiting?
+
+👉 and / or stop evaluation early
+
+❓ What does this return?
+5 and 10   # 10
+0 or 5     # 5
+
+🎯 Rapid-Fire Interview Questions
+Is Python case-sensitive? → Yes
+Can Python have multiple inheritance? → Yes
+Is Python strongly typed? → Yes
+What is everything in Python? → Object
+Does Python support pointers? → No (hidden)
+🧠 Final Interview Summary
+
+👉 Focus areas:
+
+PVM concept
+Mutable vs Immutable
+is vs ==
+Short-circuiting
+Dynamic typing

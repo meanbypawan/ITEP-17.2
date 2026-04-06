@@ -1,0 +1,32 @@
+
+  Full Stack Application :-
+  
+  Frontend [React Application]
+
+  Backend [Node/Express Application]
+  
+  Database [MySQL]
+
+  ORM [Sequelize]
+  -------------------------------------------------
+  E-commerce Application
+  BASE_URL :-  http://localcalhost:3000/category
+  ---Manage Categories
+       --add category POST -----> /
+       --view category--GET-----> /
+       --update category-PUT ----> /:id
+       --delete category-DELETE--->/:id	 	
+  ---Manage Products
+        --add product
+ 	--view product
+	--delete product
+	--update product
+
+  ---Manage Carts
+        -- add to cart
+	-- view cart
+	-- remove from cart
+  ---Manage Orders
+  ---Manage Users
+ 	-- sign in 
+	-- sign up	
