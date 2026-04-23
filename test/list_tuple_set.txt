@@ -1,0 +1,118 @@
+List :-
+  1. Mutable
+  2. Allow duplicates
+  3. Allow indexing
+  4. Allow slicing
+  5. Ordered
+  6. Mutable + Immutable data times
+  7. Dynamaic size [use Overallocation Technique]
+
+Tuple :- (1,2,3,[10,20])
+  1. Immutable
+  2. Allow duplicates
+  3. Allow indexing
+  4. Allow slicing
+  5. Ordered
+  6. Mutable + Immutbale
+  7. Fixed size
+Set :-
+  1. Mutable
+  2. Unordered [It doesn't preserve insertion order]
+  3. Indexing not allowed
+  4. Slicing not allowed
+  5. Duplicates not allowed
+  6. Manage data uniqueness
+  7. Immutable
+  8. Dynamic size [Hash table concept]
+  ------------------------------------------------------------
+ Dict:-
+  d = {}
+  or
+  d = dict()
+  
+ ---------------------------------------------------------------
+  x = {1,2,3,4}
+   or
+  x = set(iterable-object)
+  iterable :-
+    List
+    tuple
+    string
+    dict
+  
+  x = {1,2,3,4}
+  
+  => {1: hash(), 2: hash(), 3: hash()}
+-----------------------------------------------------
+ Operation on set :-
+   1. union :-  union()
+   e.g :- A = {1,3,4,6}
+          B = {2,4,5,6,7}
+          {1,2,3,4,5,6,7}
+   2. intersection :- intersection()
+         {4,6}
+   3. difference :-  A.difference(B) ===> A - B  => {1,3}
+                     or
+                     B.difference(A)
+   4. Symmetric difference :- A.symmetric_difference(B)
+      {1,2,3,5,7}
+   5. issuperset()
+   6. issubset()
+---------------------------------------------------------------
+   add()
+   remove() v/s discard()
+   update()
+   pop() v/s popitem()
+  
+   A = {1,3,4,5,7,8}
+   A.pop()
+--------------------------------------------------------------------
+  in-place operation :-
+  A.intersection(B) :-  return new set
+  A.intersecction_update(B) :-- Update in current object (A)
+  
+  union:-
+  A.union(B) :--- return new set with union elements
+  A.update(B) :--- Update in A
+  
+  
+  intersection_update()
+  update()
+  difference_update()
+  symmetric_difference_update()
+-----------------------------------------
+ set :-  unique + mutable
+ fronzenset() :- immutable
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
