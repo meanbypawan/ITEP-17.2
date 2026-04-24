@@ -1,0 +1,109 @@
+🔹 1. Find Duplicate Values
+
+Given a dictionary, find keys that have the same values.
+
+Example:
+
+data = {"a": 1, "b": 2, "c": 1, "d": 3}
+
+👉 Output: keys with duplicate values → ['a', 'c']
+
+🔹 2. Invert a Dictionary (Handle Duplicates)
+
+Swap keys and values. If values repeat, store keys in a list.
+
+Example:
+
+data = {"a": 1, "b": 2, "c": 1}
+
+👉 Output:
+
+{1: ['a', 'c'], 2: ['b']}
+🔹 3. Group Words by Length
+
+Group a list of words into a dictionary where key = word length.
+
+Example:
+
+words = ["hi", "hello", "hey", "python"]
+
+👉 Output:
+
+{2: ['hi'], 3: ['hey'], 5: ['hello'], 6: ['python']}
+🔹 4. Find First Non-Repeating Character
+
+Use a dictionary to count frequency, then find first unique char.
+
+Example:
+
+text = "aabbcde"
+
+👉 Output: c
+
+🔹 5. Two Sum Problem
+
+Given a list and a target, find indices of two numbers that add up to target.
+
+Example:
+
+nums = [2, 7, 11, 15]
+target = 9
+
+👉 Output: [0, 1]
+
+🔹 6. Sort Dictionary by Value
+
+Sort dictionary in ascending order of values.
+
+Example:
+
+data = {"a": 3, "b": 1, "c": 2}
+
+👉 Output:
+
+{'b': 1, 'c': 2, 'a': 3}
+🔹 7. Check Anagram Using Dictionary
+
+Check if two strings are anagrams using character count.
+
+Example:
+
+s1 = "listen"
+s2 = "silent"
+
+👉 Output: True
+
+🔹 8. Frequency of Words in Sentence
+
+Count how many times each word appears.
+
+Example:
+
+sentence = "this is a test this is"
+
+👉 Output:
+
+{'this': 2, 'is': 2, 'a': 1, 'test': 1}
+🔹 9. Find Common Keys in Two Dictionaries
+
+Return keys present in both.
+
+Example:
+
+d1 = {"a": 1, "b": 2}
+d2 = {"b": 3, "c": 4}
+
+👉 Output: ['b']
+
+🔹 10. Nested Dictionary Sum
+
+Find total salary from nested dictionary.
+
+Example:
+
+employees = {
+    "emp1": {"salary": 5000},
+    "emp2": {"salary": 7000}
+}
+
+👉 Output: 12000
