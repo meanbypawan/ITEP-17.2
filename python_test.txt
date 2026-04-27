@@ -1,0 +1,39 @@
+1. Reverse the list in place
+2. Find the union of two list
+3. Find the intersection to two list
+4. Find the occurance of all the number in list
+5. Find Duplicate Values
+   Given a dictionary, find keys that have the same values.
+   Example:
+   data = {"a": 1, "b": 2, "c": 1, "d": 3}
+6. program to insert an element at specifi index
+7. Invert a Dictionary (Handle Duplicates)
+
+Swap keys and values. If values repeat, store keys in a list.
+
+Example:
+
+data = {"a": 1, "b": 2, "c": 1}
+
+👉 Output:
+
+{1: ['a', 'c'], 2: ['b']}
+8. Group Words by Length
+
+Group a list of words into a dictionary where key = word length.
+
+Example:
+
+words = ["hi", "hello", "hey", "python","bye"]
+
+👉 Output:
+
+{2: ['hi'], 3: ['hey',"bye"], 5: ['hello'], 6: ['python']}
+9. Sort Dictionary by Value
+
+Sort dictionary in ascending order of values.
+
+Example:
+
+data = {"a": 3, "b": 1, "c": 2}
+10. find the second maximum and second minimum in the list

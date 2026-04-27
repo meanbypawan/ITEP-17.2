@@ -21,7 +21,7 @@ Basic Fundamental :-
      while
      for
   Function :-
-   1. It is block code, perform specific task
+   1. It is block of code, perform specific task
    2. Manage code redundancy
    3. Provide modular approach :- Divide code into functions
    4. Make code easy to manage
