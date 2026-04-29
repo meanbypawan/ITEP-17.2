@@ -1,0 +1,33 @@
+<script>
+    /**/
+    var amount = prompt("enter amount") * 1;
+    var note500,note200,note100,note50,note20,note10;
+    note500 = note200 = note100 = note50 = note20 = note10 = 0;
+    
+    note500 = parseInt(amount / 500); // parseInt(4.5) -- 4
+    document.write("<br>Amount : "+amount);
+    amount = amount%500;
+    
+    note200 = parseInt(amount/200);
+    amount = amount%200;
+
+    note100 = parseInt(amount/100);
+    amount = amount%100;
+
+    note50 = parseInt(amount/50);
+    amount = amount%50;
+    
+    note20 = parseInt(amount/20);
+    amount = amount%20;
+
+    note10 = parseInt(amount/10);
+    amount = amount%10;
+
+    document.write("<br>500 note : "+note500);
+    document.write("<br>200 note : "+note200);
+    document.write("<br>100 note : "+note100);
+    document.write("<br>50 note : "+note50);
+    document.write("<br>20 note : "+note20);
+    document.write("<br>10 note : "+note10);
+    document.write("<br>Remain Coins : "+amount);
+</script>

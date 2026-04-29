@@ -1,0 +1,15 @@
+<script>
+    // Prime or not prime
+    let n = prompt("Enter a number") * 1;
+    let i = 2;
+    while(i<=parseInt(n/2)){
+        if(n % i == 0)
+          break;
+        i++;
+    }
+    if( i > parseInt(n/2) && n > 1)
+      document.write(n+" Prime");
+    else
+      document.write(n+" is not prime");
+    document.write("<br> i : "+i+"  n / 2 :"+(n/2));
+</script>

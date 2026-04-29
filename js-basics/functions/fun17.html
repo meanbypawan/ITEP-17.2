@@ -1,0 +1,15 @@
+<script>
+    /*
+      Javascript :- Synchronous. It executed one code at a time
+      V8-engine is only responsible to to execute Synchrnous code.
+    */
+    console.log("At the start....");
+    setTimeout(()=>{
+        console.log("First Timeout....");
+    },5000);
+
+    setTimeout(()=>{
+        console.log("Second Timeout....");
+    },3000);
+    console.log("<br>At the end.....");
+</script>

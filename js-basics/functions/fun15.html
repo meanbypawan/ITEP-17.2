@@ -1,0 +1,22 @@
+<script>
+    const addition = (firstNumber,secondNumber,evenOddCallback,posNegCallback)=>{
+       let result = firstNumber + secondNumber;
+       document.write("<br>Addition : "+result);
+       evenOddCallback(result);
+       posNegCallback(result);
+    }
+
+    let firstNumber = prompt("Enter first number") * 1;
+    let secondNumber = prompt("Enter second number") * 1;
+
+    addition(firstNumber,secondNumber,(n)=>{
+        n%2 ? document.write("<br>ODD") : document.write("<br>EVEN");
+    },(n)=>{
+        if(n > 0)
+          document.write("<br>+ve");
+        else if(n < 0)
+              document.write("<br>-ve");
+            else
+              document.write("<br>Neither +ve nor -ve");
+    });
+</script>

@@ -1,0 +1,67 @@
+CSS :- Cascading Style Sheet
+ 1. Inline CSS
+    <div style="color:red; font-size:20px;">Hello....</div>
+ 
+ 2. Internal CSS
+    <style>
+           
+    </style>
+ 
+ 3. External CSS
+    
+ Wider Scope
+   External --> Internal ---> Inline 
+CSS Selector :-
+  1. Universal Selection
+     *{
+        color: red;
+        margin:0px;
+     }
+  2. Tag Selector
+     div{
+        color: red;
+        font-size:20px;
+     }      
+  3. Group Selector
+     div,p{
+        color: red;
+     }   
+  4. id selector   
+     #paragraph-decoration{
+        color: blue;
+     }
+     <p id="paragraph-decoration"></p>
+  5. Class Selector
+     .test{
+        color: brown;
+        font-size:20px;
+     }
+     .test1{
+        color: brown;
+        font-size:20px;
+     }
+     .test2{
+        color: brown;
+        font-size:20px;
+     }
+     <p class="test test2 test3"></p>
+     <p class="test"></p>
+     <span class="test"></span>
+ 
+ 6. psuedo class selector
+    button:hover{}
+    :visited{}
+    <button>Hello</button>       
+ 7. Attribute selector
+    input[type="text"]{
+
+    }
+    input[type="email"]{
+
+    }
+    <input type="text" placeholder="Enter username"/>
+    <input type="text" placeholder="Ente contact"/>
+    <input type="email" placeholder="Enter email id"/>   
+
+8. nth-child selector    
+................

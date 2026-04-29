@@ -1,0 +1,18 @@
+<script>
+    let choice = prompt("Press 1 for Addition. \n Press 2 for Multiplication.\nEnter your choice") * 1;
+    let a, b;
+
+    if (choice == 1 || choice == 2) {
+        a = prompt("Enter 1st value") * 1;
+        b = prompt("Enter 2nd value") * 1;
+
+        switch (choice) {
+            case 1: document.write("<h1>Addition :" + (a + b) + "</h1>");
+                break;
+            case 2: document.write("<h1>Multiplication :" + (a * b) + "</h1>");
+                break;
+        }
+    }
+    else
+     document.write("<h1>Invalid Choice...</h1>");
+</script>

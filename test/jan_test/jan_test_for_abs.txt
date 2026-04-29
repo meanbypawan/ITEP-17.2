@@ -1,0 +1,24 @@
+// Use class to implement all program.
+1.WAP to find the unique element in array
+
+2.WAP to sort the array of numbers
+
+3.WAP to find the second maximum and second minimum element in array
+
+Q4. Age-Based Ticket Pricing
+Ticket price rules:
+Age < 5 → Free
+Age 5–12 → ₹50
+Age 13–60 → ₹100
+Age > 60 → ₹70
+Task:
+Write a program to print ticket price based on age.
+
+Q5. Traffic Signal System
+Based on signal color:
+"red" → Stop
+"yellow" → Ready
+"green" → Go
+Any other input → Invalid signal
+Task:
+Use if–else to display the action.

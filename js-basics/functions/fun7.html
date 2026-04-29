@@ -1,0 +1,16 @@
+<script>
+   // var is function scopic , let is block scopic 
+   function f1(){
+      let x = 100;
+      {
+        let y = 200;
+        {
+            let z = 300;
+        }
+      }
+      document.write("<br>x : "+x);
+      document.write("<br>y : "+y);
+      document.write("<br>z : "+z);
+   }    
+   f1();
+</script>

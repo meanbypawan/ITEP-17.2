@@ -1,0 +1,31 @@
+<script>
+    class Operation{
+        #a;
+        #b;
+        addition(){
+            document.write(this.#a+this.#b);
+        } 
+        set a(a){
+           console.log("setter called for a");  
+           this.#a = a;
+        }
+        get a(){
+          return this.#a;
+        }
+        set b(b){
+            console.log("setter called for b");
+            this.#b = b;
+        }
+        get b(){
+            return this.#b;
+        }
+        display(){
+            document.write(this.#a+"   "+this.#b);
+        }
+    }
+    let obj = new Operation(); // obj: {a:undefined,b:undefined}
+    // setter
+    obj.a = 50;
+    obj.b = 40;
+    obj.display();
+</script>

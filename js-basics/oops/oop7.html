@@ -1,0 +1,34 @@
+<script>
+    class Account{
+        #accountType;
+        #balance = 10000;
+        #accountNo;
+        constructor(accountType, accountNo){
+            this.#accountType = accountType;
+            this.#accountNo = accountNo;
+        }
+        deposit(amount){
+            this.#balance = this.#balance + amount;
+        }
+        withdraw(amount){
+            if(this.#balance >= amount){
+                this.#balance = this.#balance - amount;
+                document.write("<br>Remaing Balance : "+this.#balance);
+            }
+        }
+        balanceEnquiry(){
+            document.write("<br>Current Balance : "+this.#balance);
+        }
+        viewAccountInfo(){
+            document.write("<br>Acccount Type : "+this.#accountType);
+            document.write("<br>Account No : "+this.#accountNo);
+            document.write("<br>Balance : "+this.#balance);
+        }
+    }
+
+    let obj1 = new Account("Savings","Ac100011"); // {accountType:undeined, balance:10000,accountNo:un}
+    obj1.viewAccountInfo();
+
+    let obj2 = new Account("Current","CC10002");
+    obj2.viewAccountInfo();
+</script>

@@ -1,0 +1,23 @@
+<script>
+    /*
+      'A'.charCodeAt() --- 65
+      fromCharCode(65) -- 'A'
+    
+      Standard Code  --- Integer
+       'A' ------------- 65
+       'B' ------------- 66
+
+       'a' -------------97
+
+       c/c++ --------- 1 byte --- 8 bit 
+       standard ------ ASCII [Americal Standard Code For Information Interchange]
+       
+    */
+     let i = 'A';
+     while(i <= 'Z'){
+       document.write("<br>"+i); // A B
+       let asciiCode = i.charCodeAt() + 1; // 67       
+       i = String.fromCharCode(asciiCode); // 'C'
+    }
+
+</script>

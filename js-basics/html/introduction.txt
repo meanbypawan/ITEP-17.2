@@ -1,0 +1,69 @@
+HTML :-  HytperText Markup Language.
+         It is language of web
+It is developed by Tim Berners Lee
+
+HTML-1 --- 1991
+HTML-2 --- 1995
+
+HTML-3 ---1997
+HTML4.0---1997 + CSS Support
+
+HTML-5 --- 2014 110-115
+----------------------------------------------
+HTML-Documents
+  ----Parsing[Tokenization]
+  ----DOM Tree
+  ----CSS --> CSSOM
+  Layout[Width,Painting]
+  <html>
+    <body>
+      <p>hello</p>
+    </body>
+  </html>
+    document
+      |---html
+           |---body
+                |---p
+                   |---text(hello)
+-----------------------------------------------
+HTML is all about Tag[Tag-based]
+1. Paired   <opening></closing>
+    <p>Hello.......</p> 
+
+2. Unpaired/Self-closing
+   <br>, <input/>, <img/>
+
+3. Structural Tag
+   html, body,head,title,meta.....
+
+4. Semantics Tag/SEO
+   header,footer,main,section,article.....
+
+5. Heading Tag
+   h1,h2,h3,h4,h5,h6
+
+6. Listing
+    ordered list :--- ol
+    unordered list :-- ul
+    list-item : li
+
+7. Text Formatting
+   b, i, u, strong, del, sup, sub 
+8. Media
+   img, audio, vedio, picture, Object
+9. Form related Tag
+   form, input, button
+   <input type=""/>
+   ["text","email","passsord","number", "date","color","file",
+   "radio","checkbox","button"]
+   select
+10. Table
+    table,thead,tfoot,tr,th,td
+11. Inline Tag :-
+    label, span, small...
+12. Block Level-Tag    
+    div,p,h1...h6.
+---------------------------------
+HTML Tag v/s HTML Element'
+<p>
+<p>Context-----</p> ===> HTML Element    

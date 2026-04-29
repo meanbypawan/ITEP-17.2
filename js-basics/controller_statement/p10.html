@@ -1,0 +1,19 @@
+<script>
+    /*
+       var :-
+       1. Var is hoisted and you will get undefined.
+       2. Happily you can access the variable , no error
+       3. In case of var , we can redfined the variable
+       4. var is function scopic
+       let :-
+       1. let is also hoisted and variable enter in temporal dead zone.
+       2. You can't access the variable in TDZ, You will
+          get Reference Error.
+       3. In case of let, we can not redefined the vairable.   
+       4. Block scopic;
+    */
+     if(true){
+        let x = 200;
+     }
+     document.write("<br>x : "+x);
+</script>

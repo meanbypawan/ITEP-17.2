@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <center>
+            <img id="main" src="./images/logo.png" width="200" height="200"/>
+            <br><br>
+            <button onclick="changeSize(1)">+</button>
+            <button onclick="changeSize(0)">-</button>
+        </center>
+        <script>
+            function changeSize(n){
+             console.log(n);
+             let obj = document.getElementById("main");
+             if(n){
+                obj.width = obj.width*1 + 50;
+                obj.height = obj.height*1 + 50;
+             }
+             else{
+                obj.width = obj.width*1 - 50;
+                obj.height = obj.height*1 - 50;
+                
+             }
+            }
+        </script>  
+    </body>
+</html>

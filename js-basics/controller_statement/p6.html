@@ -1,0 +1,19 @@
+<script>
+    var n = prompt("Enter 4 digit number") * 1;
+    var s = 0,r;
+
+    r = n % 10; // 1234%10 -- r = 4
+    s = s + r * 1000; // s = 4000
+    
+    n = parseInt(n / 10); // n = 123
+    r = n % 10; // r = 3
+    s = s + r * 100; // 4000 + 3*100 ====s = 4300
+
+    n = parseInt(n/10); // n = 12
+    r = n % 10;         // r = 2
+    s = s + r * 10;     // 4300 + 2*10 = s = 4320
+    
+    n = parseInt(n/10);
+    s = s + n;
+    document.write("<br>Reverse : "+s);
+</script>

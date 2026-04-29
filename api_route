@@ -1,0 +1,40 @@
+
+  create()
+  findAll()
+  findByPk()
+  findOne() --Return object if available otherwise null
+  update({},{}) -- 1st parameter data, second parameter is where condition.
+  
+  category
+    |---Add category :----------/category -POST
+    /--view all category :-----/category - GET
+    /--view category by id: -/category/:id--GET
+    /--update category:--------/category/:id -PUT + {categoryName: 'Garment'}
+  product
+    |---Add product: -----------/product :-- POST {title:'',price:34,brand:''}
+    |--view all product---------/product :-- GET
+    |--product by id------------/product/:id:-- GET
+    |--update product----------/product/:id :--- PUT
+    |-- delete product -------/product/:id :--- DELETE  
+ cart
+  |--- add to cart :----/cart :-- POST + {userId, productId}
+  |---view cart :-------/cart :----GET   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

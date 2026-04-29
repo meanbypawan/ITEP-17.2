@@ -1,0 +1,31 @@
+<script>
+    /*
+      Operator :-
+        1. Precedence/Priority  20 + 10 * 0 - 5
+        2. Associativity
+            a. Left - Right
+            b. Right - Left
+    */
+    var a,b,c,d;
+    a = 10;
+    b = 10;
+    c = 10;
+    d = 10;
+    var x = a == b == c == d;
+    /*
+      x =  (a == b == c == d);
+            10==10
+              true == c
+              true == 10
+                 false == d
+                 false == false
+                     true
+    */
+
+    document.write("<br> a : "+a);
+    document.write("<br> b : "+b);
+    document.write("<br> c : "+c);
+    document.write("<br> d : "+d);
+    document.write("<br> x : "+x);
+
+</script>

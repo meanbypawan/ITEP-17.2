@@ -1,0 +1,30 @@
+<html>
+    <head>
+      <%-include('__bootstrap_lib.ejs')%>
+    </head>
+    <style>
+      .main-container{
+        height: 550px;
+      }
+      .form-container{
+        width:40%;
+        min-height: 300px;
+        box-shadow: 10px 10px 10px grey;;
+      }
+    </style>
+    <body>
+     <%-include('__header.ejs')%>
+     <div class="d-flex justify-content-center align-items-center main-container container mt-3">
+       <div class="form-container">
+        <h3 class="bg-primary text-white text-center p-2">Sign up</h3>
+        <form action="/user/sign-up" method="post" class="p-3">
+            <input type="text" name="username" class="form-control" placeholder="Enter username"/>
+            <input type="email" name="email" class="form-control mt-2" placeholder="Enter email id"/>
+            <input type="password" name="password" class="form-control mt-2" placeholder="Enter password"/>
+            <input type="text" name="contact" class="form-control mt-2" placeholder="Enter contact number"/>
+            <button type="submit" class="btn btn-secondary mt-2">Submit</button>
+        </form> 
+       </div> 
+    </div>
+    </body>
+</html>

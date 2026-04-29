@@ -1,0 +1,265 @@
+📚 Application Idea: Online Learning Platform
+
+Think of an application similar to Udemy / Coursera.
+
+Main features:
+
+Students enroll in courses
+
+Instructors create courses
+
+Courses contain lessons
+
+Students have profiles
+
+Students review courses
+
+This single application can demonstrate all association types.
+
+1️⃣ Entities (Models)
+
+Main models:
+
+Student
+StudentProfile
+Instructor
+Course
+Lesson
+Review
+Category
+Enrollment
+2️⃣ Relationship Overview
+Student 1 ----- 1 StudentProfile
+Student 1 ----- * Review
+Student * ----- * Course (via Enrollment)
+Instructor 1 ----- * Course
+Course 1 ----- * Lesson
+Course * ----- * Category
+3️⃣ One-to-One Relationship
+Student → StudentProfile
+
+Each student has exactly one profile.
+
+Example:
+
+Student
+--------
+student_id
+name
+email
+
+StudentProfile
+--------
+profile_id
+address
+phone
+student_id (FK)
+
+Relationship:
+
+Student 1 ----- 1 StudentProfile
+
+Example JPA:
+
+@Entity
+class Student {
+
+    @Id
+    Long id;
+
+    String name;
+
+    @OneToOne(mappedBy="student")
+    StudentProfile profile;
+}
+4️⃣ One-to-Many Relationship
+Course → Lessons
+
+One course contains many lessons.
+
+Tables:
+
+Course
+--------
+course_id
+title
+instructor_id
+
+Lesson
+--------
+lesson_id
+title
+course_id (FK)
+
+Relationship:
+
+Course 1 ----- * Lesson
+
+Example:
+
+@Entity
+class Course {
+
+    @Id
+    Long id;
+
+    String title;
+
+    @OneToMany(mappedBy="course")
+    List<Lesson> lessons;
+}
+5️⃣ Many-to-One Relationship
+Course → Instructor
+
+Many courses can be created by one instructor.
+
+Tables:
+
+Instructor
+---------
+instructor_id
+name
+
+Course
+---------
+course_id
+title
+instructor_id (FK)
+
+Relationship:
+
+Instructor 1 ----- * Course
+
+Example:
+
+@Entity
+class Course {
+
+    @ManyToOne
+    @JoinColumn(name="instructor_id")
+    Instructor instructor;
+}
+6️⃣ Many-to-Many Relationship
+Students ↔ Courses
+
+Students can enroll in many courses.
+Courses can have many students.
+
+To implement this, we use a join table.
+
+Tables:
+
+Student
+-------
+student_id
+name
+
+Course
+-------
+course_id
+title
+
+Enrollment
+---------
+student_id
+course_id
+enroll_date
+
+Relationship:
+
+Student * ----- * Course
+
+Example:
+
+@Entity
+class Student {
+
+    @ManyToMany
+    @JoinTable(
+        name="enrollment",
+        joinColumns=@JoinColumn(name="student_id"),
+        inverseJoinColumns=@JoinColumn(name="course_id")
+    )
+    List<Course> courses;
+}
+7️⃣ Another One-to-Many Example
+Course → Reviews
+
+Students can write reviews for courses.
+
+Course
+------
+course_id
+title
+
+Review
+------
+review_id
+rating
+comment
+course_id
+student_id
+
+Relationship:
+
+Course 1 ----- * Review
+Student 1 ----- * Review
+8️⃣ Another Many-to-Many Example
+Course ↔ Category
+
+Courses can belong to multiple categories.
+
+Example:
+
+Course
+------
+course_id
+title
+
+Category
+-------
+category_id
+name
+
+Course_Category
+--------------
+course_id
+category_id
+
+Relationship:
+
+Course * ----- * Category
+9️⃣ Full Relationship Diagram
+Student
+   |
+   | 1
+   | 
+   | 1
+StudentProfile
+
+
+Student * -------- * Course
+           (Enrollment)
+
+
+Instructor 1 ------ * Course
+
+
+Course 1 -------- * Lesson
+
+
+Course 1 -------- * Review
+
+
+Course * -------- * Category
+🔟 Why This is a Good Interview Example
+
+This single system demonstrates:
+
+Relationship	Example
+One-to-One	Student → StudentProfile
+One-to-Many	Course → Lessons
+Many-to-One	Course → Instructor
+Many-to-Many	Student ↔ Course
+
+Interviewers like complete domain models like this.

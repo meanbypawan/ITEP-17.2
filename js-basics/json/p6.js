@@ -1,0 +1,17 @@
+    setTimeout(()=>{
+        console.log("O timer executed....");
+    },0)
+
+    Promise.resolve().then(()=>{
+        console.log("Promise Executed.....");
+    });
+    setTimeout(()=>{
+        console.log("1000 Timer Executed....");
+    },1000);
+
+    setImmediate(()=>{
+        console.log("Immdiated Executed.....");
+    });
+    process.nextTick(()=>{
+        console.log("Tick executed...");
+    });

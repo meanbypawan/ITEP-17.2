@@ -1,0 +1,50 @@
+1️⃣ Even or Odd Check
+
+Write a JavaScript program using the conditional operator to check whether a given number is even or odd.
+The program should store the result in a variable and display it using console.log().
+
+2️⃣ Positive, Negative or Zero
+
+Write a JavaScript program using nested conditional operators to determine whether a number is positive, negative, or zero.
+
+3️⃣ Voting Eligibility
+
+Write a program using the conditional operator to check whether a person is eligible to vote based on age input.
+
+4️⃣ Maximum of Two Numbers
+
+Write a JavaScript program using the conditional operator to find the largest of two numbers entered by the user.
+
+🔹 INTERMEDIATE LEVEL QUESTIONS
+5️⃣ Maximum of Three Numbers
+
+Write a JavaScript program using nested ternary operators to find the maximum of three numbers.
+
+6️⃣ Grade Calculation
+
+Write a program using the conditional operator to assign grades based on marks:
+
+≥ 90 → A
+
+≥ 75 → B
+
+≥ 60 → C
+
+< 60 → Fail
+
+7️⃣ Leap Year Check
+
+Write a JavaScript program using the conditional operator to check whether a given year is a leap year.
+
+8️⃣ Check Pass or Fail
+
+Write a program using the conditional operator to check whether a student passes or fails, assuming pass marks are 40.
+
+9️⃣ Largest Value Using Expressions
+
+Write a JavaScript program using the conditional operator to compare two arithmetic expressions and display the greater result.
+
+🔹 ADVANCED / TRICKY QUESTIONS
+🔟 Truthy and Falsy Values
+
+Write a program using the conditional operator to determine whether a variable value is truthy or falsy.

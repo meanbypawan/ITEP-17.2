@@ -1,0 +1,89 @@
+Scenario: Online Food Ordering System
+Entities
+
+User
+
+Restaurant
+
+MenuItem
+
+Order
+
+OrderItem
+
+Relationships
+
+A Restaurant has many MenuItems
+
+A User has many Orders
+
+An Order belongs to one User
+
+An Order has many OrderItems
+
+An OrderItem belongs to a MenuItem
+
+Problem Statement
+
+Build a REST API for an Online Food Ordering System where users can browse restaurants, view menu items, and place orders.
+
+A restaurant can list multiple food items.
+A user can place multiple orders.
+Each order may contain multiple food items.
+
+The system should support creating restaurants, managing menu items, placing orders, and retrieving order details with associated data.
+
+REST API Endpoints
+Restaurant APIs
+Create Restaurant
+POST /restaurants
+
+Get All Restaurants
+GET /restaurants
+
+Get Restaurant with Menu Items
+GET /restaurants/:id/menu
+
+Menu Item APIs
+Add Menu Item to Restaurant
+POST /restaurants/:restaurantId/menu-items
+
+Get All Menu Items of a Restaurant
+GET /restaurants/:restaurantId/menu-items
+
+User APIs
+Register User
+POST /users
+
+Get User Details
+GET /users/:id
+
+Order APIs
+Place Order
+POST /users/:userId/orders
+
+Get All Orders of a User
+GET /users/:userId/orders
+
+Get Order with Order Items
+GET /orders/:orderId
+
+Advanced API (Important)
+Get Order with:
+
+User
+
+Ordered Menu Items
+
+
+This scenario will require:
+
+hasMany
+
+belongsTo
+
+nested include
+
+cascade delete
+
+many records in one request

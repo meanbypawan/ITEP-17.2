@@ -1,0 +1,36 @@
+<script>
+    const firstTask = ()=>{
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+              resolve("First Task Is Completed...");    
+            },4000);
+        });
+    }
+
+    const secondTask = ()=>{
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+              resolve("Second Task Is Completed...");    
+            },2000);
+        });
+    }
+    const thirdTask = ()=>{
+        return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+              resolve("Third Task Is Completed...");    
+            },3500);
+        });
+    }
+    const fouthTask = ()=>{
+        return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+              resolve("Fouth Task Is Completed...");    
+            },2800);
+        });
+    }
+
+    firstTask().then((resolvedValue)=>{console.log(resolvedValue)});
+    secondTask().then((resolvedValue)=>{console.log(resolvedValue)});
+    thirdTask().then((resolvedValue)=>{console.log(resolvedValue)});
+    fouthTask().then((resolvedValue)=>{console.log(resolvedValue)});
+</script>

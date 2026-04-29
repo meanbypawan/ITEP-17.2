@@ -1,0 +1,59 @@
+🟢 Basic Level
+
+Write a program using switch to print the day name for a given day number (1–7).
+
+Write a program to check whether a given character is a vowel or consonant using switch.
+
+Write a program to print the month name for a given month number (1–12).
+
+Write a program using switch to display even or odd for a given number.
+
+Write a program to print weekend or weekday using switch.
+
+🟡 Intermediate Level
+
+Write a program to create a simple calculator using switch.
+
+Write a program to display grade based on marks using switch.
+
+Write a program to print the number of days in a month using switch.
+
+Write a program to implement a menu-driven program using switch.
+
+Write a program to display traffic signal actions using switch.
+
+🔵 Practical / Real-life Scenarios
+
+Write a program for ATM menu options using switch.
+
+Write a program for language selection menu using switch.
+
+Write a program to display movie ticket pricing based on age group using switch.
+
+Write a program for restaurant order system using switch.
+
+Write a program to display shipping cost based on delivery option using switch.
+
+🔴 Advanced / Logical
+
+Write a program to check leap year using switch.
+
+Write a program to print season name based on month using switch.
+
+Write a program to display student result (Pass/Fail/Distinction) using switch.
+
+Write a program to implement role-based access using switch.
+
+Write a program to convert number to word (1–5) using switch.
+
+🎯 Challenge Questions
+
+Write a program to calculate electricity bill slab-wise using switch.
+
+Write a program to perform currency conversion using switch.
+
+Write a program to validate user input type using switch.
+
+Write a program to implement calculator using function + switch.
+
+Write a program to create a login system menu using switch.

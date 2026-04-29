@@ -1,0 +1,16 @@
+<script>
+    function f1(n){
+        return new Promise((resolve,reject)=>{
+            if(n%2)
+              reject();
+            else
+              resolve();
+        });
+    }
+
+    f1(20).then(()=>{
+        console.log("EVEN");
+    }).catch(()=>{
+        console.log("ODD");
+    });
+</script>

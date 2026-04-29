@@ -1,0 +1,31 @@
+<html>
+ <head>
+    <style>
+        #container{
+            background-color: black;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #container img{
+            opacity: 0.5;
+        }
+    </style>
+ </head>
+<body>
+    <div id="container">
+        <img id="main" onmouseout="changeImage(this,1)" onmouseover="changeImage(this,0)" src="./images/action.png" width="100px" height="100px" />
+    </div>
+    <script>
+        function changeImage(currentImage,n){
+           if(n)
+            currentImage.setAttribute("style","opacity:0.5");
+           else 
+            currentImage.setAttribute("style","opacity:1")
+        }
+    </script>
+</body>
+
+</html>

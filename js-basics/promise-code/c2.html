@@ -1,0 +1,16 @@
+<script>
+    function f1(l){
+        return function(w){
+          return function(h){
+             return l*w*h;
+          }
+        }
+    }
+    /*
+    const f2 = f1(2);
+    const f3 = f2(3);
+    let result = f3(4);
+    */
+    let result = f1(2)(3)(4); // Currying
+    console.log("Result : "+result);
+</script>

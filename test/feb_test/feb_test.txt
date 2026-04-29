@@ -1,0 +1,42 @@
+Q1. Promise (2 Marks)
+
+a) What is a Promise in JavaScript? (1 Mark)
+b) Write a program that creates a Promise and prints "Success" when resolved. (1 Mark)
+
+Q2. Closure (2 Marks)
+
+a) What is Closure? (1 Mark)
+b) What will be the output of the following code? (1 Mark)
+
+function outer() {
+    let x = 10;
+    return function inner() {
+        console.log(x);
+    }
+}
+const fn = outer();
+fn();
+
+Q3. Internal Working of JavaScript Engine (2 Marks)
+
+Explain briefly:
+
+Call Stack
+
+Event Loop
+
+(1 Mark each)
+
+Q4. Array – Find Occurrence (2 Marks)
+
+Write a JavaScript program to find the occurrence of each element in:
+
+let arr = [1, 2, 2, 3, 1];
+
+Q5. DOM (2 Marks)
+
+Write JavaScript code to:
+
+Select a button with id "btn"
+
+On click, change paragraph text (id "para") to "Hello Students"

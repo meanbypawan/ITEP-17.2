@@ -1,0 +1,20 @@
+<script>
+    let arr = [
+        [10,20,30],
+        [40,50,60,70,80],
+        [70,80]
+    ];
+    arr[1].splice(2,0,500);
+    for(let row of arr){
+        for(let element of row){
+            document.writeln(element);
+        }
+        document.write("<br>");
+    }
+    // for(let r=0; r<arr.length; r++){
+    //     for(let c=0; c<arr[r].length; c++){
+    //         document.writeln(arr[r][c]);
+    //     }
+    //     document.write("<br>");
+    // }
+</script>

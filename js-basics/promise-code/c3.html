@@ -1,0 +1,25 @@
+<script>
+    function DataEncapsulation(){
+       this.counter = 100;  
+       this.increment = function(){
+        this.counter++;
+        console.log(this.counter);
+       }
+       
+       this.decrement = function(){
+        this.counter--;
+        console.log(this.counter);
+       }
+       
+       this.display = function(){
+        console.log(counter);
+       }
+    }
+
+    let obj = new DataEncapsulation(); // obj: {counter:100,increment,decrement,display}
+    obj.increment();
+    obj.increment(); 
+    obj.increment(); // 102
+    obj.decrement();
+    obj.decrement();
+</script>

@@ -1,0 +1,67 @@
+Scenario 1: User Login Validation
+
+A website allows a user to log in only if:
+
+Username is "admin"
+
+Password is "12345"
+
+Questions:
+
+a) Write a function login(username, password) that returns "Login Successful" or "Invalid Credentials".
+b) What control statement will you use and why?
+
+🔹 Scenario 2: ATM Withdrawal System
+
+An ATM allows withdrawal only if:
+
+Amount is a multiple of 100
+
+Minimum balance of ₹500 must remain after withdrawal
+
+Questions:
+
+a) Write a function withdraw(balance, amount) that returns the updated balance or an error message.
+b) Explain how nested if statements are useful here.
+
+🔹 Scenario 3: Student Result Processing
+
+A student passes if:
+
+Marks ≥ 40 in all subjects
+
+Questions:
+
+a) Write a function isPass(marksArray) that returns "Pass" or "Fail".
+b) Which loop will you use and why?
+
+🔹 Scenario 4: Electricity Bill Calculation
+
+An electricity board charges:
+
+First 100 units → ₹2/unit
+
+Next 100 units → ₹3/unit
+
+Above 200 units → ₹5/unit
+
+Questions:
+
+a) Write a function calculateBill(units) to calculate total bill.
+b) Which control statement is best suited here?
+
+🔹 Scenario 5: Online Shopping Discount
+
+An online store offers:
+
+10% discount if bill ≥ ₹5000
+
+20% discount if bill ≥ ₹10000
+
+Questions:
+
+a) Write a function finalAmount(amount) that returns payable amount.
+b) Why is else if better than multiple if statements?
+
+6. W.A.P to print the all prime number from 2 to 100
+7. W.A.P to find the duplicate element in an array

@@ -1,0 +1,13 @@
+<script>
+    let customerList = [
+        {"id":100,"name":"Atul","contact":"9009111222"},
+        {"id":101,"name":"Ankita","contact":"9009111333"},
+        {"id":102,"name":"Rahil","contact":"9009111444"},
+        {"id":103,"name":"Sahil","contact":"9009111555"}
+    ];
+    // let obj =  customerList.find((customer)=>{return customer.id == 101});
+    // document.write(obj.id+"  "+obj.name+" "+obj.contact);
+    for(let customer of customerList){
+        document.write(`<br>Id : ${customer.id}, Name: ${customer.name}, Contact: ${customer.contact}`);
+    }
+</script>
