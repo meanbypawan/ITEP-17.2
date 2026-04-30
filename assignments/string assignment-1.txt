@@ -1,0 +1,5 @@
+  1. Check String is palindrome or not --> O(n)
+  2. Leet Code 58 :- Length of last word in given string -> O(n) witout built-in method
+  3. Leet Code 771
+  4. Leet Code 3541 :- Find frequent vowel and consonent in given string
+  5. "LRRRLLRLRL" :- Count stable part
