@@ -1,0 +1,81 @@
+Fundamentals & Data Types
+What is the difference between mutable and immutable types? Give examples using lists and tuples.
+Why are strings immutable in Python? What advantages does that give?
+What is the difference between is and ==? When can is lead to bugs?
+Explain Python’s memory model (reference vs value).
+What are interning and object caching in Python?
+🔹 Operators
+What is the difference between // and /?
+Explain operator precedence with an example.
+What does this output and why?
+print(3 * 1 ** 3)
+Difference between and vs &?
+🔹 Lists, Tuples, Sets, Dicts
+When would you use a tuple over a list?
+What is the time complexity of:
+list append
+list insert
+set lookup
+dict lookup
+Why are sets faster for membership testing than lists?
+Can dictionary keys be mutable? Why or why not?
+What happens here?
+a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)
+Difference between shallow copy and deep copy?
+What does this do?
+a = [1, 2, 3]
+b = a[:]
+How does Python handle hash collisions in dictionaries?
+🔹 Functions
+What are default arguments? What’s the common pitfall?
+Explain *args and **kwargs.
+What is a first-class function in Python?
+What will this output?
+def func(x, lst=[]):
+    lst.append(x)
+    return lst
+
+print(func(1))
+print(func(2))
+🔹 Closures
+What is a closure?
+Why does this behave unexpectedly?
+funcs = []
+for i in range(3):
+    funcs.append(lambda: i)
+
+print([f() for f in funcs])
+How do you fix the above closure issue?
+🔹 Decorators
+What is a decorator and how does it work internally?
+Write a decorator to measure execution time of a function.
+What is the role of functools.wraps?
+Can decorators take arguments? How?
+🔹 Modules & Imports
+Difference between:
+import module
+from module import name
+What is __name__ == "__main__" used for?
+How does Python find modules (import system)?
+What are built-in modules vs third-party modules?
+🔹 Practical / Coding Questions
+Reverse a list without using built-in reverse.
+Find duplicates in a list.
+Count frequency of elements using a dictionary.
+Merge two dictionaries.
+Remove duplicates while preserving order.
+Check if two strings are anagrams.
+🔹 Slightly Advanced (Common in Interviews)
+What is the difference between:
+list comprehension
+generator expression
+What is lazy evaluation?
+What are iterators and iterables?
+What is the difference between map() and list comprehension?
+🔹 Bonus (Good Interview Impression)
+Explain how decorators, closures, and functions are related.
+How would you design your own module/package?
+What are common Python pitfalls beginners make?
