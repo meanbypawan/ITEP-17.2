@@ -1,19 +1,30 @@
 '''
-   AithmeticOperation
-     a,b
-     add(), sub(), mult(), div
+  Nested Class :-
+
 '''
+class AITR:
+  class MCADepartment:
+    pass
 
-class AirthmeticOperation:
-    def __init__(self,a,b):
-        self.__a = a
-        self.__b = b
-    def add(self):
-       return self.__a + self.__b
+  class BEDepartment:
+    pass  
 
-    def multiplication(self):       
-       return self.__a * self.__b  
+class Person:
+  class DOB:
+    def __init__(self,dd,mm,yy):
+      self.dd = dd
+      self.mm = mm
+      self.yy = yy
 
-obj = AirthmeticOperation(20,10)
-print(f"Addition : {obj.add()}")
-print(f"Multiplication : {obj.multiplication()}")
+  def __init__(self,name,dd,mm,yy):
+        self.__name = name
+        self.__dob = self.DOB(dd,mm,yy)
+
+  def display(self):
+    print(f"Name : {self.__name}")
+    print(f"DOB {self.__dob.dd}/{self.__dob.mm}/{self.__dob.yy}")
+
+         
+
+p = Person("Atul",2,10,1990)
+p.display()

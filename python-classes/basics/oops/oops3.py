@@ -1,20 +1,15 @@
-class Customer:
-    def __init__(self):
-        self.id = 100
+class Test:
+    x = 100
+    def m1(self):
+      global x  
+      x = 10000
+      print(x)
     
-    def set_name(self,name):
-        self.name = name
-    
-    def display_contact(self):
-        print(f"Contact : {self.contact}")
+    def m2(self):
+        print("Inside m2()")
+        print(x)
 
-print(Customer.__dict__)
-obj = Customer()
-print(obj.__dict__)
+obj = Test()
+obj.m1()
 
-obj.set_name("Atul")
-print(obj.__dict__)
-
-obj.contact = 9009111222
-print(obj.__dict__) 
-obj.display_contact()   
+obj.m2()
