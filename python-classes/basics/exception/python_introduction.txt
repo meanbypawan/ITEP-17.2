@@ -1,0 +1,4 @@
+Python is function oriented , object oriented multiparadigm language
+Python is single thread but support multithreading by using threading module
+Python is synchronous but we can do asynchronous programming by using asynio, async,await
+Python is interpreted but internally uses compiler to generate byte code.
