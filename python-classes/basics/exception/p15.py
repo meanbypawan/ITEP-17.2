@@ -1,6 +1,5 @@
 class InvalidVoter(Exception):
     pass
-
 try: 
     age = int(input("Enter age : "))
     if(age < 18):
@@ -13,3 +12,4 @@ except InvalidVoter as e:
 
 except Exception as e:
    print(e)        
+   
