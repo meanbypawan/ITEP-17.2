@@ -1,0 +1,122 @@
+1. Read and Modify First Word
+
+Using r+ mode:
+
+Create a file containing:
+
+Hello World
+Replace Hello with Hi
+2. Count Characters
+
+Using r+ mode:
+
+Open a file
+Read all contents
+Print total number of characters
+3. Create and Write
+
+Using w+ mode:
+
+Create a file named notes.txt
+Write 5 lines into it
+Read and display all lines
+4. Append User Input
+
+Using a+ mode:
+
+Ask user for a sentence
+Append it to a file
+Display complete file content
+5. Cursor Position Practice
+
+Using tell() and seek():
+
+Write data to a file
+Print cursor position after each operation
+Move cursor to different locations
+Intermediate Level
+6. Replace Specific Word
+
+Using r+ mode:
+
+Replace every occurrence of:
+
+Python
+
+with:
+
+Java
+7. Copy File Content
+
+Using file modes:
+
+Read one file
+Write contents into another file
+8. Line Number Writer
+
+Using a+ mode:
+
+Append lines like:
+
+1. Apple
+2. Mango
+3. Banana
+
+Automatically maintain numbering.
+
+9. Mini Notepad
+
+Create menu:
+
+1. Write File
+2. Append File
+3. Read File
+4. Exit
+
+Use proper file modes for each option.
+
+10. Student Record System
+
+Store records like:
+
+101 Rahul 85
+102 Aman 90
+
+Features:
+
+Add student
+Search student
+Update marks
+Advanced Level
+11. In-place Text Editor
+
+Using r+:
+
+Modify only specific positions in file
+Example:
+Replace character at position 10
+12. File Merge Program
+
+Merge contents of 3 files into one file.
+
+13. Log System
+
+Using a+:
+
+Maintain log entries with timestamps.
+
+Example:
+
+[10:30] User Login
+14. Reverse File Content
+
+Read file and write reversed content into another file.
+
+15. Word Frequency Counter
+
+Count frequency of each word in a text file.
+
+Example:
+
+Python -> 5
+Java -> 2
