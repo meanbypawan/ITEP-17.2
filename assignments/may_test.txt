@@ -1,0 +1,99 @@
+Question 1 — Inheritance and Method Overriding
+
+Create a class Employee with the following:
+
+Instance variables:
+name
+salary
+Method:
+display_details()
+
+Create a child class Manager that inherits from Employee.
+
+Additional requirements for Manager:
+
+Add one extra variable department
+Override the display_details() method to display all details including department.
+Expected Output Example
+Name: Rahul
+Salary: 50000
+Department: HR
+Question 2 — Multilevel Inheritance
+
+Create the following class hierarchy:
+
+Person → Teacher → PythonTrainer
+
+Requirements:
+
+Person
+variable: name
+method: show_person()
+Teacher
+variable: subject
+method: show_teacher()
+PythonTrainer
+variable: experience
+method: show_trainer()
+
+Create an object of PythonTrainer and display all details using inherited methods.
+
+Question 3 — Abstract Class
+
+Create an abstract class Shape.
+
+Requirements:
+
+Use the ABC module.
+
+Create an abstract method:
+
+area()
+
+Create two child classes:
+
+Rectangle
+Circle
+
+Implement the area() method in both classes.
+
+Formula
+Rectangle Area = length × breadth
+Circle Area = π × r × r
+
+Take input from the user and display the calculated area.
+
+Question 4 — File Handling (Write and Read)
+
+Write a Python program to:
+
+Create a file named student.txt
+Take student details from the user:
+Name
+Course
+Marks
+Store the details into the file.
+Read the file and display the stored data.
+Sample File Content
+Name: Amit
+Course: Python
+Marks: 85
+Question 5 — File Handling with Exception Handling
+
+Create a program that:
+
+Asks the user for a filename.
+Reads the content of the file.
+Displays the total number of:
+characters
+words
+lines
+
+Use proper exception handling for:
+
+FileNotFoundError
+PermissionError
+Sample Output
+Total Characters: 120
+Total Words: 25
+Total Lines: 5
