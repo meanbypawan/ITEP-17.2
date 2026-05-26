@@ -1,0 +1,375 @@
+File Handling :- How to save data permanantly .
+
+Database :- RDBMS [MYSQL] ---> SQLAlchemy-->FAST API->DJango ORM
+
+Database :-  It is collection of data.
+DBMS :- It is software which is used to manage the database [Reterive, Manipulate data efficiently]
+RDBMS :- Relational database management system , Store the data in the form relation[Table]
+MYSQL :-  RDBMS :-
+
+Creating Database :-
+  create database companydb
+  use companydb
+  
+  char v/s varchar
+  char(6)
+  ABC___
+  
+  varchar(6)
+  ABC
+  I have to manage employee record :-
+  Employee(id,name,salary,age,skill)
+  
+  create table employee(
+    id int primary key auto_increment,
+    name varchar(100) not null,
+    salary decimal(10,2) default 10000,
+    age int(3) check(age>=18),
+    skill varchar(100)
+  )  
+    
+ Describing the structure of table
+ desc employee
+ 
+ show create table table_name
+ 
+ insert into employee(name,age,skill) values('Atul',24,'Java')
+ insert into employee(name,age,skill,salary) values('Ankita',25,'Android',NULL)   
+ 
+ INSERT INTO employee(name, age, salary, skill) VALUES
+ ('Rahul', 25, 35000.50, 'Python'),
+ ('Amit', 30, 45000.00, 'Java'),
+('Sneha', 28, 40000.75, 'SQL'),
+('Pooja', 24, 32000.00, 'React'),
+('Vikash', 35, 55000.25, 'NodeJS'),
+('Neha', 27, 42000.00, 'Machine Learning'),
+('Rohit', 31, 48000.80, 'DevOps'),
+('Anjali', 26, 37000.60, 'Testing'),
+('Karan', 29, 46000.00, 'Django'),
+('Simran', 32, 60000.90, 'Data Science');  
+ 
+Selecting Record/ Fetching Record
+ . Complete selection
+    select * from employee
+    
+ . Partial selection/Projection
+    select id,name,salary from employee
+
+Filtering Record :- where
+where clause need condition/criteria
+ Operators :-
+   and
+   or
+   >, <, >=, <=, =, !=
+   in, not in
+   between
+ Checking null :-  use "is null" or "is not null"  
+ 
+ Fetch employee whose salary greater then 400000
+ ----------------------------less then 400000
+ Fetch ---------------------- skill is Java
+ 
+ Fetch ---------------------- salary greter then 30000 and less then 50000
+ select * from employee where salary >=30000 and salary <= 50000
+ or
+ select * from employee where salart between 30000 and 50000
+ 
+ Fetch------------------------skill is either Java or Python
+ select * from employee where skill = 'Java' or skill = 'Python'
+ or
+ select * from employee where skill in('Java','Python')
+ 
+ Fetch------------------------ skill is either Java or python, Data Science, Android
+ select * from employee where skill in('Java','Python','Data Science','Android')
+ 
+ Fetch------------------------Salary is null
+ select * from employee where salary is null
+ 
+ Fetch -----------------------skill is not Java and Python
+ select * from employee where skill not in('Java','Python')
+ 
+ select * from employee where skill != 'Java'
+ 
+ --------------------------------------------------------
+ order by :- 
+ Ascending Order :-  asc [default]
+ Descending Order :- desc
+ 
+ select * from employee order by age
+ select * from employee order by age desc
+ 
+ limit :- 
+ where --> order by ---> limit
+ Fetch top 5 employee having highest salary
+ select * from employee order by salary desc limit 5
+ select * from employee where age >= 25 order by salary desc limit 5
+ 
+ select * from employee order by salary desc limit 5,3
+ 
+ 
+ 
+ INSERT INTO employee (name, salary, age, skill)
+VALUES ('Rahul Sharma', 55000.00, 25, 'Python');
+
+INSERT INTO employee (name, salary, age, skill)
+VALUES ('Anjali Verma', 72000.00, 29, 'Java');
+
+INSERT INTO employee (name, salary, age, skill)
+VALUES ('Amit Singh', 48000.00, 24, 'ReactJS');
+
+INSERT INTO employee (name, salary, age, skill)
+VALUES ('Priya Patel', 85000.00, 32, 'DevOps');
+
+INSERT INTO employee (name, salary, age, skill)
+VALUES ('Karan Mehta', 67000.00, 27, 'MySQL');
+ 
+ 
+ mysql> start transaction;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> savepoint p1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> INSERT INTO employee (name, salary, age, skill)
+    -> VALUES ('Rahul Sharma', 55000.00, 25, 'Python');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> savepoint p2;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> INSERT INTO employee (name, salary, age, skill)
+    -> VALUES ('Anjali Verma', 72000.00, 29, 'Java');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> savepoint p3;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> INSERT INTO employee (name, salary, age, skill)
+    -> VALUES ('Amit Singh', 48000.00, 24, 'ReactJS');
+Query OK, 1 row affected (0.00 sec)
+
+rollback to p1 
+--------------------------------------------------------
+start transaction;
+create table department(id int primary key auto_increment, department_name varchar(100))
+
+
+DML :- Can be rollbacked
+DDL :-- Can not be rollbacked , it is implicit autocommit
+DQL :-  Select operations :- No need of transaction
+
+Customer Record
+Customer Table
+id
+name,
+contact
+
+address Table :-
+  customer_id
+  house_no
+  City
+  
+------------------------------------------------------------------------------------------------------
+Cascading :-
+Relationship :-
+
+
+
+create table person(
+  id int primary key auto_increment,
+  name varchar(100))
+  
+create table aadhar_card(
+  person_id int primary key auto_increment,
+  aadhar_no varchar(100),
+  foreign key(person_id) references person(id))
+
+insert into person(name) values('A'),('B'),('C')
+insert into person(name) values()
+------------------------------------------------------------------------------------------------------
+
+One To Many :-
+  create table category(
+    id int primary key auto_increment,
+    category_name varchar(100))
+    
+  create table product(
+    id int primary key auto_increment,
+    product_name varchar(100),
+    category_id int,
+    foreign key(category_id) references category(id) on update cascade)
+    
+
+INSERT INTO category (category_name)
+VALUES ('Electronics');
+
+INSERT INTO category (category_name)
+VALUES ('Clothing');
+
+INSERT INTO category (category_name)
+VALUES ('Books');
+
+INSERT INTO category (category_name)
+VALUES ('Furniture');
+
+INSERT INTO category (category_name)
+VALUES ('Sports');
+
+
+INSERT INTO product (product_name, category_id)
+VALUES ('Laptop', 1);
+
+INSERT INTO product (product_name, category_id)
+VALUES ('Mobile Phone', 1);
+
+INSERT INTO product (product_name, category_id)
+VALUES ('T-Shirt', 2);
+
+INSERT INTO product (product_name, category_id)
+VALUES ('Jeans', 2);
+
+INSERT INTO product (product_name, category_id)
+VALUES ('Python Programming Book', 3);
+
+INSERT INTO product (product_name, category_id)
+VALUES ('Database Management Book', 3);
+
+INSERT INTO product (product_name, category_id)
+VALUES ('Office Chair', 4);
+
+INSERT INTO product (product_name, category_id)
+VALUES ('Dining Table', 4);
+
+INSERT INTO product (product_name, category_id)
+VALUES ('Cricket Bat', 5);
+
+INSERT INTO product (product_name, category_id)
+VALUES ('Football', 5);
+
+Assignment :-
+ Category ====> false
+ Product =====> false
+delete :-
+ 1. hard delete  :---- delete
+ 2. soft delete  :---- update toggle feild
+
+
+One To One  :--- FK + Uniq + not null
+
+One To Many :--- FK 
+
+Many to Many :---- Supporting table
+
+
+1. Student hasMany Course
+   Course belongToMany Student
+   
+   create table student(
+     id int primary key auto_increment,
+     student_name varchar(100));
+     
+   create table course(
+     id int primary key auto_increment,
+     course_name varchar(100));
+     
+   create table student_course(
+     student_id int,
+     course_id int,
+     foreign key(student_id) references student(id),
+     foreign key(course_id) references course(id));
+   
+   
+2. Student hasMany Teacher
+   Teacher belongsToMany Student
+
+3. Cart hasMany Product
+   Product belongsToMany Cart
+   
+
+Fetch student along with course
+Fetch Course along with student
+
+Fetch person with aadharcard details
+
+fetch category with products
+
+Join:-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
