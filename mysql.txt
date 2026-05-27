@@ -294,14 +294,42 @@ Fetch person with aadharcard details
 fetch category with products
 
 Join:-
+  category(id,category_name)
+  product(id,product_name,category_id)
+  
+  select product.id,product.product_name,category.category_name
+  from product inner join category on product.category_id = category.id
 
+  select product.id,product.product_name,category.category_name
+  from product left join category on product.category_id = category.id
+ 
+  select product.id,product.product_name,category.category_name
+  from product right join category on product.category_id = category.id
+ 
+  student(id,student_name)
+  course(id,course_name)
+  student_course(student_id,course_id)
+  
+  select student.id,student.student_name,student_course.course_id,course.course_name
+  from student inner join student_course on student.id = student_course.student_id
+  inner join course on student_course.course_id = course.id
+  
+  
+  Aggregate Function :-
+    sum()
+    max(), min()
+    count(*), count(salary)
+    avg()
+  
+ Fetch employee record having highest salary
+ -----------------------------second highest salary
+ -----------------------------third highest salary
+ 
+ Sub-query/nested/inner query
 
-
-
-
-
-
-
+ select * from employee where salary = (
+   select max(salary) from employee where salary < (
+     select max(salary) from employee ) )
 
 
 
