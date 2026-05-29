@@ -331,12 +331,15 @@ Join:-
    select max(salary) from employee where salary < (
      select max(salary) from employee ) )
 
+select department from(
+   select department,avg(salary) over(partition by department) as average_salary,
+   dense_rank() over(order by department desc) as rnk from employee order by average_salary desc 
+)t where rnk = 2 limit 1 
 
 
-
-
-
-
+select skill from( 
+  select skill,salary,lag(salary,1) over() as previous_salary from employee
+)t where (salary - previous_salary) > 20000
 
 
 
