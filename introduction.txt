@@ -1,0 +1,170 @@
+Statitics
+Probability
+Algebra 
+Calculus
+:---
+Getting Data :- ETL [Extract, Transform Loca]
+ETL means :-  Getting data, and load in application
+Database ---> Python/Rust/Numpy/Matplotlib/Seaborn/Pyprak-----> Proecess
+Msql-------->pytjon------>Pandas
+
+EDA(Exploratory Data Analysis) :- 
+ 1. Data Cleaning(Missing Value, Datatype correction, Removing duplicate values, distribution
+
+	Histogram v/s Bargraph difference :- 
+	How to handle missing value :- By using Imputation Technique
+	We can use mean , mode, medial,KNN, Random Forest to replace missing value.
+		 
+	If data is normally distribute use mean
+	It data is not normally distrubute use median
+	Normal Distrubution is called symmetric data.
+	in right skewed mean is greater then median
+	in left skewed mean is less then mediam
+
+	Home Work :- Mean, Mode, Median, Normal Distribution
+	Kurtosis
+	---------------------------------------------------------------------
+	What is features, Dependent Feature, Independent Features
+
+	We have following data
+	Student(play-hours,entertainmet,studyhours,pass/fail,%)
+	pass/fail :- is targeted feature , it is dependent varaible
+	rest will be independent varaible
+	-------------------------------------------
+	Random Variable :-
+	 Two type of random variable
+	 1. Continuous
+	 2. Descrete [Measn Categorical data]
+	    . Ordinal Data :- There is order in data for example ranking ;- 1st rnk, 2nd rnk
+	    . Nominal :- In Nominal there is no order
+    
+ 2.  Handling Outliers :- 
+      How to detect outliers :- 
+       1.Using graph we can detect outlier (histogram,box-plot,scattered graph)
+       2.Math formual [IQR(Inter Quartile range)], Z-score
+--------------------------------------------------------------------------------------------
+Data Analysis :-
+  1. Stats
+  2. Graph
+Features Eng.
+Features Selection :- For feature selection we use co-relation matrix or Heatmap graph
+In corelation martix values are between 1 and 0
+0 means no relation
+Dimensionality Reduction
+---------------------------------------------------------------------------------------------------
+Data Transformation :-
+Encoding :- 
+  1. One Hot Encoding
+  2. Lable Encoding
+
+How to train model :-
+  Training Data :- 70%
+  Testing Data :---20%
+  Validation Data:--10%
+  Overfitting :- accuracy between 90-100%
+  Underfitting :- 
+  Good accuracy is between 70-80%
+IQ: What is data lekage ?  
+pkl :- it is simple model.
+Machine learning model is nothing but it is weight and hyper-parameter
+to set the weight and hyper parameter we use 10% data.
+
+Life cycle of Machine learning
+ETL -> EDA --> Trainging-->Testing--->Validation
+-------------------------------------------------------------------
+What is Machine Learning :-
+
+What is labeled data and unlabeled data :-
+  If we have outputed data then it is called labeled data.
+  e.g. email is spam or not spam
+1. Supervised Learning :- Work on labled data
+   a. Classification :- example like student is pass or fail, email is spam or not spam
+       aa. Binary Classification :- It has only two category
+       bb. Multi classfication
+       cc. Multi label classification
+       Algorithm:-
+       Logistic Regression
+       Decision Tree
+       Rendom Forest
+       KNN [K-nearest]
+       Nayv Baiss
+       SVM [Support Vector Machine]
+   b. Regeression :- House Price prediction :
+      if output variable is continous then use regression
+      aa. Linear Regression
+      bb. Ridge Regression
+      cc. Lasso Regression
+      dd. Polynomial Regression
+      ee. Exponential
+      ff. Elastic net = [Ridge + Lasso]
+      gg. Support Vector Regression
+   Some classification proble may also solved by using Regression
+
+2. Unsupervised learning :- Work on unlabled data [Image data, video data, csv data]
+   Speciality of unsupervised learning is that if automatically identiy the pattern
+     aa. Clustering :- Mostly used in market bucket analysis
+          1. Hard Clustering
+          2. Soft Clustering
+     bb. Association:- Aprion
+          
+3. Semi Supervised :-
+4. Self Supervised :- 
+5. Reinforcement Learning :-
+6. Time Series Analysis:-
+   -Arima
+   -Sarima
+   -LSTM
+   -RNN
+-------------------------------------------------------------
+Difference between Machine Learning and Deep Learning ?
+Machine Larning :- Work on pattern
+Machine larning model are grey box
+
+Deep Learning :- Work on neural network
+Deep learning model are black box
+
+Perceptron :- Only one hidden layer.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
