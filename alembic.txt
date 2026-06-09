@@ -1,0 +1,41 @@
+Ques:- What is Alembic ?
+Answer :- Alembic is database migration tool for SQLAlchemy
+In other words :-
+ SQLAlchemy :- Define database table/models in python
+ Alembic:- Keep database schema updated when your model changes.
+ 
+Suppose we have to update our existing model like we have to add new column or remove existing column :- Alembic will help
+How to use Alembic ?
+1. Install Alembic
+   open terminal and install alembic
+   pip install alembic
+
+2. Checking version
+   alembic --version
+
+3. Initializing alembic in project :- Go to project root folder and execute following command
+   alembic init alembic
+   first alembic is alembic cli[Command line interface] command
+   init is used to create alembic migration environment
+   last alembic is directory name , we can change it
+
+4. To use alembic for out application database, we need to configure out database url
+   open alembic.ini
+   find sqlalchemy.url = "Paste your application database url here"
+   
+5. Connecting alembic with our models
+   open alembic/env.py
+   target.metadata = Base.metadata
+   We need to import our Base class and all models in this file
+
+6. Creating migration
+   alembic revision --autogenerate -m "add age column to employee"
+
+7. Applying migration :-
+   alembic upgrade head
+8. Checking migration history
+   alembic history
+   and
+   alembic current
+9. Rollback migration
+   alembic downgrade -1
