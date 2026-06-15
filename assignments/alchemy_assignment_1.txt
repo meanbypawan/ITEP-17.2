@@ -1,0 +1,240 @@
+SQLAlchemy Product CRUD & Query Operations Assignment
+Model Information
+
+You have a SQLAlchemy model named Product.
+
+Product Table
+Field	Type
+id	Integer (Primary Key)
+title	String
+price	Float
+discount_percentage	Float
+brand	String
+category_name	String
+
+Example data:
+
+id	title	        price	discount_percentage	brand	category_name
+1	iPhone 15	80000	10	                Apple	Mobile
+2	Galaxy S24	70000	15	                Samsung	Mobile
+3	MacBook Air	120000	5	                Apple	Laptop
+4	ThinkPad X1	150000	20	                Lenovo	Laptop
+5	Dell Inspiron	60000	12	                Dell	Laptop
+Part A: Basic CRUD Operations
+Question 1: Create Product
+
+Create a function create_product() which accepts product details and inserts a new product into the database.
+
+Example:
+
+create_product(p:Product)
+
+Expected Output:
+
+Product created successfully
+Question 2: View All Products
+
+Create a function get_all_products() which fetches all products from the database.
+
+Expected Output:
+
+1 iPhone 15 Apple Mobile
+2 Galaxy S24 Samsung Mobile
+...
+Question 3: Find Product By ID
+
+Create a function:
+
+get_product_by_id(product_id)
+
+Example:
+
+get_product_by_id(3)
+
+Expected Output:
+
+Product:
+Title: MacBook Air
+Brand: Apple
+Price: 120000
+
+If product does not exist:
+
+Product not found
+Question 4: Update Product
+
+Create a function:
+
+update_product(p:Product,product_id:int)
+
+Update the product price and discount percentage.
+
+Example:
+
+Update product id 2:
+
+New Price = 65000
+New Discount = 18
+
+Expected Output:
+
+Product updated successfully
+Question 5: Delete Product
+
+Create a function:
+
+delete_product(product_id)
+
+Delete product from database.
+
+Example:
+
+delete_product(5)
+
+Output:
+
+Product deleted successfully
+Part B: Filtering Operations
+Question 6: Find Products By Brand
+
+Create a function:
+
+find_by_brand(brand_name)
+
+Example:
+
+find_by_brand("Apple")
+
+Output:
+
+iPhone 15
+MacBook Air
+Question 7: Find Products By Category
+
+Create a function:
+
+find_by_category(category)
+
+Example:
+
+find_by_category("Laptop")
+
+Output:
+
+MacBook Air
+ThinkPad X1
+Dell Inspiron
+Part C: WHERE Condition
+Question 8: Find Products With Price Greater Than
+
+Write a query to find products where:
+
+price > 70000
+
+Expected:
+
+iPhone 15
+Galaxy S24
+MacBook Air
+ThinkPad X1
+Question 9: Find Discounted Products
+
+Find products where:
+
+discount_percentage >= 15
+
+Expected:
+
+Galaxy S24
+ThinkPad X1
+Part D: AND / OR Conditions
+Question 10: Apply AND Condition
+
+Find products where:
+
+Condition:
+
+brand = Apple
+AND
+price > 90000
+
+Expected:
+
+MacBook Air
+Question 11: Apply OR Condition
+
+Find products where:
+
+Condition:
+
+brand = Apple
+OR
+brand = Samsung
+
+Expected:
+
+iPhone 15
+Galaxy S24
+MacBook Air
+Part E: Sorting
+Question 12: Order By Price Ascending
+
+Display products sorted by price:
+
+Low price → High price
+
+Expected:
+
+Dell Inspiron 60000
+Galaxy S24 70000
+iPhone 15 80000
+...
+Question 13: Order By Price Descending
+
+Display products:
+
+High price → Low price
+Part F: Group By
+Question 14: Count Products By Brand
+
+Write query to count products available for each brand.
+
+Expected:
+
+Apple : 2
+Samsung : 1
+Lenovo : 1
+Dell : 1
+Question 15: Average Price By Category
+
+Find average product price for each category.
+
+Expected:
+
+Mobile : 73333
+Laptop : 110000
+Part G: Combined Query
+Question 16
+
+Find all laptops:
+
+Condition:
+
+category_name = Laptop
+AND
+price > 100000
+
+Sort result by price descending.
+
+Expected:
+
+ThinkPad X1
+Part H: Challenge Question
+Question 17
+
+Find the most expensive product from each category.
+
+Expected:
+
+Mobile -> iPhone 15
+Laptop -> ThinkPad X1
