@@ -69,12 +69,51 @@ def update_product():
         print(e)
     except ResourceNotFoundException as e:
         print(e)
+def fetch_product_with_price_greater():
+    try:
+        with SessionLocal() as session:
+            price = float(input("Enter product price: "))
+            product_service = ProductService(session)
+            products = product_service.fetch_product_with_price_greater(price)
+            for product in products:
+                print(product)
+    except SQLAlchemyError as e:
+        print(e)
+def fetch_product_by_brand_and_price():
+    try:
+        with SessionLocal() as session:
+            brand = input("Enter brand: ")
+            price = float(input("Enter price: "))
+            product_service = ProductService(session)
+            products = product_service.fetch_product_by_brand_and_price(brand,price)
+            if products:
+              for product in products:
+                 print(product)
+            else:
+                print("Product not found")
+    except SQLAlchemyError as e:
+        print(e)
+def fetch_categorywise_average_price():
+    try:
+        with SessionLocal() as session:
+            product_service = ProductService(session)
+            result = product_service.fetch_categorywise_average_price()
+            if result:
+              for category_name,average_price in result:
+                print(f"{category_name} : {average_price}")
+            else:
+                print("Record Not Found...")
 
+    except SQLAlchemyError as e:
+        print(e)
 while True:
     print("1 for creating product")
     print("2 for fetching products")
     print("3 for delete product")
     print("4 for update product")
+    print("5 for fetching product with price greater then")
+    print("6 for fetching product by brand and price")
+    print("7 from fetch category wise average price")
     print("0 for exit")
     choice = int(input("Enter your choice: "))
     if choice == 1:
@@ -87,3 +126,9 @@ while True:
        delete_product()
     elif choice == 4:
         update_product()
+    elif choice == 5:
+        fetch_product_with_price_greater()
+    elif choice == 6:
+        fetch_product_by_brand_and_price()
+    elif choice == 7:
+        fetch_categorywise_average_price()

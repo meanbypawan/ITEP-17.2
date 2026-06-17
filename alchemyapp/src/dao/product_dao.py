@@ -1,10 +1,24 @@
-from sqlalchemy import select
+from sqlalchemy import select, and_, func
 
 from src.exception.resouce_not_found_exception import ResourceNotFoundException
 from src.model.product import Product
 class ProductDAO:
     def __init__(self,session):
         self.session = session
+
+    def fetch_categorywise_average_price(self):
+        statement = select(Product.category_name,func.avg(Product.price)).group_by(Product.category_name)
+        return self.session.execute(statement).all()
+
+    def fetch_product_by_brand_and_price(self,brand,price):
+        #statement = select(Product).where(and_(Product.brand == brand,Product.price > price))
+        statement = select(Product).where((Product.brand == brand) & (Product.price > price))
+        return self.session.execute(statement).scalars().all()
+
+    def fetch_product_with_price_greater(self,price:float):
+        statement = select(Product).where(Product.price > price)
+        product_list = self.session.execute(statement).scalars().all()
+        return product_list
 
     def update_product(self,id:int, p:Product):
         # sqlalchemy track the object
