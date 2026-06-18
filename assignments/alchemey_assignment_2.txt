@@ -1,0 +1,232 @@
+SQLAlchemy Practice Exercise: Library Management System
+Problem Statement
+
+Create a REST-ready SQLAlchemy application for managing a Library System.
+
+The system has two entities:
+
+Author
+Book
+
+Relationship:
+
+Author 1 -------- * Book
+
+One Author can have many Books
+One Book belongs to one Author
+
+Database Models
+Author Model
+
+Create table:
+
+authors
+
+Fields:
+
+Field	Type	Constraint
+id	Integer	Primary Key
+name	String	Required
+email	String	Unique
+country	String	Required
+
+Relationship:
+
+Author.books
+Book Model
+
+Create table:
+
+books
+
+Fields:
+
+Field	Type	Constraint
+id	Integer	Primary Key
+title	String	Required
+price	Float	Required
+published_year	Integer	
+author_id	Integer	Foreign Key
+
+Foreign key:
+
+books.author_id
+      |
+      v
+authors.id
+
+Relationship:
+
+Book.author
+SQLAlchemy Model Requirements
+
+Student should implement:
+
+Author
+books = relationship(
+    "Book",
+    back_populates="author",
+    cascade="all, delete"
+)
+Book
+author = relationship(
+    "Author",
+    back_populates="books"
+)
+CRUD Tasks
+Author Operations
+1. Create Author
+
+Example:
+
+{
+"name":"Robert Martin",
+"email":"clean.code@gmail.com",
+"country":"USA"
+}
+2. Get all authors
+
+Output:
+
+Author Name       Total Books
+
+Robert Martin        5
+John Doe             3
+3. Get author by id
+
+Return:
+
+Author Details
+
+Name:
+Email:
+Country:
+
+Books:
+1. Clean Code
+2. Clean Architecture
+4. Update Author
+
+Change:
+
+name
+country
+5. Delete Author
+
+Question:
+
+What should happen to books?
+
+Expected:
+
+Deleting author should delete all related books.
+
+Book Operations
+1. Create Book
+
+Example:
+
+{
+"title":"Clean Code",
+"price":500,
+"published_year":2008,
+"author_id":1
+}
+2. Get all books
+
+Output:
+
+Book          Author        Price
+
+Clean Code    Robert        500
+Python        John          300
+3. Get book by id
+
+Return:
+
+Book Details
+
+Title:
+Price:
+Year:
+
+Author:
+4. Update Book
+
+Update:
+
+title
+price
+year
+5. Delete Book
+
+Delete by id.
+
+Query Practice
+1. Find all books written by an author
+
+Input:
+
+author_id = 1
+
+Output:
+
+Clean Code
+Clean Architecture
+2. Find expensive books
+
+Query:
+
+price > 500
+3. Find books published after 2020
+4. Count books per author
+
+Expected:
+
+Robert Martin  4
+John Doe       2
+
+Use:
+
+GROUP BY
+COUNT()
+5. Find author with maximum books
+6. Find average book price by author
+
+Output:
+
+Author        Average Price
+
+Robert        450
+John          320
+7. Join query
+
+Write SQLAlchemy query equivalent:
+
+SELECT 
+books.title,
+authors.name
+
+FROM books
+
+JOIN authors
+
+ON books.author_id = authors.id;
+Advanced Relationship Practice
+Task 1
+
+Load author with books:
+
+author.books
+Task 2
+
+Load book with author:
+
+book.author.name
+Task 3
+
+Prevent deleting author if books exist.
+
+Implement:
+
+ON DELETE RESTRICT
