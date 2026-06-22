@@ -1,0 +1,122 @@
+SQLAlchemy Assignment: Simple Blog Management System
+Problem Statement
+
+Create a backend database system for a simple blogging application.
+
+The application has two entities:
+
+User
+Post
+
+A user can create multiple posts, but each post belongs to only one user.
+
+Implement the complete application using SQLAlchemy ORM.
+
+Database Design
+User Table
+
+Fields:
+
+Field	Description
+id	Primary key
+name	User name
+email	Unique email
+password	User password
+created_at	Account creation time
+
+Relationship:
+
+One user can have many posts.
+Post Table
+
+Fields:
+
+Field	Description
+id	Primary key
+title	Post title
+content	Post description
+created_at	Post creation time
+user_id	User reference
+
+Relationship:
+
+Each post belongs to one user.
+Operations To Perform
+User Operations
+1. Create User
+
+Create a new user account.
+
+Input:
+
+Name
+Email
+Password
+2. Get All Users
+
+Fetch all users from database.
+
+Display:
+
+User id
+Name
+Email
+3. Get User By ID
+
+Find a particular user.
+
+Display:
+
+User details
+All posts created by that user
+4. Update User
+
+Allow updating:
+
+Name
+Email
+Password
+5. Delete User
+
+Delete a user.
+
+Requirement:
+
+When a user is deleted, all posts created by that user should also be deleted.
+
+Post Operations
+6. Create Post
+
+Create a new post for a user.
+
+Input:
+
+Title
+Content
+User ID
+7. Get All Posts
+
+Display all posts.
+
+Output should contain:
+
+Post title
+Content
+Author name
+8. Get Post By ID
+
+Find a specific post.
+
+Display:
+
+Post details
+Author information
+9. Update Post
+
+Allow updating:
+
+Title
+Content
+10. Delete Post
+
+Delete a particular post.

@@ -1,8 +1,8 @@
 from sqlalchemy import Integer, String
+
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.db.db_config import Base
-
 
 class Author(Base):
     __tablename__ = 'author'
