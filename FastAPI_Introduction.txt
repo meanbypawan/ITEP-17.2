@@ -1,0 +1,25 @@
+FastAPI Features
+High performance (built on ASGI and Starlette)
+Supports asynchronous programming (async/await)
+Automatic request and response validation using Pydantic
+Automatic Swagger UI (/docs) and ReDoc (/redoc)
+Type hint support for validation and documentation
+Built-in Dependency Injection system
+Easy JSON serialization/deserialization
+WebSocket support
+Background task support
+Security features (OAuth2, JWT, API Keys, etc.)
+Easy to learn and developer-friendly
+Excellent support for REST APIs and microservices
+----------------------------------------------------------------------------
+FastAPI Limitations
+No built-in ORM (requires SQLAlchemy, SQLModel, etc.)
+No built-in admin panel like Django
+Smaller ecosystem compared to Django
+Async programming can be difficult for beginners
+Requires additional libraries for many common features
+Less suitable for traditional server-rendered websites
+No strict project structure/conventions for large projects
+Debugging async code can be challenging
+Benefits of async are reduced if using synchronous libraries
+Not ideal for CMS or content-heavy web applications
