@@ -23,3 +23,60 @@ No strict project structure/conventions for large projects
 Debugging async code can be challenging
 Benefits of async are reduced if using synchronous libraries
 Not ideal for CMS or content-heavy web applications
+
+---------------------------------------------------------------------------------
+
+Internal Working Flow of FastAPI Application:-
+  Client Send the request
+     |
+  Uvicorn[Uvicorn Server Receive the request]
+     |
+  FastAPI Application
+     |
+  Starlette Framework
+     |
+   AnyIO
+     |----Event Loop{async def} managed by uvicorn
+     |----Worker Thread{def}  managed by AnyIO
+
+Responsibility of each layer :-
+1. Uvicorn :-
+   a. It is responsible to start server
+   b. Listening on port
+   c. Accepting HTTP Request
+   d. Creating the ASGI Scope
+   e. Running event Loop
+   
+2. FastAPI :-
+   a. It is responsible for route registration
+   b. Dependency Injection (Depends)
+   c. Request validation using pydantic
+   d. Response Serialization
+   e. OpenAPI/Swagger documentation
+   f. Security Helper
+   
+3. Starlette :-
+   a. It is responsible for Request & Response Object
+   b. Handling Middleware
+   c. Routing implementation
+   d. Serving Static files
+   e. Managing Jinja2 templatess
+   f. Background Task
+   g. Deciding how to execute task
+4. AnyIO :- AnyIO is concurrency library. It is not responsible for route handing and Http Request handling. It provide
+   thread pool to manage synchronous operation and default thread pool size is 40
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

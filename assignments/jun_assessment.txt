@@ -120,3 +120,14 @@ Content
 10. Delete Post
 
 Delete a particular post.
+
+/product --> GET ---> Return all product
+/product---> POST---> Create A product
+/product/1--> GET---> Return particular product
+/product/1--> DELETE--> Delete product
+
+http://localhost:8000/product/100
+Path variable or path parameter
+
+Query parameter
+http://localhost:8000/product?brand=apple&rating=4

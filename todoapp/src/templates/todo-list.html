@@ -1,0 +1,41 @@
+<html>
+  <head>
+      <title>ToDo list</title>
+      {%include "__bootstrap.html"%}
+  </head>
+<body>
+  {%include "__navigation.html"%}
+  <div class="container mt-3">
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>S.no</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Priority</th>
+              <th>Delete</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+           {%for todo in todo_list%}
+             <tr>
+                 <td>{{loop.index}}</td>
+                 <td>{{todo.title}}</td>
+                 <td>{{todo.description}}</td>
+                 <td>{{todo.priority}}</td>
+                 <td>
+                    <a href="/delete-to-do/{{todo.id}}">
+                     <button class="btn btn-outline-danger">Delete</button>
+                    </a>
+                 </td>
+                 <td>
+                     <button class="btn btn-primary">Edit</button>
+                 </td>
+             </tr>
+           {%endfor%}
+          </tbody>
+      </table>
+  </div>
+</body>
+</html>

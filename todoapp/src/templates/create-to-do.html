@@ -6,6 +6,9 @@
   <body>
    {%include "__navigation.html"%}
   <div class="container mt-4">
+      {%if message%}
+        <div class="alert alert-success">{{message}}</div>
+      {%endif%}
       <form method="post" action="/create-to-do">
           <div class="form-group">
             <label>Select task priority</label>
