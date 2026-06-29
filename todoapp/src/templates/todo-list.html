@@ -6,6 +6,9 @@
 <body>
   {%include "__navigation.html"%}
   <div class="container mt-3">
+      {%if message%}
+        <div class="alert alert-success">{{message}}</div>
+      {%endif%}
       <table class="table table-striped">
           <thead>
             <tr>
@@ -25,12 +28,14 @@
                  <td>{{todo.description}}</td>
                  <td>{{todo.priority}}</td>
                  <td>
-                    <a href="/delete-to-do/{{todo.id}}">
+                    <a onclick="return confirm('Do you want to delete it?')" href="/delete-to-do/{{todo.id}}">
                      <button class="btn btn-outline-danger">Delete</button>
                     </a>
                  </td>
                  <td>
+                   <a href="/update-to-do/{{todo.id}}">
                      <button class="btn btn-primary">Edit</button>
+                   </a>
                  </td>
              </tr>
            {%endfor%}

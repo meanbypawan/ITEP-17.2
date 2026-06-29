@@ -16,5 +16,8 @@ class ToDORepository:
         todo_list = await self.session.execute(statement)
         return todo_list.scalars().all()
 
+    async def get_todo_by_id(self,id:int):
+        return await self.session.get(ToDo,id)
 
-
+    async def delete_todo(self,todo:ToDo):
+        return await self.session.delete(todo)
