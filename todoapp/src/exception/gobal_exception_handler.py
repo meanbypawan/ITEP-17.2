@@ -1,7 +1,6 @@
 from sqlalchemy.exc import SQLAlchemyError
 from starlette.requests import Request
 from starlette.templating import Jinja2Templates
-
 from src.exception.resouce_not_found_exception import ResourceNotFoundException
 
 templates = Jinja2Templates(directory="src/templates")
@@ -17,11 +16,9 @@ def sqlalchemy_exception_handler(request:Request,exc:SQLAlchemyError):
         "request":request,
         "exc":str(exc)
     })
+
 def global_exception(request:Request,exc:Exception):
     return templates.TemplateResponse(request,"error.html",{
         "request":request,
         "exc":str(exc)
     })
-
-
-

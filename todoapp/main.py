@@ -4,6 +4,7 @@ from typing import Optional
 from fastapi import FastAPI, Request, Form
 from fastapi.params import Form
 from sqlalchemy.exc import SQLAlchemyError
+from starlette.middleware.sessions import SessionMiddleware
 from starlette.responses import RedirectResponse
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
@@ -11,16 +12,18 @@ from starlette.templating import Jinja2Templates
 from src.db.db_config import SessionLocal
 from src.exception.gobal_exception_handler import resouce_not_found_exception_handler, sqlalchemy_exception_handler
 from src.exception.resouce_not_found_exception import ResourceNotFoundException
-from src.model import ToDo
+from src.model import ToDo, Admin
+from src.service.admin_service import AdminService
 from src.service.todo_service import ToDoService
-
-#from starlette.requests import Request
+from src.utils.password import hash_password
 
 app = FastAPI()
 app.mount("/static",StaticFiles(directory="src/static"),name="static")
 
 app.add_exception_handler(ResourceNotFoundException,resouce_not_found_exception_handler)
 app.add_exception_handler(SQLAlchemyError,sqlalchemy_exception_handler)
+
+app.add_middleware(SessionMiddleware,secret_key="My Secret Key")
 
 templates = Jinja2Templates(directory="src/templates")
 @app.get("/")
@@ -52,12 +55,14 @@ async def create_to_do(request:Request,
 
 @app.get("/to-do-list")
 async def get_to_do_list(request:Request,message:Optional[str]=None):
-      async with SessionLocal() as session:
-         todo_service = ToDoService(session)
-         todo_list  = await todo_service.get_all_todo()
-         print(todo_list)
-         return templates.TemplateResponse(request,"todo-list.html",{"request": request,"todo_list":todo_list,"message":message})
-
+      if request.session.get("is_logged_in",None):
+         async with SessionLocal() as session:
+            todo_service = ToDoService(session)
+            todo_list  = await todo_service.get_all_todo()
+            print(todo_list)
+            return templates.TemplateResponse(request,"todo-list.html",{"request": request,"todo_list":todo_list,"message":message})
+      else:
+         return RedirectResponse("/signin",status_code=303)
 @app.get("/delete-to-do/{id}")
 async def delete_todo(request:Request,id:int):
       async with SessionLocal.begin() as session:
@@ -83,6 +88,38 @@ async def update_todo(request:Request,id:int=Form(...),
          db_todo = await todo_service.update_todo(todo)
          return RedirectResponse("/to-do-list",status_code=303)
 
+@app.get("/signup")
+async def signup_page(request:Request):
+   return templates.TemplateResponse(request,"signup.html",{
+      "request": request
+   })
+
+@app.post("/signup")
+async def signup(reqest:Request,email:str=Form(...),
+                 password:str=Form(...)):
+    async with SessionLocal.begin() as session:
+       admin = Admin(email=email,password=hash_password(password))
+       admin_service = AdminService(session)
+       admin = await admin_service.save(admin)
+       print("Admin created successfully....")
+       return RedirectResponse("/signin",status_code=303)
+
+@app.get("/signin")
+async def signin_page(request:Request):
+   return templates.TemplateResponse(request,"signin.html",{"request":request})
+
+@app.post("/signin")
+async def signin(request:Request,email:str=Form(...),password:str=Form(...)):
+   async with SessionLocal() as session:
+      admin = Admin(email=email,password=password)
+      admin_service = AdminService(session)
+      status = await admin_service.authenticate(admin)
+      if status:
+         request.session["is_logged_in"] = True
+         request.session["current_user_email"] = email
+         return RedirectResponse("/",status_code=303)
+      else:
+         return RedirectResponse("/signin",status_code=303)
 
 
 
