@@ -12,6 +12,7 @@ from starlette.templating import Jinja2Templates
 from src.db.db_config import SessionLocal
 from src.exception.gobal_exception_handler import resouce_not_found_exception_handler, sqlalchemy_exception_handler
 from src.exception.resouce_not_found_exception import ResourceNotFoundException
+from src.middleware.auth import Auth
 from src.model import ToDo, Admin
 from src.service.admin_service import AdminService
 from src.service.todo_service import ToDoService
@@ -23,7 +24,9 @@ app.mount("/static",StaticFiles(directory="src/static"),name="static")
 app.add_exception_handler(ResourceNotFoundException,resouce_not_found_exception_handler)
 app.add_exception_handler(SQLAlchemyError,sqlalchemy_exception_handler)
 
+app.add_middleware(Auth)
 app.add_middleware(SessionMiddleware,secret_key="My Secret Key")
+print(f"Execution Order : {app.user_middleware}")
 
 templates = Jinja2Templates(directory="src/templates")
 @app.get("/")
@@ -60,7 +63,8 @@ async def get_to_do_list(request:Request,message:Optional[str]=None):
             todo_service = ToDoService(session)
             todo_list  = await todo_service.get_all_todo()
             print(todo_list)
-            return templates.TemplateResponse(request,"todo-list.html",{"request": request,"todo_list":todo_list,"message":message})
+            #return templates.TemplateResponse(request,"todo-list.html",{"request": request,"todo_list":todo_list,"message":message})
+            return todo_list
       else:
          return RedirectResponse("/signin",status_code=303)
 @app.get("/delete-to-do/{id}")
@@ -121,7 +125,11 @@ async def signin(request:Request,email:str=Form(...),password:str=Form(...)):
       else:
          return RedirectResponse("/signin",status_code=303)
 
-
-
+@app.get("/signout")
+async def signout(request:Request):
+   request.session["is_logged_in"] = None
+   request.session["current_user_email"] = None
+   request.session.clear()
+   return RedirectResponse("/",status_code=303)
 
 
