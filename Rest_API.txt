@@ -1,0 +1,239 @@
+What is a REST API?
+
+REST (Representational State Transfer) is an architectural style for designing web services. It was introduced by Roy Fielding in his Ph.D. dissertation in 2000.
+
+A REST API is an API that follows a set of REST architectural constraints to enable communication between clients (web, mobile, desktop applications) and servers over HTTP.
+
+Example
+
+Suppose you're building a Todo application.
+
+Operation	HTTP Method	Endpoint
+Get all todos	GET	/todos
+Get a single todo	GET	/todos/1
+Create a todo	POST	/todos
+Update a todo	PUT	/todos/1
+Delete a todo	DELETE	/todos/1
+
+Example Request:
+
+GET /todos/1 HTTP/1.1
+Host: example.com
+
+Example Response:
+
+{
+    "id": 1,
+    "title": "Learn FastAPI",
+    "completed": false
+}
+
+The client only knows the endpoint and the HTTP methods. The server handles all the business logic.
+
+REST Constraints
+
+A RESTful API should follow 6 architectural constraints.
+
+1. Client-Server Architecture
+
+The client and server are completely independent.
+
+Client is responsible for UI.
+Server is responsible for business logic and data.
+Example
+
+Client:
+
+React
+Angular
+Mobile App
+
+Server:
+
+FastAPI
+Django
+Node.js
+
+Benefits:
+
+Independent development
+Easy maintenance
+Better scalability
+2. Stateless
+
+Every request from the client must contain all the information needed to process that request.
+
+The server does not remember previous requests.
+
+Example
+
+Request 1
+
+GET /profile
+Authorization: Bearer abc123
+
+Request 2
+
+GET /orders
+Authorization: Bearer abc123
+
+Notice the token is sent in every request.
+
+The server does not store login state between requests.
+
+Benefits
+Easy scaling
+Load balancing
+Better reliability
+3. Cacheable
+
+Responses should indicate whether they can be cached.
+
+If data doesn't change often, clients or intermediaries can reuse cached responses instead of contacting the server every time.
+
+Example
+Cache-Control: max-age=3600
+
+The response can be cached for one hour.
+
+Benefits:
+
+Faster responses
+Reduced server load
+Better user experience
+4. Uniform Interface
+
+This is the most important REST constraint.
+
+It simplifies communication between client and server.
+
+It consists of four principles.
+
+A. Resource Identification
+
+Everything is treated as a resource.
+
+Examples:
+
+/users
+/users/5
+/products
+/orders
+
+Resources are identified using URIs.
+
+B. Manipulation Through Representations
+
+The client receives a representation (such as JSON or XML) of a resource and sends back an updated representation to modify it.
+
+Example
+
+Response:
+
+{
+    "id": 5,
+    "name": "Pawan"
+}
+
+Update Request:
+
+{
+    "name": "Pawan Sahu"
+}
+C. Self-Descriptive Messages
+
+Every request and response should contain enough information to be understood independently.
+
+Example
+
+POST /users
+Content-Type: application/json
+Authorization: Bearer token
+
+Headers clearly describe:
+
+Content type
+Authentication
+Encoding
+D. Hypermedia as the Engine of Application State (HATEOAS)
+
+The server provides links that tell clients what actions are available next.
+
+Example
+
+{
+    "id": 1,
+    "title": "Learn REST",
+    "links": [
+        {
+            "rel": "update",
+            "href": "/todos/1",
+            "method": "PUT"
+        },
+        {
+            "rel": "delete",
+            "href": "/todos/1",
+            "method": "DELETE"
+        }
+    ]
+}
+
+Note: While HATEOAS is part of the REST constraints, many modern REST APIs (including many built with FastAPI, Django REST Framework, and Express) do not implement it fully.
+
+Benefits:
+
+Better discoverability
+Less hardcoding of endpoints
+Easier API evolution
+5. Layered System
+
+The client does not know whether it is communicating directly with the server or through intermediary components.
+
+Example architecture:
+
+Client
+   │
+Load Balancer
+   │
+API Gateway
+   │
+Authentication Service
+   │
+Application Server
+   │
+Database
+
+Benefits:
+
+Security
+Scalability
+Load balancing
+Reverse proxies
+Caching
+6. Code on Demand (Optional)
+
+The server can send executable code to the client.
+
+Example:
+
+JavaScript sent to a browser
+
+This constraint is optional, so many REST APIs do not use it.
+
+REST Constraints Summary
+Constraint	Purpose
+Client-Server	Separates client and server responsibilities
+Stateless	Server does not store client session state between requests
+Cacheable	Improves performance by allowing responses to be cached
+Uniform Interface	Provides a consistent way to identify and manipulate resources
+Layered System	Allows intermediaries such as proxies, gateways, and load balancers
+Code on Demand (Optional)	Allows the server to send executable code to clients
+
+
+
+
+
+
+
+
+
