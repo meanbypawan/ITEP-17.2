@@ -1,9 +1,10 @@
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
-DB_URL="mysql+aiomysql://root:Root#123@localhost:3306/todorestapi"
-
-engine = create_async_engine(DB_URL,echo=True)
+engine = create_async_engine(os.getenv("DB_URL",""),echo=True)
 
 SessionLocal = async_sessionmaker(bind=engine,expire_on_commit=False)
 

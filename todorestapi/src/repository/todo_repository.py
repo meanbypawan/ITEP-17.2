@@ -21,4 +21,8 @@ class ToDoRepository:
     async def fetch_todo_by_id(self,id:int):
         return await self.session.get(ToDo,id)
 
-
+    async def fetch_todo_by_priority(self,priority:str):
+        # select * from todo where priority =: priority
+        statement = select(ToDo).where(ToDo.priority==priority)
+        result = await self.session.execute(statement)
+        return result.scalars().all()

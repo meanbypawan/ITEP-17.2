@@ -9,3 +9,7 @@ class ToDoRequest(BaseModel):
     priority:str
     description:Optional[str] = None
 
+class ToDoResponse(BaseModel):
+    id:int
+    title:str
+    description:Optional[str] = None
