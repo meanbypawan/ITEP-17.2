@@ -1,0 +1,70 @@
+A good way to learn FastAPI is to build a small REST API using a layered architecture. Here's a beginner-friendly exercise that covers CRUD operations, dependency injection, SQLAlchemy, and Pydantic without being too complex.
+
+Exercise: Student Management System
+Scenario
+
+You are developing a REST API for a training institute.
+
+The institute wants to manage students.
+
+Each student has:
+
+ID
+Name
+Email
+Course
+Age
+
+The application should allow users to:
+
+Add a student
+View all students
+View a student by ID
+Update student details
+Delete a student
+
+Use:
+
+FastAPI
+SQLAlchemy (Async)
+MySQL
+Pydantic
+Repository Pattern
+Service Layer
+Dependency Injection
+Directory Structure
+student_app/
+│
+├── main.py
+│
+├── db/
+│   └── db_config.py
+│
+├── model/
+│   └── student.py
+│
+├── repository/
+│   └── student_repository.py
+│
+├── service/
+│   └── student_service.py
+│
+├── router/
+│   └── student_router.py
+│
+├── schema/
+│   └── student_schema.py
+│
+├── dependency/
+│   └── student_dependency.py
+│
+└── exception/
+    └── resource_not_found.py
+Database Table
+Student
+--------------------------
+id
+name
+email
+course
+age
