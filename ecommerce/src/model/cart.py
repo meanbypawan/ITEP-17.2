@@ -10,10 +10,8 @@ class Cart(Base):
     user_id:Mapped[int] = mapped_column(Integer,ForeignKey("user.id"),
                                         unique=True)
     user:Mapped["User"] = relationship("User",
-                                       back_populates="cart",
-                                       lazy="selectin")
+                                       back_populates="cart")
 
     cart_items:Mapped[list["CartItems"]] = relationship("CartItems",
                                                   back_populates="cart",
-                                                  cascade="all, delete-orphan",
-                                                  lazy="selectin")
+                                                  cascade="all, delete-orphan")

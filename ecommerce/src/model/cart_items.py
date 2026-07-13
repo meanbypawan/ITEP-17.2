@@ -13,9 +13,7 @@ class CartItems(Base):
                                            ForeignKey("product.id"),
                                            primary_key=True)
     cart:Mapped["Cart"] = relationship("Cart",
-                                       back_populates="cart_items",
-                                       lazy="selectin")
+                                       back_populates="cart_items")
 
     product:Mapped["Product"] = relationship("Product",
-                                             back_populates="cart_items",
-                                             lazy="selectin")
+                                             back_populates="cart_items")

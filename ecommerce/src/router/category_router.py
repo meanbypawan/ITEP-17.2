@@ -12,3 +12,7 @@ async def create_category(category_name:str=Form(...),
                           category_image:UploadFile=File(...),
                           category_service:CategoryService = Depends(get_category_service)):
    return await category_service.create(category_name,category_image)
+
+@router.get("/",status_code=status.HTTP_200_OK)
+async def fetch_all(category_service:CategoryService = Depends(get_category_service)):
+   return await category_service.fetch_all()

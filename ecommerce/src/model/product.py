@@ -16,8 +16,6 @@ class Product(Base):
     category_id:Mapped[int] = mapped_column(Integer,ForeignKey('category.id'))
 
     category:Mapped["Category"] = relationship("Category",
-                                               back_populates="products",
-                                               lazy="selectin")
+                                               back_populates="products")
     cart_items:Mapped[list["CartItems"]] = relationship("CartItems",
-                                                  back_populates="product",
-                                                        lazy="selectin")
+                                                  back_populates="product")

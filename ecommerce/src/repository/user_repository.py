@@ -21,3 +21,5 @@ class UserRepository:
         statement = select(User)
         result = await self.session.execute(statement)
         return result.scalars().all()
+    async def fetch_by_id(self,id:int):
+        return await self.session.get(User,id)
