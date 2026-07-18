@@ -5,8 +5,6 @@ from src.repository.cart_repository import CartRepository
 from src.repository.product_repository import ProductRepository
 from src.repository.user_repository import UserRepository
 from src.schema.cart_schema import CartRequest
-
-
 class CartService:
     def __init__(self,user_repo:UserRepository,product_repo:ProductRepository,cart_repo:CartRepository,cart_item_repo:CartItemsRepository):
         self.cart_repo = cart_repo
@@ -18,16 +16,12 @@ class CartService:
         user_id = request.user_id
         product_id = request.product_id
         user = await self.user_repo.fetch_by_id(user_id)
-
         if not user:
             raise ResourceNotFoundException(f"User with id {user_id} not found")
         product = await self.product_repo.fetch_by_id(product_id)
-
         if not product:
             raise ResourceNotFoundException(f"Product with id {product_id} not found")
-
         cart = await self.cart_repo.fetch_cart_by_user_id(user_id)
-
         if not cart:
             cart = Cart(user_id=user_id)
             cart = await self.cart_repo.create_cart(cart)
@@ -40,3 +34,8 @@ class CartService:
             cart_items = CartItems(cart_id=cart.id,product_id=product_id)
             await self.cart_item_repo.save_product_in_cart(cart_items)
             return {"message":"Item successfully added in cart"}
+
+    async def fetch_cart(self,user_id:int):
+        return await self.cart_repo.fetch_cart(user_id)
+
+
