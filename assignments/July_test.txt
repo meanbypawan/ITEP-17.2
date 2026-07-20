@@ -1,0 +1,120 @@
+FastAPI Practical Test
+Project Title
+
+Blog Management System
+
+Duration: 3 Hours
+
+Total Marks: 10
+
+Scenario
+
+Develop a REST API for a Blog Management System where users can register, log in, create blog posts, organize them into categories, and comment on blogs.
+
+Functional Requirements
+1. User Module (2 Marks)
+Features
+User Registration
+User Login (JWT Authentication)
+Table: users
+Column	Type
+id	Integer
+name	String
+email	String (Unique)
+password	String (Hashed)
+APIs
+POST /users/register
+POST /users/login
+GET  /users/profile
+2. Category Module (2 Marks)
+
+Each blog belongs to one category.
+
+Examples:
+
+Technology
+Sports
+Travel
+Education
+Table: categories
+Column	Type
+id	Integer
+name	String
+APIs
+POST /categories
+GET  /categories
+PUT  /categories/{id}
+DELETE /categories/{id}
+3. Blog Module (2 Marks)
+
+Only logged-in users can create blogs.
+
+Table: blogs
+Column	Type
+id	Integer
+title	String
+content	Text
+image	String
+created_at	DateTime
+user_id	FK
+category_id	FK
+APIs
+POST /blogs
+GET  /blogs
+GET  /blogs/{id}
+PUT  /blogs/{id}
+DELETE /blogs/{id}
+4. Comment Module (2 Marks)
+
+Users can comment on any blog.
+
+Table: comments
+Column	Type
+id	Integer
+comment	Text
+created_at	DateTime
+user_id	FK
+blog_id	FK
+APIs
+POST /comments
+GET  /comments/blog/{blog_id}
+DELETE /comments/{id}
+5. File Upload (2 Marks)
+
+Upload a blog image.
+
+API
+POST /blogs/upload-image
+
+Store only the image path in the database.
+
+Database Relationships
+User
+  |
+  | 1
+  |
+  | N
+Blog
+  |
+  | N
+  |
+  | 1
+Category
+
+----------------------
+
+User
+  |
+  | 1
+  |
+  | N
+Comment
+
+----------------------
+
+Blog
+  |
+  | 1
+  |
+  | N
+Comment
