@@ -10,7 +10,16 @@ from src.router.user_router import router as user_router
 from src.router.category_router import router as category_router
 from src.router.product_router import router as product_router
 from src.router.cart_router import router as cart_router
+from fastapi.middleware.cors import CORSMiddleware
+origins = ["http://localhost:5173"]
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.add_exception_handler(SQLAlchemyError,sqlalchemy_error_handler)
 app.add_exception_handler(ResourceNotFoundException,resource_not_found_exception_handler)
 app.add_exception_handler(Exception,unkown_exception_handler)
