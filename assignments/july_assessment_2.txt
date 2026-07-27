@@ -1,0 +1,225 @@
+Assignment: Social Media REST API
+Technology Stack
+FastAPI
+SQLAlchemy ORM
+MySQL
+JWT Authentication
+Alembic
+Pydantic
+Swagger
+Scenario
+
+Build a simple social media application where users can:
+
+Sign up and log in
+Create posts
+View posts
+Like/unlike posts
+Comment on posts
+Edit/Delete their own posts
+View their profile
+Database Schema
+User
+id
+name
+email
+password
+bio
+profile_image
+created_at
+Post
+id
+title
+content
+image
+created_at
+updated_at
+user_id
+
+Relationship
+
+One User
+     |
+     |
+Many Posts
+Like
+id
+user_id
+post_id
+liked_at
+
+Relationship
+
+User
+   |
+Many Likes
+   |
+Post
+
+A user can like many posts.
+
+A post can have many likes.
+
+Comment
+id
+comment
+created_at
+user_id
+post_id
+
+Relationship
+
+User
+   |
+Many Comments
+   |
+Post
+Complete Relationship
+User
+ │
+ ├──────────────┐
+ │              │
+ │              │
+Posts        Comments
+ │              │
+ └──────┐       │
+        │       │
+      Likes─────┘
+REST APIs
+Authentication
+Register
+POST /auth/signup
+
+Request
+
+{
+    "name":"Rahul",
+    "email":"rahul@gmail.com",
+    "password":"123456"
+}
+Login
+POST /auth/login
+
+Response
+
+{
+   "access_token":"JWT_TOKEN",
+   "token_type":"Bearer"
+}
+User APIs
+Profile
+GET /users/me
+
+Return logged-in user.
+
+Update Profile
+PUT /users/me
+
+Update
+
+Name
+Bio
+Profile Image
+Post APIs
+Create Post
+POST /posts
+
+Request
+
+{
+    "title":"My First Post",
+    "content":"Learning FastAPI"
+}
+Get All Posts
+GET /posts
+
+Include
+
+User Name
+Number of Likes
+Number of Comments
+Get Single Post
+GET /posts/{id}
+
+Return
+
+Post
+User
+Likes
+Comments
+Update Post
+PUT /posts/{id}
+
+Only the post owner can update.
+
+Delete Post
+DELETE /posts/{id}
+
+Only the owner can delete.
+
+Like APIs
+Like Post
+POST /posts/{id}/like
+
+Rules
+
+User cannot like the same post twice.
+Return an error if already liked.
+Unlike Post
+DELETE /posts/{id}/like
+Comment APIs
+Add Comment
+POST /posts/{id}/comments
+
+Request
+
+{
+    "comment":"Great post!"
+}
+Update Comment
+PUT /comments/{id}
+
+Only the comment owner.
+
+Delete Comment
+DELETE /comments/{id}
+Get All Comments
+GET /posts/{id}/comments
+Search APIs
+
+Search posts
+
+GET /posts?keyword=python
+
+Pagination
+
+GET /posts?page=1&size=10
+
+Sort
+
+GET /posts?sort=created_at&order=desc
+JWT Security
+
+Protect every endpoint except
+
+Signup
+Login
+Swagger
+
+Use JWT authentication for all other routes.
+
+Business Rules
+Signup
+Email must be unique.
+Password must contain at least 6 characters.
+Login
+Validate email and password.
+Return JWT token.
+Create Post
+Only authenticated users can create posts.
+Update/Delete Post
+Only the owner can modify or delete the post.
+Like
+One user can like a post only once.
+Comment
+Only the owner can edit or delete their comment.
