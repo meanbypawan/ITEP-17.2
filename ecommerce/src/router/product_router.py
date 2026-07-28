@@ -24,3 +24,8 @@ async def create_product(title:str=Form(...),
 @router.get("/",status_code=status.HTTP_200_OK)
 async def fetch_all(product_service:ProductService=Depends(get_product_service)):
     return await product_service.fetch_all()
+
+@router.get("/{id}",status_code=status.HTTP_200_OK)
+async def fetch_by_id(id:int,product_service:ProductService=Depends(get_product_service)):
+    return await product_service.fetch_by_id(id)
+

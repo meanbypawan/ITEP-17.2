@@ -2,6 +2,7 @@ import { useEffect, useReducer } from "react";
 import Nav from "../nav/Nav";
 import axios from "axios";
 import Api, { BASE_URL } from "../../Api";
+import { useNavigate } from "react-router-dom";
 
 function Home(){
     const [state,dispatch] = useReducer((state,action)=>{
@@ -26,6 +27,7 @@ function Home(){
         const response = await axios.get(Api.FETCH_PRODUCTS)
         dispatch({type:"set-products",payload: response.data})
     }
+    const navigate = useNavigate()
     return <>
       <Nav/>
       <div className="container mt-3">
@@ -44,7 +46,7 @@ function Home(){
                     <img src={BASE_URL+product.product_image} style={{height:"200px",width:"100%"}}/>
                     <h5>{product.title}</h5>
                     <h3 className="text-success">{product.price} Rs.</h3>
-                    <button className="btn btn-warning text-white" style={{width:"100%"}}>View description</button>
+                    <button onClick={()=>{navigate(`/view-description/${product.id}`)}} className="btn btn-warning text-white" style={{width:"100%"}}>View description</button>
                 </div>
             </div>})}
         </div>
