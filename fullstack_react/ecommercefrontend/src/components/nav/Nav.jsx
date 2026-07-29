@@ -1,8 +1,10 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { signOut } from "../../redux-config/UserSlice";
 
 function Nav() {
     const {isLoggedIn} = useSelector((store)=>store.user)
+    const dispatch = useDispatch()
     return <>
         <nav className="navbar navbar-expand-sm bg-dark text-light">
             <ul className="navbar-nav">
@@ -25,7 +27,10 @@ function Nav() {
                     <Link className="nav-link text-white" to="/signup">Sign up</Link>
                 </li>}
                 {isLoggedIn && <li className="nav-item">
-                    <Link className="nav-link text-white" to="">Sign out</Link>
+                   <Link className="nav-link text-white" to="/view-cart">View cart</Link>
+                </li>}
+                {isLoggedIn && <li className="nav-item">
+                    <button onClick={()=>{dispatch(signOut())}} className="nav-link btn btn-sm btn-outline-warning">Sign out</button>
                 </li>}
             </ul>
 

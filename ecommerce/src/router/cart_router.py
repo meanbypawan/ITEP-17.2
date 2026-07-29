@@ -7,7 +7,7 @@ from src.service.cart_service import CartService
 
 router = APIRouter(prefix="/cart",tags=["cart"])
 
-@router.post("/",status_code=status.HTTP_201_CREATED)
+@router.post("/",status_code=status.HTTP_200_OK)
 async def add_to_cart(request:CartRequest,
                       cart_service:CartService=Depends(get_cart_service)):
     return await cart_service.add_to_cart(request)

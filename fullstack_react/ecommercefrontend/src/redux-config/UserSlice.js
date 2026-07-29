@@ -11,10 +11,14 @@ const slice = createSlice({
            state.currentUser = action.payload
            state.isLoggedIn = true
            console.log(state)
+        },
+        signOut:(state,action)=>{
+            state.currentUser = null
+            state.isLoggedIn = false
         }
     }
 
 })
-export const {setUser} = slice.actions
+export const {setUser,signOut} = slice.actions
 
 export default slice.reducer
