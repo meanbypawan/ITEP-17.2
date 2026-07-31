@@ -5,6 +5,7 @@ from src.db.db_config import get_session
 from src.repository.cart_items_repository import CartItemsRepository
 from src.repository.cart_repository import CartRepository
 from src.repository.category_repository import CategoryRepository
+from src.repository.order_repository import OrderRepository
 from src.repository.product_repository import ProductRepository
 from src.repository.user_repository import UserRepository
 
@@ -22,3 +23,6 @@ def get_cart_repository(session:AsyncSession=Depends(get_session)):
 
 def get_cart_items_repository(session:AsyncSession=Depends(get_session)):
     return CartItemsRepository(session)
+
+def get_order_repository(session:AsyncSession=Depends(get_session)):
+    return OrderRepository(session)

@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { BASE_URL } from "../../Api";
 import { useSelector } from "react-redux";
+import { Outlet, useNavigate } from "react-router-dom";
 
 function ViewCart(){
     const {currentUser} = useSelector((store)=>store.user)
@@ -42,7 +43,7 @@ function ViewCart(){
     useEffect(()=>{
         loadCartItems()
     },[])
-
+    const navigate = useNavigate()
     const loadCartItems = async()=>{
         try{
            const response = await axios.get(BASE_URL+`/cart/${currentUser.id}`)
@@ -53,7 +54,10 @@ function ViewCart(){
             toast.error("Something wrong...")
         }
     }
-    
+    const navigateToPlaceOrder = ()=>{
+        window.alert("called..")
+        navigate("place-order",{state:{params:{cartItems:state.cartItems,totalBillAmount: state.totalBillAmount,currentUser}}})
+    }
     return <>
       <Nav/>
       <div className="container mt-3">
@@ -94,9 +98,12 @@ function ViewCart(){
                 <h4 className="bg-warning text-white p-2">Bill Summery</h4>
                 <p><b>Total Item : </b>{state.cartItems.length}</p>
                 <p><b>Bill Amount :</b> <span className="text-success" style={{fontSize:"18px", fontWeight:"bolder"}}>{state.totalBillAmount} Rs.</span></p>
-                <button className="btn btn-warning">Checkout</button> 
+                <button onClick={navigateToPlaceOrder} className="btn btn-warning">Checkout</button> 
             </div>
          </div>
+      </div>
+      <div className="container mt-3">
+        <Outlet/>
       </div>
     </>
 }
