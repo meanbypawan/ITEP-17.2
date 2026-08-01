@@ -1,10 +1,10 @@
 import axios from "axios"
 import { useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import Api from "../../Api"
 import { toast } from "react-toastify"
 import { useDispatch } from "react-redux"
 import { setUser } from "../../redux-config/UserSlice"
+import axiosInstance from "../../axios-config/api"
 
 function Signin(){
     const emailInput = useRef("")
@@ -16,7 +16,7 @@ function Signin(){
         event.preventDefault()
         const userEmail = emailInput.current.value
         const userPassword = passwordInput.current.value
-        const response = await axios.post(Api.SIGN_IN,{email: userEmail,password: userPassword})
+        const response = await axiosInstance.post("/user/signin",{email: userEmail,password: userPassword})
         dispatch(setUser(response.data))
         toast.success("Sign in success....")
         navigate("/")

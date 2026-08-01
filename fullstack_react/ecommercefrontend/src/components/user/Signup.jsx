@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useRef } from "react";
-import Api from "../../Api";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import axiosInstance from "../../axios-config/api";
 
 function Signup(){
     const nameInput = useRef("")
@@ -16,7 +16,7 @@ function Signup(){
         const email = emailInput.current.value
         const password = passwordInput.current.value
         const contact = contactInput.current.value
-        let response = await axios.post(Api.CREATE_USER,{name,email,password,contact})
+        let response = await axiosInstance.post("/user/",{name,email,password,contact})
         
       }
       catch(err){

@@ -2,9 +2,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import Nav from "../nav/Nav";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Api, { BASE_URL } from "../../Api";
+import BASE_URL  from "../../Api";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import axiosInstance from "../../axios-config/api";
 
 function ViewDescription(){
     const {id} = useParams()
@@ -14,7 +15,7 @@ function ViewDescription(){
         loadProduct()
     },[])
     const loadProduct = async ()=>{
-        let response = await axios.get(BASE_URL+`/product/${id}`)
+        let response = await axiosInstance.get(`/product/${id}`)
         setProduct(response.data)
     }
     const navigate = useNavigate()
@@ -24,7 +25,7 @@ function ViewDescription(){
         if(!isLoggedIn)
             toast.info("please signin first")
         else{
-            let response = await axios.post(Api.ADD_TO_CART,{"user_id":currentUser.id,"product_id":id})
+            let response = await axiosInstance.post("/cart/",{"user_id":currentUser.id,"product_id":id})
             toast.info(response.data.message)
         }
       }

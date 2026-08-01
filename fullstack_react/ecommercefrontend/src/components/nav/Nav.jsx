@@ -9,16 +9,16 @@ function Nav() {
         <nav className="navbar navbar-expand-sm bg-dark text-light">
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link className="nav-link text-white" href="/">Home</Link>
+                    <Link className="nav-link text-white" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link text-white" href="#">About us</Link>
+                    <Link className="nav-link text-white" to="/">About us</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link text-white" href="#">Categories</Link>
+                    <Link className="nav-link text-white" to="/">Categories</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link text-white" href="#">Products</Link>
+                    <Link className="nav-link text-white" to="/">Products</Link>
                 </li>
                 {!isLoggedIn && <li className="nav-item">
                     <Link className="nav-link text-white" to="/signin">Sign in</Link>

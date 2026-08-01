@@ -1,8 +1,9 @@
 import { useEffect, useReducer } from "react";
 import Nav from "../nav/Nav";
 import axios from "axios";
-import Api, { BASE_URL } from "../../Api";
+import  BASE_URL  from "../../Api";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../axios-config/api";
 
 function Home(){
     const [state,dispatch] = useReducer((state,action)=>{
@@ -20,11 +21,11 @@ function Home(){
         loadProducts()
     },[])
     const loadCategories = async ()=>{
-        const response = await axios.get(Api.FETCH_CATEGORIES)
+        const response = await axiosInstance.get("/category/")
         dispatch({type:"set-categories",payload: response.data})
     }
     const loadProducts = async()=>{
-        const response = await axios.get(Api.FETCH_PRODUCTS)
+        const response = await axiosInstance.get("/product/")
         dispatch({type:"set-products",payload: response.data})
     }
     const navigate = useNavigate()

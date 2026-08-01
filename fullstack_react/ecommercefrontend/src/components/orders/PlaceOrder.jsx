@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { BASE_URL } from "../../Api";
+import BASE_URL  from "../../Api";
 import { toast } from "react-toastify";
+import axiosInstance from "../../axios-config/api";
 
 function PlaceOrder(){
     const location = useLocation()
@@ -34,7 +35,7 @@ function PlaceOrder(){
             "order_items":cartItems
         }
         // Call place order api
-        let response = await axios.post(BASE_URL+"/orders/",orderDetails)
+        let response = await axiosInstance.post("/orders/",orderDetails)
         toast.success("Order placed successfully.....")
       }
       catch(err){

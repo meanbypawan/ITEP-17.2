@@ -2,9 +2,10 @@ import { useEffect, useReducer } from "react";
 import Nav from "../nav/Nav";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { BASE_URL } from "../../Api";
+import  BASE_URL  from "../../Api";
 import { useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
+import axiosInstance from "../../axios-config/api";
 
 function ViewCart(){
     const {currentUser} = useSelector((store)=>store.user)
@@ -46,7 +47,7 @@ function ViewCart(){
     const navigate = useNavigate()
     const loadCartItems = async()=>{
         try{
-           const response = await axios.get(BASE_URL+`/cart/${currentUser.id}`)
+           const response = await axiosInstance.get(`/cart/${currentUser.id}`)
            dispatch({type:"set-cart-items",payload: response.data.cart_items})
         }
         catch(err){

@@ -1,4 +1,5 @@
 from fastapi import Depends
+from fastapi.security import HTTPBearer, HTTPBasicCredentials, HTTPAuthorizationCredentials
 
 from src.dependency.repository_dependency import get_user_repository, get_category_repository, get_product_repository, \
     get_cart_repository, get_cart_items_repository, get_order_repository
@@ -13,7 +14,14 @@ from src.service.category_service import CategoryService
 from src.service.order_service import OrderService
 from src.service.product_service import ProductService
 from src.service.user_service import UserService
+from src.util.jwt_util import verify_token
 
+security = HTTPBearer()
+def authenticate(credentials: HTTPAuthorizationCredentials = Depends(security)):
+   token =  credentials.credentials
+   print(token)
+   payload = verify_token(token)
+   return payload
 
 def get_user_service(user_repo:UserRepository=Depends(get_user_repository)):
     return UserService(user_repo)
