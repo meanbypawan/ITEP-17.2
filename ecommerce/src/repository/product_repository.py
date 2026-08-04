@@ -14,9 +14,19 @@ class ProductRepository:
         await self.session.refresh(product)
         return product
 
-    async def fetch_all(self):
-        statement = select(Product).options(selectinload(Product.category))
+    async def fetch_all(self,page):
+        limit = 2
+        offset = (page-1) * limit
+        statement = (select(Product)
+                     .offset(offset)
+                     .limit(limit)
+                     .options(selectinload(Product.category)))
         result = await self.session.execute(statement)
         return result.scalars().all()
     async def fetch_by_id(self,id:int):
         return await self.session.get(Product,id)
+
+    async def search(self,keyword:str):
+        statement = select(Product).where(Product.title.ilike(f"%{keyword}%"))
+        result = await self.session.execute(statement)
+        return result.scalars().all()

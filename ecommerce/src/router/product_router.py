@@ -2,6 +2,7 @@ from decimal import Decimal
 from typing import Optional
 
 from fastapi import APIRouter, Form, UploadFile, File, Depends
+from fastapi.params import Query
 from starlette import status
 
 from src.dependency.service_dependency import get_product_service
@@ -22,8 +23,13 @@ async def create_product(title:str=Form(...),
     return await product_service.create(title=title,price=price,description=description,warranty_information=warranty_information,rating=rating,product_image=product_image,category_id=category_id)
 
 @router.get("/",status_code=status.HTTP_200_OK)
-async def fetch_all(product_service:ProductService=Depends(get_product_service)):
-    return await product_service.fetch_all()
+async def fetch_all(page:Optional[int]=Query(),product_service:ProductService=Depends(get_product_service)):
+    return await product_service.fetch_all(page)
+
+@router.get("/search")
+async def search(keyword:Optional[str]=Query(...),product_service:ProductService=Depends(get_product_service)):
+    result = await product_service.search(keyword)
+    return result
 
 @router.get("/{id}",status_code=status.HTTP_200_OK)
 async def fetch_by_id(id:int,product_service:ProductService=Depends(get_product_service)):

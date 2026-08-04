@@ -1,57 +1,90 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import Nav from "../nav/Nav";
 import axios from "axios";
-import  BASE_URL  from "../../Api";
+import BASE_URL from "../../Api";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../axios-config/api";
 
-function Home(){
-    const [state,dispatch] = useReducer((state,action)=>{
-        if(action.type == "set-categories")
+function Home() {
+    const [state, dispatch] = useReducer((state, action) => {
+        if (action.type == "set-categories")
             state.categories = action.payload
-        else if(action.type == "set-products")
+        else if (action.type == "set-products")
             state.products = action.payload
-        return {...state}
-    },{
+        else if (action.type == "set-plist")
+            state.plist = action.payload
+        return { ...state }
+    }, {
         categories: [],
-        products: []
+        products: [],
+        plist: []
     });
-    useEffect(()=>{
+    useEffect(() => {
         loadCategories()
         loadProducts()
-    },[])
-    const loadCategories = async ()=>{
+    }, [])
+    const loadCategories = async () => {
         const response = await axiosInstance.get("/category/")
-        dispatch({type:"set-categories",payload: response.data})
+        dispatch({ type: "set-categories", payload: response.data })
     }
-    const loadProducts = async()=>{
+    const loadProducts = async () => {
         const response = await axiosInstance.get("/product/")
-        dispatch({type:"set-products",payload: response.data})
+        dispatch({ type: "set-products", payload: response.data })
+        dispatch({ type: "set-plist", payload: response.data })
     }
+    const [keyword, setKeyword] = useState("")
+    useEffect(() => {
+        let timer;
+        if (keyword) {
+            timer = setTimeout(() => {
+                axiosInstance.get(`/product/search?keyword=${keyword}`)
+                    .then(response => {
+                        dispatch({ type: "set-products", payload: response.data })
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            }, 300)
+        }
+        else
+            dispatch({ type: "set-products", payload: state.plist })
+
+        return () => {
+            clearTimeout(timer)
+        }
+    }, [keyword]);
+
     const navigate = useNavigate()
     return <>
-      <Nav/>
-      <div className="container mt-3">
-        <div className="row">
-            {state?.categories.map((category,index)=>{return <div key={category.id} className="col-md-2">
-                <div className="category-container border d-flex justify-content-around align-items-center" style={{height:"60px"}}>
-                    <img src={BASE_URL+category.category_image} width="50px" height="50px"/>
-                    <label style={{fontSize:"12px"}}>{category.category_name}</label>
-                </div>
-            </div>})}
+        <Nav />
+        <div className="container mt-2 mb-2">
+            <input onChange={(event) => setKeyword(event.target.value)} type="Search product" className="form-control" placeholder="Search product by title" />
         </div>
-        <hr/>
-        <div className="row">
-            {state?.products.map((product,index)=>{return <div className="col-md-3" key={product.id}>
-                <div className="product-card border d-flex flex-column align-items-center justify-content-between" style={{minHeight:"300px"}}>
-                    <img src={BASE_URL+product.product_image} style={{height:"200px",width:"100%"}}/>
-                    <h5>{product.title}</h5>
-                    <h3 className="text-success">{product.price} Rs.</h3>
-                    <button onClick={()=>{navigate(`/view-description/${product.id}`)}} className="btn btn-warning text-white" style={{width:"100%"}}>View description</button>
-                </div>
-            </div>})}
+        <div className="container mt-3">
+            <div className="row">
+                {state?.categories.map((category, index) => {
+                    return <div key={category.id} className="col-md-2">
+                        <div className="category-container border d-flex justify-content-around align-items-center" style={{ height: "60px" }}>
+                            <img src={BASE_URL + category.category_image} width="50px" height="50px" />
+                            <label style={{ fontSize: "12px" }}>{category.category_name}</label>
+                        </div>
+                    </div>
+                })}
+            </div>
+            <hr />
+            <div className="row">
+                {state?.products.map((product, index) => {
+                    return <div className="col-md-3" key={product.id}>
+                        <div className="product-card border d-flex flex-column align-items-center justify-content-between" style={{ minHeight: "300px" }}>
+                            <img src={BASE_URL + product.product_image} style={{ height: "200px", width: "100%" }} />
+                            <h5>{product.title}</h5>
+                            <h3 className="text-success">{product.price} Rs.</h3>
+                            <button onClick={() => { navigate(`/view-description/${product.id}`) }} className="btn btn-warning text-white" style={{ width: "100%" }}>View description</button>
+                        </div>
+                    </div>
+                })}
+            </div>
         </div>
-      </div>
     </>
 }
 

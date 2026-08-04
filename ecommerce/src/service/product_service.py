@@ -19,11 +19,13 @@ class ProductService:
         product = Product(title=title,price=price,description=description,warranty_information=warranty_information,rating=rating,category_id=category_id,product_image="/public/images/"+product_image.filename)
         return await self.product_repo.create(product)
 
-    async def fetch_all(self):
-        return await self.product_repo.fetch_all()
+    async def fetch_all(self,page):
+        return await self.product_repo.fetch_all(page)
 
     async def fetch_by_id(self,id:int):
         product = await self.product_repo.fetch_by_id(id)
         if not product:
             raise ResourceNotFoundException(f"Product with {id} not found")
         return product
+    async def search(self,keyword:str):
+        return await self.product_repo.search(keyword)
