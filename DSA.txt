@@ -1,0 +1,40 @@
+O(log n) > O(n)
+What is Time Complexity :-
+Ans:- It is used to measure the efficiency of algorithm in term of speed as input size grows
+Lower Time Complexity :-  Better Speed
+Higher Time Complexity :- Lower Speed
+
+Misunderstanding :- Time Complexity is time taken by algorithm 
+We should always mesaure worst case time complexity of algorithm.
+
+Example :-
+linear search
+  Input size n = 10
+  Worst case :- O(n) 
+
+Binary Search
+  Input size n = 10
+  Worst case :- log2(N) ==> log2(10) 
+  
+  here log means = "How many times can we repeatedly divide the input by the base until we reach 1?"
+To measure the worst case time complexity we use Big-O notation  
+
+There are some different time of time complexity:-
+1. O(1) :-- it constant time complexity 
+2. O(log n) :-  Binary search
+3. O(n) :----Linear Search
+4. O(n log n) :--- Merge Sort
+5. O(n*n) :-- Loop inside Loop [Nested Loop]
+6. O(2^n)
+7. O(n!)
+
+Space Complexity :- It is extra space used in algorithm.
+Big-o measures how memory usage grows as the input size grows
+
+
+
+
+
+
+
+
