@@ -1,0 +1,288 @@
+Module 1: Basic Two Pointer (Opposite Direction)
+Concept:
+
+Pointers start from both ends.
+
+L →        ← R
+
+Used for:
+
+Reverse
+Compare
+Pair finding
+1. Reverse String ⭐
+LeetCode 344 — Reverse String
+Difficulty: Easy
+Pattern:
+left ↔ right
+Example:
+Input:
+["h","e","l","l","o"]
+Output:
+["o","l","l","e","h"]
+
+2. Valid Palindrome ⭐
+LeetCode 125 — Valid Palindrome
+Difficulty: Easy
+Pattern:
+Compare characters from both ends
+Example:
+racecar → True
+
+3. Valid Palindrome II
+LeetCode 680 — Valid Palindrome II
+Difficulty: Easy
+Concept:
+Two pointers
+Skip one character
+Example:
+abca
+Remove c
+aba
+4. Two Sum II - Input Array Is Sorted ⭐⭐⭐
+LeetCode 167
+Difficulty: Easy
+Example:
+numbers=[2,7,11,15]
+target=9
+Output:
+[1,2]
+5. Squares of a Sorted Array ⭐⭐
+LeetCode 977
+Difficulty: Easy
+Input:
+[-4,-1,0,3,10]
+Output:
+[0,1,9,16,100]
+
+Module 2: Same Direction Two Pointer
+Concept:
+Both pointers move forward.
+slow →
+fast →
+Used for:
+Removing elements
+Modifying arrays in-place
+
+6. Remove Duplicates from Sorted Array ⭐⭐⭐
+LeetCode 26
+Difficulty: Easy
+Input:
+[1,1,2,2,3]
+Output:
+[1,2,3]
+
+7. Remove Element ⭐⭐
+LeetCode 27
+Difficulty: Easy
+Input:
+[3,2,2,3]
+remove 3
+Output:
+[2,2]
+
+8. Move Zeroes ⭐⭐⭐
+LeetCode 283
+Difficulty: Easy
+Input:
+[0,1,0,3,12]
+Output:
+[1,3,12,0,0]
+
+9. Duplicate Zeros
+LeetCode 1089
+Difficulty: Easy
+Concept:
+In-place array modification.
+
+Module 3: Two Pointer + Sorting
+Concept:
+
+Sort first, then apply two pointers.
+
+Usually:
+
+Sort O(nlogn)
+
++
+
+Two pointer O(n)
+10. 3Sum ⭐⭐⭐⭐⭐
+
+LeetCode 15
+
+Difficulty: Medium
+
+Problem:
+
+Find triplets:
+
+a+b+c = 0
+
+Example:
+
+[-1,0,1,2,-1,-4]
+
+Output:
+
+[
+[-1,-1,2],
+[-1,0,1]
+]
+11. 3Sum Closest ⭐⭐⭐⭐
+
+LeetCode 16
+
+Difficulty: Medium
+
+Find triplet closest to target.
+
+Example:
+
+target=1
+12. 4Sum ⭐⭐⭐⭐
+
+LeetCode 18
+
+Difficulty: Medium
+
+Find:
+
+a+b+c+d = target
+
+Extension of 3Sum.
+
+13. Merge Sorted Array ⭐⭐⭐
+
+LeetCode 88
+
+Difficulty: Easy
+
+Example:
+
+nums1=[1,2,3]
+nums2=[2,5,6]
+
+Output:
+
+[1,2,2,3,5,6]
+Module 4: Two Pointer (Greedy)
+14. Container With Most Water ⭐⭐⭐⭐⭐
+
+LeetCode 11
+
+Difficulty: Medium
+
+Concept:
+
+Two pointers + greedy.
+
+Example:
+
+height=[1,8,6,2,5,4,8,3,7]
+
+Find maximum water area.
+
+15. Trapping Rain Water ⭐⭐⭐⭐⭐
+
+LeetCode 42
+
+Difficulty: Hard
+
+Concept:
+
+Two pointers
+Dynamic programming
+
+Example:
+
+[0,1,0,2,1,0,1,3]
+
+Output:
+
+6
+Module 5: Fast and Slow Pointer (Linked List)
+
+This is also called the Runner Technique.
+
+slow → one step
+
+fast → two steps
+16. Linked List Cycle
+
+LeetCode 141
+
+Difficulty: Easy
+
+Detect cycle.
+
+Algorithm:
+
+Floyd's Cycle Detection.
+
+17. Linked List Cycle II
+
+LeetCode 142
+
+Difficulty: Medium
+
+Find starting node of cycle.
+
+18. Middle of the Linked List
+
+LeetCode 876
+
+Difficulty: Easy
+
+Find middle node.
+
+19. Happy Number
+
+LeetCode 202
+
+Difficulty: Easy
+
+Uses:
+
+Fast and slow pointer on number sequence.
+
+Module 6: Advanced Two Pointer
+20. Backspace String Compare
+
+LeetCode 844
+
+Difficulty: Easy
+
+Example:
+
+ab#c
+
+a#c
+
+Both become:
+
+c
+21. Sort Colors
+
+LeetCode 75
+
+Difficulty: Medium
+
+Pattern:
+
+Dutch National Flag Algorithm.
+
+Three pointers:
+
+low
+mid
+high
+22. Partition Array According to Pivot
+
+LeetCode 2161
+
+Difficulty: Medium
+
+Concept:
+
+Two pointer partitioning.
