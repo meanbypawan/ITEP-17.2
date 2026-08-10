@@ -1,5 +1,4 @@
 from sqlalchemy.exc import SQLAlchemyError
-
 from src.db.db_config import SessionLocal
 from src.model.employee import Employee
 
