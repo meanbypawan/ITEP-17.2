@@ -1,0 +1,181 @@
+Creating Database :-
+  use empdb
+  
+Creating Collection
+  db.createCollection("employee")
+Creating  capped collection
+  db.createCollection("employee",{capped:true,size:1000, max:5})
+Checking whether it is capped or uncapped
+  db.employee.isCapped()
+  
+Drop Collection
+  db.employee.drop()
+  
+Inserting single document
+  db.employee.insertOne({"name":"Khusi"})
+Inserting multiple record
+  db.employee.insertMany([{},{},{}])
+  
+Fetching all record
+  db.employee.find()
+  
+Using where condition
+  db.employee.find({skill: "Java"})
+Using projection
+  db.employee.find({},{name:1, skill: 1, salary: 1, _id:0})
+
+Limiting record
+  db.employee.find().limit(5)
+
+Skiping record
+  db.employee.find().skip(2).limit(5) :=> Skip first 2 then fetch next 5
+Counting
+  db.employee.find().count()
+--------------------------------------------
+  $gt, $gte, $lt, $lte, $eq, $ne
+  $and: [{},{}]
+  select * from employee where salary >=50000
+  db.employee.find({
+    salary: {$gt:50000}
+  })
+  
+  select * from employee where salary >=6000 and salary <=70000
+  
+  db.employee.find({
+    $and:[{salary: {$gte:60000}}, {salary: {$lte:70000}}]
+  })
+  
+  select * from employee where skill="Java" or skill="Python"
+  db.employee.find({
+    $or:[{skill: "Java"},{skill: "Python"}]
+  })
+  
+  db.employee.find({salary: {$ne:70000}})
+--------------------------------------------------------------------
+  select * from employee where salary = ( select max(salary) from employee)
+  
+  select max(salary) from employee
+  
+Sorting
+  db.employee.find().sort({salary:1}) ---> Ascending
+  or
+  db.employee.find().sort({salary: -1}) --> Descending
+  
+  db.employee.find({
+    salary: db.employee.find({},{_id:0,name:1,salary:1,skill:1}).sort({salary:-1}).toArray()[0].salary
+  })
+  
+  # second maximum salary
+  db.employee.find({
+    salary:{$ne: db.employee.find().sort({salary:-1}).toArray()[0].salary}
+  }).sort({salary:-1}).toArray()[0].salary
+  
+  # Second maximum salary record
+  db.employee.find({
+    salary: db.employee.find({
+      salary:{$ne: db.employee.find().sort({salary:-1}).toArray()[0].salary}
+    }).sort({salary:-1}).toArray()[0].salary
+  })
+  
+  db.users.aggregate()
+  db.users.aggregate([
+   {
+    $match:{
+      _id: ObjectId('6a83ea5447cf597f9a35336b')
+    }
+   } 
+  ])
+  users:		orders
+  _id                   _id
+  name			userId
+  email                 .....
+  
+  
+  db.users.aggregate([
+  {
+    $lookup:{
+       from: "orders",
+       localField: "_id",
+       foreignField: "userId",
+       as: "orders_items"
+    }
+  },{
+    $project:{name:1,_id:0,orders_items:1}
+  },{
+    $limit:2
+  }
+  ])
+  
+  db.orders.aggregate([
+    {
+      $lookup:{
+         from :"users",
+         localField: "userId",
+         foreignField: "_id",
+         as: "user"
+      }
+    }
+  ])
+  
+  db.employee.updateMany({
+   skill:"Python"
+  },{
+    $set:{grade : "A"}
+  })
+  db.employee.updateMany({
+    skill: "Python"
+  },{
+    $unset:{grade:1,gender:1,age:1}
+  })
+  
+  db.employee.deleteOne({salary:{$gte:70000}})
+  db.employee.deleteMany({salary:{$gte:70000}})
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+  
