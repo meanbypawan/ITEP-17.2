@@ -1,6 +1,7 @@
 import { Post } from "../model/post.model.js"
 
 export const fetchPost = async(request,response,next)=>{
+    console.log("Handler process : "+process.pid)
     try{
        let posts = await Post.find().populate("user")
        return response.status(200).json({"posts": posts})
