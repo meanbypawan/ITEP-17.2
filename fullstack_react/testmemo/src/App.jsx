@@ -6,24 +6,28 @@ import Fourth from "./Fourth"
 
 function App(){
   const [counter,setCounter] = useState(100)
+  
   console.log("App Rerender....")
   const [evenCounter,setEvenCounter] = useState(0)
+  
   let wishingMessage = {m1:"GM",m2:"GN",evenCounter: evenCounter}
   wishingMessage = useMemo(()=>wishingMessage,[evenCounter])
   
   let sayHello = ()=>{
     window.alert("Hello Friends.....")
+    console.log("Say Hello Called....")
   }
   
   sayHello = useCallback(()=>sayHello,[])
   
   return <>
-    <h1>App component...</h1>
-    <button onClick={()=>setCounter(counter+1)}>Counter : {counter}</button>
-    <button onClick={()=>setEvenCounter(evenCounter+2)}>Even Counter : {evenCounter}</button>
+    {/* <h1>App component...</h1>
+    
     <First/>
     <Second message="Hello...."/>
-    <Third wishingMessage={wishingMessage}/>
+    <Third wishingMessage={wishingMessage}/> */}
+    <button onClick={()=>setCounter(counter+1)}>Counter : {counter}</button>
+    <button onClick={()=>setEvenCounter(evenCounter+2)}>Even Counter : {evenCounter}</button>
     <Fourth sayHello={sayHello}/>
   </>
 }
