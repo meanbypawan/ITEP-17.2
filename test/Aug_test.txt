@@ -1,0 +1,18 @@
+Develop MERN Stack application ToDo Application:-
+ Where Admin is responsible for all the operation
+ Manage ToDo:-
+   Create ToDo
+   View All ToDo
+   View By id
+   Delete ToDo [Use soft Delete]
+   Provide date filter to view todo [Form data , to date]
+   Search todo by title and status
+   You have to register and sign in admin. All Api routes must be secured. Use JWT token authentication
+Use MongoDB Database to store application data.
+Sample ToDo Data :-
+ {
+   "title": "Create Home UI",
+   "description": "fdlkrerrere",
+   "date" : "31/06/2025"
+   "status": "Pending"
+ }
