@@ -1,0 +1,31 @@
+Module 1: Stack Basics
+Reverse a String
+Decimal to Binary
+Reverse an Array
+Copy One Stack to Another
+
+Module 2: Parentheses
+Valid Parentheses (LC 20)
+Balanced Parentheses
+
+Module 3: Expression Evaluation
+Infix → Postfix
+Postfix Evaluation (LC 150)
+Infix → Prefix
+Prefix Evaluation
+
+Module 4: Monotonic Stack
+Next Greater Element I (LC 496)
+Next Greater Element II (LC 503)
+Previous Greater Element
+Previous Smaller Element
+Next Smaller Element
+
+Module 5: Advanced Stack
+Stock Span (LC 901)
+Daily Temperatures (LC 739)
+Asteroid Collision (LC 735)
+Decode String (LC 394)
+Remove K Digits (LC 402)
+Min Stack (LC 155)
+Largest Rectangle in Histogram (LC 84)
