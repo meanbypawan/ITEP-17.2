@@ -1,0 +1,175 @@
+
+
+
+
+
+
+What is AI :-
+ Artificial Intelligence is with field of computer science that focused on making computer machine to perform task
+ that normally require human intelligence. 
+ 
+ In Simple words AI is the ability of machine to perform task that normally require human intelligence
+ Human intelligence incluse :-
+  1. Learning
+  2. Resoning
+  3. Problem Solving
+  4. Understanding Language
+  5. Recognizing Images
+  6. Making Decisions
+  7. Planning
+  
+ Example of AI :-
+   ChatGPT :-- understand and generate human language [Supervised + self supervised]
+   Face Recognition :- Identifies Person from image [Supervised ]
+   Netflix/YouTube Recommendations [Supervise / unsupervised]
+   Self-driving Cars :- Understand surrounding and make driving decisions [Supervised + Reinforcement]
+   Voice Assistants :- Understand spoken commands [Supervised + self supervised]
+   Google Maps --> Find the best route 
+   
+What is Machine Learning :-
+ Machine learning is the subset of AI, Where machine learn pattern from data rather than being explicitly programmed for
+ every situation
+ 
+Example :- A spam filter is AI because it perform an intelligent task and it can use ML to learn from example of spam emails
+Example :-2 
+Suppose we have to predic house prices.
+Area(Sq ft)  Bedrooms   Price
+ 1000		2	40L
+ 1500		3	60L
+ 2000		3	80L
+ 2500		4	1cr
+
+Machine Learning algorithm learn the relationship between :-
+ House Features --> House Price
+ 
+In ML model learns a pattern from existing data and uses that pattern to make predictions on new data 
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+Types of Machine Learning :-
+  Mainly Three type of Machine Learning :-
+  1. Supervised Machine Learning
+  2. Unsupervised Machine Learning
+  3. Reinforcement Machine Learning
+  
+  Supervised Machine Learning :- 
+  Supervised machine learning is machine learning where we train the model by using labeled data.In Simple words
+  We give labeled data to computer ["Example with correct answers."] and it learn how it predict new data
+  
+  Two types of Supervised Learning :-
+  1. Regression :- Predict a number :- Regression is supervise learning technique used to predict a continuous numerical
+     values.
+     Examples :- House Price Prediction :- Features [Area,Bedroom] --> Price
+     Salary  [Experience, Education] --> Salary
+     Temperature[Humadity, previous day temperaturem, wind speed] --> Next day temp.
+     Sales [Advt budget] --> Sales
+     For Regression we use following algorithm :-
+     Linear Regression  :- Use when relationship is linear
+     Polynomial Regression :- Use when relationship is curved ratherthen Straight
+     Decision Tree Regression :- 
+       Use when relationship are complicated/non-linear
+       If you have mumerical and categorical feature
+       you don't want to assume a straight line relationship
+       
+       Instead of drawing a line it uses series of if/else decisions
+       For example
+        Is house_size > 1500 
+         if yes then is location good
+                if yes then price = 80L
+                if no then price = 60L
+         if no then price = 40L       
+       
+     Random Forest Regression :- Instead of using one decision tree, it creates many trees and combine their predictions
+     Think :-
+     One tree might make bad prediction
+     100 different tree  votes/average :- usually more relible
+     
+     Use when :-
+      Dataset has complex relationship
+      You want better performance than a Single decision tree
+      you have many features
+     Support Vector Machine
+     
+  2. Classification :- Predict/Decide category or class
+     It is supervised learning technique used to predict a category or class
+     Here output is not continous number . it is class/category
+     Spam / Not Spam
+     Disease / Not Disease
+     Pass / Fail
+     Fraud / Not Fraud
+     Cat / Dog
+     Student Pass/Fail 
+     
+     For Classification we have following Algorithm :-
+      Logistic Regression
+      K-Nearrest Neighbors[KNN]
+      Decision TRee
+      Random Forest
+      Support Vector Machine
+      Naive Bayes
+     
+----------------------------------------------------------------------------------------------------------------------------
+Unsupervised Machine Learning :-
+It is machine learning where model receives data without labeled outputs and tries to discover hidden patterns or
+structure in the data.
+Example :-
+ Suppose Shopping company has customer information :-
+  Customer	Age	Spending
+  A		22	2000
+  B		25	2500
+  C		45	20000
+  D		48	22000
+  
+The Algorithm may discover
+ Group 1 --> Young/Low Spending
+ Group 2 --> Older/High Spending
+ 
+Types of Unsupervised Machine Learning :-
+  1. Clustering [K-means]
+  2. Dimensionality Reduction [PCA]
+  3. Anomoly Detection [Z-score method]
+  4. Association [Apriori]
+  
+Clustering :- It is the process of grouping similar data point together without predefined labels.
+The algorithm tries to answer :-
+ "Which data points are similar to each other"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
