@@ -1,0 +1,292 @@
+NumPy Programming Assignments
+🟢 Level 1 — NumPy Basics
+
+1. Create Arrays
+
+Create a NumPy array from the numbers 1–10.
+Create an array of 10 zeros.
+Create an array of 10 ones.
+Create an array containing numbers from 10 to 50.
+Create an array of even numbers from 2 to 20.
+
+2. Array Properties
+Create a NumPy array:
+
+arr = np.array([[10, 20, 30],
+                [40, 50, 60]])
+
+Find:
+
+Number of dimensions
+Number of rows and columns
+Total number of elements
+Data type
+Size in bytes of each element
+🟢 Level 2 — Indexing & Slicing
+
+3. Array Indexing
+
+Given:
+
+arr = np.array([10, 20, 30, 40, 50, 60, 70, 80])
+
+Write programs to:
+
+Print the first element.
+Print the last element.
+Print the first 3 elements.
+Print the last 3 elements.
+Print elements at even indexes.
+Print the array in reverse order.
+
+4. 2D Array Indexing
+
+arr = np.array([
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90]
+])
+
+Find:
+
+50
+90
+First row
+Last row
+First column
+Last column
+Middle 2×2 matrix
+🟡 Level 3 — Array Operations
+
+5. Arithmetic Operations
+
+Given:
+
+a = np.array([10, 20, 30, 40, 50])
+b = np.array([1, 2, 3, 4, 5])
+
+Perform:
+
+Addition
+Subtraction
+Multiplication
+Division
+Square
+Cube
+a % b
+
+6. Statistical Operations
+
+Given:
+
+marks = np.array([65, 78, 82, 56, 91, 74, 88, 69, 95, 72])
+
+Find:
+
+Sum
+Mean
+Median
+Minimum
+Maximum
+Standard deviation
+Variance
+25th percentile
+50th percentile
+75th percentile
+🟡 Level 4 — Reshaping
+
+7. Reshape Assignment
+
+Create an array containing numbers from 1 to 24.
+
+Convert it into:
+
+1D → 2D (4 × 6)
+1D → 2D (6 × 4)
+1D → 3D (2 × 3 × 4)
+
+Then flatten the 3D array back into 1D.
+
+8. Transpose
+
+Create:
+
+arr = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])
+
+Find its:
+
+Shape
+Transpose
+Shape after transpose
+🟡 Level 5 — Boolean Indexing
+
+9. Student Marks
+
+marks = np.array([45, 67, 89, 32, 76, 54, 91, 28, 63, 85])
+
+Using NumPy:
+
+Find students who scored ≥ 60.
+Find students who failed (< 40).
+Find marks between 50 and 80.
+Increase every mark by 5.
+Cap marks at 100 if they exceed 100.
+
+10. Employee Salary
+
+salary = np.array([25000, 35000, 45000, 28000, 60000, 75000, 32000])
+
+Perform:
+
+Find salaries greater than ₹40,000.
+Find the average salary.
+Increase salaries below ₹30,000 by 10%.
+Find the highest salary.
+Find the employees whose salary is between ₹30,000 and ₹60,000.
+🟠 Level 6 — axis Practice
+
+11. Understand Axis
+
+Given:
+
+arr = np.array([
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90]
+])
+
+Calculate:
+
+np.sum(arr)
+np.sum(arr, axis=0)
+np.sum(arr, axis=1)
+
+np.mean(arr, axis=0)
+np.mean(arr, axis=1)
+
+np.max(arr, axis=0)
+np.max(arr, axis=1)
+
+Task: Explain what axis=0 and axis=1 mean in each case.
+
+🟠 Level 7 — Broadcasting
+
+12. Broadcasting Assignment
+
+Given:
+
+prices = np.array([100, 200, 300, 400])
+
+Increase all prices by 10%.
+
+Then:
+
+prices = np.array([
+    [100, 200, 300],
+    [400, 500, 600]
+])
+
+Add:
+
+discount = np.array([10, 20, 30])
+
+to every row.
+
+Task: Explain why broadcasting works here.
+
+🔴 Level 8 — ML-Oriented NumPy
+
+13. Feature Normalization
+
+Given:
+
+age = np.array([20, 25, 30, 35, 40])
+
+Perform Min-Max Scaling:
+
+$$ X_{scaled} = \frac{X-X_{min}}{X_{max}-X_{min}} $$
+
+Expected values should be between 0 and 1.
+
+14. Standardization
+
+Given:
+
+salary = np.array([25000, 30000, 35000, 40000, 45000])
+
+Calculate:
+
+$$ z = \frac{x-\mu}{\sigma} $$
+
+where:
+
+μ = mean
+σ = standard deviation
+
+Verify that the resulting array has approximately:
+
+Mean = 0
+Standard deviation = 1
+🔴 Level 9 — Real ML Dataset
+
+15. Student Dataset
+
+Create:
+
+students = np.array([
+    [101, 22, 75, 80],
+    [102, 25, 65, 70],
+    [103, 21, 90, 95],
+    [104, 24, 55, 60],
+    [105, 23, 85, 88]
+])
+
+Columns:
+
+Student_ID | Age | Python_Marks | ML_Marks
+
+Using only NumPy:
+
+Extract the Age column.
+Extract Python_Marks.
+Extract ML_Marks.
+Find average Python marks.
+Find average ML marks.
+Find the student with the highest ML marks.
+Find students who scored > 70 in Python.
+Find students who scored > 80 in both Python and ML.
+Calculate the correlation between Python and ML marks.
+🔥 Final Assignment — Mini ML Data Processing
+
+16. Prepare Data for ML
+
+Create:
+
+data = np.array([
+    [25, 50000],
+    [30, 60000],
+    [35, 75000],
+    [40, 90000],
+    [45, 100000],
+    [50, 120000]
+])
+
+Columns:
+
+Age | Salary
+
+Perform:
+
+Separate X and y.
+Calculate mean age.
+Calculate mean salary.
+Calculate standard deviation.
+Find minimum and maximum values.
+Perform Min-Max scaling on both columns.
+Perform standardization on both columns.
+Calculate covariance between Age and Salary.
+Calculate correlation between Age and Salary.
+Explain whether Age and Salary have a positive or negative relationship
