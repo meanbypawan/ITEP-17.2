@@ -1,0 +1,172 @@
+Pandas Series Practice Assignment
+
+Use this employee salary dataset for most questions:
+
+import pandas as pd
+
+salary = pd.Series(
+    [25000, 32000, 45000, 38000, 55000,
+     42000, 60000, 30000, 75000, 50000],
+    index=["Amit", "Rahul", "Priya", "Neha", "Vikas",
+           "Pooja", "Rohit", "Ankit", "Sneha", "Karan"],
+    name="Salary"
+)
+Level 1 — Creating and Understanding Series
+
+Q1. Print the complete Series.
+
+Q2. Print only the values of the Series.
+
+Q3. Print only the index of the Series.
+
+Q4. Find the datatype of the Series.
+
+Q5. Find the number of employees.
+
+Q6. Access the salary of:
+
+Amit
+Priya
+Sneha
+
+Q7. Access the first 3 employees using positional indexing.
+
+Q8. Access the last 3 employees.
+
+Level 2 — Statistics
+
+Q9. Find the average salary.
+
+Q10. Find the highest salary.
+
+Q11. Find the lowest salary.
+
+Q12. Find the total salary paid to all employees.
+
+Q13. Find the median salary.
+
+Q14. Find the standard deviation of salary.
+
+Q15. Find the variance of salary.
+
+Q16. Find the employee who has the highest salary.
+
+Hint: idxmax()
+
+Q17. Find the employee who has the lowest salary.
+
+Hint: idxmin()
+
+Level 3 — Filtering
+
+Q18. Display employees whose salary is greater than ₹50,000.
+
+Q19. Display employees whose salary is less than ₹40,000.
+
+Q20. Display employees whose salary is between ₹30,000 and ₹60,000.
+
+Q21. Find how many employees earn more than ₹50,000.
+
+Q22. Find how many employees earn less than the average salary.
+
+Level 4 — Arithmetic Operations
+
+Q23. Give every employee a 10% salary increment.
+
+Expected idea:
+
+salary * 1.10
+
+Q24. Calculate the salary after a 20% increment.
+
+Q25. Calculate the salary after a 10% deduction.
+
+Q26. Add ₹5,000 bonus to every employee's salary.
+
+Q27. Create a new Series containing only the bonus amount, assuming every employee gets 5% of their salary as bonus.
+
+Level 5 — map()
+
+Q28. Use map() to increase every salary by ₹5,000.
+
+Q29. Use map() to convert salaries into salary categories:
+
+Salary < 40000       → "Low"
+Salary 40000-60000   → "Medium"
+Salary > 60000       → "High"
+
+For example:
+
+Amit      25000 → Low
+Rahul     32000 → Low
+Vikas     55000 → Medium
+Sneha     75000 → High
+Level 6 — apply()
+
+Q30. Use apply() to calculate 10% tax on every employee's salary.
+
+Q31. Use apply() to calculate salary after tax.
+
+Q32. Create a function:
+
+def salary_grade(salary):
+    ...
+
+Rules:
+
+Salary >= 70000 → A
+Salary >= 50000 → B
+Salary >= 30000 → C
+Salary < 30000  → D
+
+Apply this function to the Series.
+
+Level 7 — Missing Values
+
+Create another Series:
+
+salary2 = pd.Series(
+    [25000, 32000, None, 38000, 55000,
+     None, 60000, 30000, 75000, 50000],
+    index=["Amit", "Rahul", "Priya", "Neha", "Vikas",
+           "Pooja", "Rohit", "Ankit", "Sneha", "Karan"]
+)
+
+Q33. Find the missing values.
+
+Q34. Count the missing values.
+
+Q35. Display employees having missing salary.
+
+Q36. Replace missing salaries with the mean salary.
+
+Q37. Replace missing salaries with the median salary.
+
+Q38. Remove employees whose salary is missing.
+
+Level 8 — Challenge Questions ⭐
+
+Q39. Find the employee whose salary is closest to the average salary.
+
+Q40. Find all employees whose salary is above the median salary.
+
+Q41. Calculate the percentage contribution of each employee's salary to the total salary.
+
+For example:
+
+Amit → Amit salary / Total salary × 100
+
+Q42. Give a 15% increment only to employees earning less than ₹40,000. Keep other salaries unchanged.
+
+Q43. Give a ₹10,000 bonus only to employees earning more than ₹50,000.
+
+Q44. Create a Series containing:
+
+Employee → Salary → Grade
+
+using appropriate Pandas operations.
+
+Q45. Sort employees according to salary:
+
+Lowest → Highest
+Highest → Lowest
