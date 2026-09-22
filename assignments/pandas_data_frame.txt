@@ -1,0 +1,346 @@
+import pandas as pd
+
+data = {
+    "emp_id": [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
+    "name": ["Amit", "Neha", "Rahul", "Priya", "Vikas",
+             "Sneha", "Rohit", "Anjali", "Karan", "Pooja"],
+    "department": ["IT", "HR", "IT", "Finance", "IT",
+                   "HR", "Finance", "IT", "Sales", "Sales"],
+    "age": [25, 28, 32, 30, 26, 35, 29, 31, 27, 33],
+    "salary": [45000, 52000, 65000, 58000, 48000,
+               62000, 55000, 72000, 50000, 68000],
+    "experience": [2, 4, 7, 6, 3, 9, 5, 8, 4, 10],
+    "city": ["Indore", "Bhopal", "Indore", "Pune", "Indore",
+             "Bhopal", "Pune", "Indore", "Mumbai", "Pune"]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+Level 1 — Basic DataFrame Operations
+Assignment 1: Understanding DataFrame
+Display the complete DataFrame.
+Display the first 5 rows.
+Display the last 3 rows.
+Display the number of rows and columns.
+Display column names.
+Display the data types of all columns.
+Display basic statistical information.
+Display information about the DataFrame.
+
+Practice:
+
+df.head()
+df.tail()
+df.shape
+df.columns
+df.dtypes
+df.describe()
+df.info()
+Level 2 — Selecting Rows and Columns
+Assignment 2: Column Selection
+Display only the name column.
+Display only the salary column.
+Display name and salary.
+Display name, department, and city.
+Display the first 5 employees with only their names and salaries.
+Assignment 3: loc Practice
+
+Using loc:
+
+Display the first employee.
+Display employees from index 2 to 6.
+Display only name and salary for all employees.
+Display name, department, and salary for indexes 3–7.
+Display employees whose index is 1, 4, and 7.
+
+Example:
+
+df.loc[2:6, ["name", "salary"]]
+Assignment 4: iloc Practice
+
+Using iloc:
+
+Display the first row.
+Display the first 5 rows.
+Display the first 3 columns.
+Display rows 2–6 and columns 1–4.
+Display the last 3 rows.
+Display every alternate row.
+Level 3 — Filtering
+Assignment 5: Basic Conditions
+
+Find:
+
+Employees whose salary is greater than ₹60,000.
+Employees whose age is greater than 30.
+Employees having more than 5 years of experience.
+Employees from the IT department.
+Employees living in Indore.
+Employees whose salary is less than ₹50,000.
+
+Example:
+
+df[df["salary"] > 60000]
+Assignment 6: Multiple Conditions
+
+Find:
+
+IT employees earning more than ₹60,000.
+Employees older than 30 and earning more than ₹60,000.
+Employees with experience greater than 5 and salary greater than ₹55,000.
+Employees from Indore or Pune.
+Employees from IT or Finance.
+Employees whose salary is between ₹50,000 and ₹70,000.
+
+Example:
+
+df[
+    (df["department"] == "IT") &
+    (df["salary"] > 60000)
+]
+Level 4 — Adding and Modifying Columns
+Assignment 7: Create New Columns
+
+Create:
+
+1. Annual Salary
+annual_salary = salary × 12
+2. Experience Category
+
+If experience:
+
+< 3       → Fresher
+3–5       → Junior
+6–8       → Mid-Level
+> 8       → Senior
+3. Salary in Lakhs
+salary_lakh = salary / 100000
+4. Age after 5 years
+
+Create:
+
+future_age = age + 5
+Level 5 — apply() and map()
+Assignment 8: map()
+
+Create a new column called department_code.
+
+Mapping:
+
+IT       → 101
+HR       → 102
+Finance  → 103
+Sales    → 104
+
+Assignment 9: apply()
+
+Create a column called salary_status.
+
+Rules:
+
+salary >= 60000 → High
+salary >= 50000 → Medium
+otherwise → Low
+
+Try solving this using apply().
+
+Level 6 — Sorting
+Assignment 10: Sorting
+Sort employees by salary ascending.
+Sort employees by salary descending.
+Sort employees by age.
+Sort employees by experience descending.
+Sort by department and then salary.
+Find the employee with the highest salary.
+Find the employee with the lowest salary.
+
+Example:
+
+df.sort_values("salary", ascending=False)
+Level 7 — groupby()
+
+This is very important for interviews.
+
+Assignment 11: Department Analysis
+
+Find:
+
+Average salary of each department.
+Maximum salary of each department.
+Minimum salary of each department.
+Number of employees in each department.
+Average age of each department.
+Average experience of each department.
+
+Example:
+
+df.groupby("department")["salary"].mean()
+Assignment 12: Multiple Aggregations
+
+Find department-wise:
+
+minimum salary
+maximum salary
+average salary
+number of employees
+
+Try:
+
+df.groupby("department")["salary"].agg(
+    ["min", "max", "mean", "count"]
+)
+Level 8 — value_counts()
+Assignment 13
+
+Find:
+
+Number of employees in each department.
+Number of employees in each city.
+Number of employees in each department using value_counts().
+Which city has the maximum number of employees?
+
+Example:
+
+df["department"].value_counts()
+Level 9 — Missing Values
+
+Create another DataFrame:
+
+data = {
+    "name": ["Amit", "Neha", "Rahul", "Priya", "Vikas"],
+    "age": [25, None, 32, 30, None],
+    "salary": [45000, 52000, None, 58000, 48000],
+    "department": ["IT", "HR", None, "Finance", "IT"]
+}
+
+df2 = pd.DataFrame(data)
+Assignment 14
+Find missing values.
+Count missing values in each column.
+Fill missing age with the mean age.
+Fill missing salary with the median salary.
+Fill missing department with "Unknown".
+Remove rows containing missing values.
+Compare the DataFrame before and after handling missing values.
+Level 10 — Duplicate Data
+Assignment 15
+
+Create duplicates:
+
+df3 = pd.concat([df, df.iloc[[2, 5]]], ignore_index=True)
+
+Now:
+
+Find duplicate rows.
+Count duplicate rows.
+Remove duplicate rows.
+Check the shape before and after removing duplicates.
+Level 11 — String Operations
+Assignment 16
+
+Using the name column:
+
+Convert all names to uppercase.
+Convert all names to lowercase.
+Find names starting with "A".
+Find names containing "a".
+Find the length of every employee name.
+
+Examples:
+
+df["name"].str.upper()
+
+df["name"].str.lower()
+
+df["name"].str.len()
+Level 12 — Date/Data Analysis
+
+Add:
+
+df["joining_year"] = [
+    2022, 2020, 2017, 2018, 2021,
+    2016, 2019, 2017, 2020, 2015
+]
+Assignment 17
+Find employees who joined before 2020.
+Find employees who joined in 2020.
+Count employees by joining year.
+Find average salary by joining year.
+Find the most experienced employee.
+Level 13 — Interview-Level Problems
+Assignment 18
+
+Find the second-highest salary.
+
+Assignment 19
+
+Find the employee having the maximum experience.
+
+Assignment 20
+
+Find the employee having the highest salary in each department.
+
+Hint:
+
+df.groupby("department")["salary"].max()
+
+But try to return the complete employee record, not just salary.
+
+Assignment 21
+
+Find employees whose salary is greater than the average company salary.
+
+Expected concept:
+
+avg_salary = df["salary"].mean()
+
+Then filter.
+
+Assignment 22
+
+Find the department having the highest average salary.
+
+Assignment 23
+
+Find the city having the highest number of employees.
+
+Assignment 24
+
+Find employees whose salary is greater than their department's average salary.
+
+This is a very good interview-level Pandas problem.
+
+Level 14 — Mini Project
+Employee Data Analysis
+
+Using the same DataFrame, answer the following:
+
+How many employees are there?
+What is the average salary?
+What is the average age?
+What is the average experience?
+Which department has the most employees?
+Which department has the highest average salary?
+Which employee has the highest salary?
+Which employee has the lowest salary?
+Who has the highest experience?
+What is the average salary in each city?
+How many employees earn more than ₹60,000?
+How many employees have more than 5 years of experience?
+Which department has the highest total salary expenditure?
+Find the second-highest salary.
+Find the highest-paid employee from each department.
+Find employees earning above company average.
+Find employees earning above their department average.
+Sort employees according to salary.
+Create salary categories: Low, Medium, High.
+Create a final report containing:
+Department
+Employee Count
+Average Salary
+Minimum Salary
+Maximum Salary
+Average Experience
+
+This last exercise will combine selection + filtering + loc/iloc + groupby() + agg() + apply() + map() + sorting, so it is a good capstone before moving into more advanced Pandas topics.

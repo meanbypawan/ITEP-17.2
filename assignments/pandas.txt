@@ -1,0 +1,14 @@
+Pandas :- Panel Data
+  Series :- 1 Dimensional labeled data structure
+  DataFrame :- It is 2 dimesional , Collection Of Series
+  
+  Series :-
+  1. Way Of Creating Series
+  2. Series Attributes
+  4. Handling Missing Values, Duplicate Data
+  5. Arithmetic Operations
+  6. Scalar Operation
+  7. Vector Operation
+  8. Data Filtering
+  9. Statistical Operation
+  10. Sorting

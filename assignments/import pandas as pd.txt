@@ -1,0 +1,284 @@
+import pandas as pd
+
+s = pd.Series([10, 20, 30, 40, 50])
+
+1. Basic Information Methods
+Method	Purpose
+s.head()	First 5 values
+s.tail()	Last 5 values
+s.info()	Basic information
+s.describe()	Statistical summary
+s.shape	Number of elements
+s.size	Total number of elements
+s.dtype	Data type
+s.index	Index values
+s.values	Values as NumPy array
+
+Example:
+
+print(s.head())
+print(s.shape)
+print(s.size)
+print(s.dtype)
+print(s.index)
+print(s.values)
+2. Mathematical Methods
+s.sum()
+s.mean()
+s.median()
+s.min()
+s.max()
+s.std()
+s.var()
+
+Example:
+
+marks = pd.Series([65, 80, 75, 90, 55])
+
+print(marks.sum())
+print(marks.mean())
+print(marks.median())
+print(marks.min())
+print(marks.max())
+print(marks.std())
+3. Counting Methods
+count()
+
+Counts non-null values.
+
+s.count()
+value_counts()
+
+Counts occurrences of each value.
+
+s = pd.Series([10, 20, 10, 30, 20, 10])
+
+print(s.value_counts())
+
+Output:
+
+10    3
+20    2
+30    1
+
+This is very important for EDA.
+
+4. Missing Value Methods
+
+Consider:
+
+s = pd.Series([10, 20, None, 40, None])
+isnull()
+s.isnull()
+notnull()
+s.notnull()
+Count missing values
+s.isnull().sum()
+dropna()
+
+Remove missing values:
+
+s.dropna()
+fillna()
+
+Replace missing values:
+
+s.fillna(0)
+
+Example:
+
+s.fillna(s.mean())
+
+This replaces missing values with the mean.
+
+5. Duplicate Methods
+duplicated()
+s = pd.Series([10, 20, 10, 30, 20])
+
+print(s.duplicated())
+drop_duplicates()
+print(s.drop_duplicates())
+
+
+6. Sorting Methods
+sort_values()
+s.sort_values()
+
+Descending:
+
+s.sort_values(ascending=False)
+sort_index()
+
+Sort according to index:
+
+s.sort_index()
+7. Unique Value Methods
+unique()
+s.unique()
+
+Returns unique values as a NumPy array.
+
+nunique()
+
+Returns number of unique values.
+
+s.nunique()
+
+Example:
+
+s = pd.Series(["Java", "Python", "Java", "C++", "Python"])
+
+print(s.unique())
+print(s.nunique())
+8. String Methods
+
+For a string Series:
+
+names = pd.Series(["Pawan", "Rahul", "Amit"])
+
+We use .str.
+
+names.str.upper()
+names.str.lower()
+names.str.title()
+names.str.len()
+
+Examples:
+
+print(names.str.upper())
+print(names.str.lower())
+print(names.str.len())
+
+Other useful methods:
+
+names.str.contains("a")
+names.str.startswith("P")
+names.str.endswith("t")
+9. map()
+
+Very important when transforming Series values.
+
+marks = pd.Series([40, 60, 80])
+
+Convert marks to pass/fail:
+
+marks.map(lambda x: "Pass" if x >= 50 else "Fail")
+
+Output:
+
+0    Fail
+1    Pass
+2    Pass
+10. apply()
+
+Similar to map() but commonly used for applying a function.
+
+marks.apply(lambda x: x + 5)
+11. Comparison and Filtering
+marks = pd.Series([40, 60, 80, 90, 30])
+marks > 50
+
+Output:
+
+False
+True
+True
+True
+False
+
+Filtering:
+
+marks[marks > 50]
+
+Output:
+
+60
+80
+90
+
+This is one of the most important concepts before DataFrame filtering.
+
+12. idxmax() and idxmin()
+
+Find the index of maximum/minimum value.
+
+marks = pd.Series([65, 80, 95, 70])
+
+print(marks.idxmax())
+print(marks.idxmin())
+
+Output:
+
+2
+0
+
+If you want the actual maximum:
+
+marks.max()
+13. between()
+
+Find values within a range:
+
+marks.between(60, 80)
+
+Or filter:
+
+marks[marks.between(60, 80)]
+14. isin()
+
+Check whether values belong to a list:
+
+s = pd.Series(["Java", "Python", "C++", "JavaScript"])
+
+s.isin(["Java", "Python"])
+
+Filter:
+
+s[s.isin(["Java", "Python"])]
+⭐ Most Important Series Methods for ML/EDA
+
+I would recommend teaching these first:
+
+head()
+tail()
+info()
+describe()
+
+sum()
+mean()
+median()
+min()
+max()
+std()
+var()
+
+count()
+value_counts()
+
+isnull()
+notnull()
+dropna()
+fillna()
+
+unique()
+nunique()
+
+duplicated()
+drop_duplicates()
+
+sort_values()
+sort_index()
+
+map()
+apply()
+
+between()
+isin()
+
+idxmax()
+idxmin()
+
+.str.upper()
+.str.lower()
+.str.len()
+.str.contains()
