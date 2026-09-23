@@ -143,20 +143,208 @@ The algorithm tries to answer :-
  "Which data points are similar to each other"
 
 
+-----------------------------------------------------------------------------------------------
+Visulaisation
+import pandas as pd
+import numpy as np
 
+data = {
+    "age": [22, 25, 28, 30, 32, 35, 38, 40, 42, 45,
+            23, 27, 31, 34, 36, 39, 41, 44, 26, 29],
 
+    "experience": [0, 2, 4, 6, 8, 10, 12, 15, 17, 20,
+                   1, 3, 7, 9, 11, 13, 16, 18, 3, 5],
 
+    "salary": [30000, 38000, 45000, 52000, 60000,
+               68000, 75000, 85000, 95000, 110000,
+               32000, 42000, 55000, 62000, 72000,
+               80000, 90000, 100000, 40000, 48000],
 
+    "performance_score": [55, 60, 65, 70, 72, 75, 78, 82, 88, 92,
+                          58, 63, 69, 73, 77, 80, 85, 90, 61, 67],
 
+    "projects_completed": [1, 2, 3, 4, 5, 6, 7, 8, 10, 12,
+                           1, 3, 4, 5, 6, 7, 9, 11, 2, 3],
 
+    "department": [
+        "IT", "IT", "HR", "IT", "Finance",
+        "IT", "HR", "Finance", "IT", "IT",
+        "HR", "Finance", "IT", "HR", "Finance",
+        "IT", "Finance", "IT", "HR", "Finance"
+    ],
 
+    "remote": [
+        "Yes", "No", "Yes", "Yes", "No",
+        "Yes", "No", "Yes", "Yes", "No",
+        "Yes", "No", "Yes", "No", "Yes",
+        "Yes", "No", "Yes", "No", "Yes"
+    ],
 
+    "left_company": [
+        "Yes", "No", "No", "No", "No",
+        "No", "Yes", "No", "No", "No",
+        "Yes", "No", "No", "No", "No",
+        "No", "No", "No", "Yes", "No"
+    ]
+}
 
+df = pd.DataFrame(data)
 
+df.loc[3, "salary"] = np.nan
+df.loc[7, "experience"] = np.nan
+df.loc[12, "performance_score"] = np.nan
 
+df
 
+Your Univariate Analysis Checklist
 
+Whenever you analyze ONE column, ask these questions.
 
+Numerical column
+
+For example:
+
+salary
+
+Ask:
+
+1. What is the distribution?
+2. Is it normally distributed?
+3. Is it skewed?
+4. Are there outliers?
+5. What is the median?
+6. What is the spread?
+7. Are there extreme values?
+8. Do I need transformation?
+
+Graphs:
+
+Histogram
+Boxplot
+KDE
+Categorical column
+
+For example:
+
+department
+
+Ask:
+
+1. How many categories exist?
+2. How many observations are in each category?
+3. Which category dominates?
+4. Are some categories very rare?
+5. Is the distribution balanced?
+
+Graph:
+
+Countplot
+Bar chart
+24. Your Bivariate Analysis Checklist
+
+Whenever you analyze TWO columns, first identify their types.
+
+Numerical + Numerical
+
+Example:
+
+experience + salary
+
+Ask:
+
+1. Is there a relationship?
+2. Positive or negative?
+3. Strong or weak?
+4. Linear or nonlinear?
+5. Are there outliers?
+6. Are there clusters?
+
+Graphs:
+
+Scatterplot
+Regression plot
+Correlation
+Numerical + Categorical
+
+Example:
+
+salary + department
+
+Ask:
+
+1. Does the numerical value differ across categories?
+2. Which category has higher median?
+3. Which category has more variation?
+4. Are there outliers?
+5. Are the distributions different?
+
+Graphs:
+
+Boxplot
+Violinplot
+Barplot
+Categorical + Categorical
+
+Example:
+
+department + remote
+
+Ask:
+
+1. How are categories distributed?
+2. Is there an association?
+3. Does one category dominate?
+4. Does the distribution of one variable change
+   depending on the other?
+
+Graph:
+
+Countplot + hue
+
+Later:
+
+Crosstab
+Stacked bar
+------------------------------------------------------------
+Univarient Analysis :-
+  1. Histogram :- It is basically used to check the distribution of data.
+     Mathematically we can get clue about the distribution by calculating mean and median
+     if mean = median :- Data is symmetric / Normally Disributed
+     if mean > media :- Data is is right skewed
+     if mean < median :- Data is left skewed
+
+     If data is skewed then we can check the skewness of data.
+      df["experiece"].skew()
+      
+      if skew = 0 :- It is symmetric
+      skew > 0 :- Right Skewed
+      skew < 0 :- Left Skewed
+
+      if skewness value is between
+      -0.5 to 0.5 = Approximately symmetric
+      -1 to -0.5 or 0.5 to 1 Moderatly skewed
+      < -1 or >+1  Highly skewed
+
+     Does every skewed feature need transformation ?
+     Ans:- No. If model perform well then we can leave it as it is
+     Important point is which algorithm we are using 
+     If we use tree based algorithm like
+     Decision Tree
+     Random Forest
+     XGBoost
+     Then these algorithm not required normally distrubuted feature. because skewness is not only reason to transform data
+     
+     Transform can be more useful for
+     Linear Regression
+     Logistic Regression
+     KNN
+     SVM
+     Neural network
+     
+     
+     
+     
+     
 
 
 
