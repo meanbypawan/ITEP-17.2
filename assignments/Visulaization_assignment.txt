@@ -1,0 +1,528 @@
+Dataset: Employee Performance & Salary
+
+Use the following dataset. It contains categorical, numerical, and time-related information, so you can practice most important ML visualization concepts.
+
+import pandas as pd
+
+data = {
+    "Employee_ID": [
+        101,102,103,104,105,106,107,108,109,110,
+        111,112,113,114,115,116,117,118,119,120,
+        121,122,123,124,125,126,127,128,129,130
+    ],
+
+    "Name": [
+        "Amit","Rahul","Priya","Neha","Rohit","Sneha","Vikas","Anjali","Karan","Pooja",
+        "Arjun","Riya","Manish","Kavita","Nitin","Simran","Varun","Meena","Akash","Isha",
+        "Deepak","Tanya","Suresh","Nisha","Aditya","Komal","Raj","Shreya","Mohit","Divya"
+    ],
+
+    "Department": [
+        "IT","HR","IT","Sales","IT","Finance","Sales","HR","IT","Finance",
+        "IT","Sales","HR","IT","Finance","Sales","IT","HR","IT","Finance",
+        "Sales","IT","HR","Finance","IT","Sales","IT","HR","Finance","Sales"
+    ],
+
+    "Age": [
+        23,27,25,31,29,35,28,26,24,32,
+        30,27,29,23,36,31,26,28,25,34,
+        30,27,32,29,24,33,26,30,35,28
+    ],
+
+    "Experience": [
+        1,4,2,7,5,10,5,3,2,8,
+        6,4,5,1,11,7,3,5,2,9,
+        6,4,8,5,1,9,3,6,10,5
+    ],
+
+    "Salary": [
+        28000,42000,35000,58000,52000,75000,50000,39000,32000,68000,
+        62000,47000,41000,30000,82000,59000,38000,45000,34000,72000,
+        54000,46000,49000,65000,31000,70000,40000,53000,78000,51000
+    ],
+
+    "Performance_Score": [
+        72,81,76,88,85,91,79,74,70,89,
+        86,78,80,68,94,87,73,82,75,90,
+        84,77,83,88,71,92,76,85,93,81
+    ],
+
+    "Projects_Completed": [
+        2,5,3,8,6,10,7,4,2,9,
+        7,5,4,2,11,8,3,6,3,10,
+        7,5,8,7,2,9,4,7,10,6
+    ],
+
+    "Working_Hours": [
+        38,42,40,45,44,48,46,41,39,47,
+        45,43,40,38,49,46,41,42,40,48,
+        44,42,45,43,39,47,41,44,48,43
+    ],
+
+    "Joining_Month": [
+        "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct",
+        "Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug",
+        "Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun"
+    ]
+}
+
+df = pd.DataFrame(data)
+
+df.head()
+Part 1 — Understand the Dataset
+
+Before visualization, perform basic Pandas EDA.
+
+Q1. Dataset information
+
+Find:
+
+df.shape
+df.info()
+df.describe()
+
+Answer:
+
+How many rows are there?
+How many columns?
+Which columns are numerical?
+Which columns are categorical?
+What is the average salary?
+What is the maximum experience?
+What is the average performance score?
+Part 2 — Matplotlib Basics
+
+Practice these first:
+
+plot()
+scatter()
+bar()
+hist()
+boxplot()
+figure()
+xlabel()
+ylabel()
+title()
+legend()
+grid()
+subplots()
+Q2. Line Plot
+
+Create a line graph showing:
+
+Employee ID vs Salary
+
+X-axis → Employee ID
+Y-axis → Salary
+
+Questions:
+
+What trend do you observe?
+Is a line chart really appropriate for salary by employee ID? Why/why not?
+
+This question is important because you should learn when NOT to use a particular graph.
+
+Q3. Scatter Plot
+
+Plot:
+
+Experience vs Salary
+
+X-axis → Experience
+Y-axis → Salary
+
+Questions:
+
+Does salary appear to increase with experience?
+Is there a positive or negative relationship?
+Are there any unusual observations?
+Q4. Histogram
+
+Create a histogram of:
+
+Salary
+
+Try:
+
+plt.hist(df["Salary"])
+
+Then experiment with:
+
+bins=5
+bins=10
+bins=15
+
+Questions:
+
+What does the histogram tell you?
+Which bin contains the largest number of employees?
+Does salary look approximately normally distributed?
+Part 3 — Boxplot & Outliers
+Q5. Salary Boxplot
+
+Create:
+
+plt.boxplot(df["Salary"])
+
+Identify:
+
+Q1
+Median
+Q3
+IQR
+Lower boundary
+Upper boundary
+Potential outliers
+
+Remember:
+
+IQR = Q3 - Q1
+
+Lower Boundary = Q1 - 1.5 × IQR
+
+Upper Boundary = Q3 + 1.5 × IQR
+Q6. Compare Salary by Department
+
+Create a boxplot showing:
+
+IT
+HR
+Sales
+Finance
+
+against salary.
+
+Use:
+
+plt.boxplot(...)
+
+Your objective is to understand:
+
+Median salary
+Spread
+Variation
+Potential outliers
+Part 4 — Bar Charts
+Q7. Average Salary by Department
+
+First calculate:
+
+df.groupby("Department")["Salary"].mean()
+
+Then create a bar chart.
+
+Your chart should show:
+
+Department → X-axis
+Average Salary → Y-axis
+Q8. Number of Employees by Department
+
+Create a bar chart showing the number of employees in:
+
+IT
+HR
+Sales
+Finance
+
+Hint:
+
+df["Department"].value_counts()
+Part 5 — Seaborn
+
+Now move to Seaborn.
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+Q9. Seaborn Scatter Plot
+
+Create:
+
+sns.scatterplot(
+    data=df,
+    x="Experience",
+    y="Salary"
+)
+
+Now color the points according to department:
+
+hue="Department"
+
+Question:
+
+Does the Experience–Salary relationship appear similar across departments?
+
+Part 6 — Categorical Visualization
+Q10. Salary by Department
+
+Create a Seaborn boxplot:
+
+sns.boxplot(
+    data=df,
+    x="Department",
+    y="Salary"
+)
+
+Compare the distributions.
+
+Q11. Performance by Department
+
+Create:
+
+sns.boxplot(
+    data=df,
+    x="Department",
+    y="Performance_Score"
+)
+
+Questions:
+
+Which departments have higher performance scores?
+Which department has greater variation?
+
+Don't just look at the average—look at the distribution.
+
+Part 7 — Histogram / Distribution
+Q12. Salary Distribution
+
+Use:
+
+sns.histplot(
+    data=df,
+    x="Salary",
+    bins=10,
+    kde=True
+)
+
+Understand:
+
+Histogram
+KDE
+Distribution
+Skewness
+Q13. Performance Distribution
+
+Create a distribution plot for:
+
+Performance_Score
+
+Try:
+
+sns.histplot(
+    data=df,
+    x="Performance_Score",
+    kde=True
+)
+
+Determine whether the performance scores appear concentrated around a particular range.
+
+Part 8 — Countplot
+Q14. Employees by Department
+
+Create:
+
+sns.countplot(
+    data=df,
+    x="Department"
+)
+
+Then answer:
+
+Which department has the most employees?
+
+Q15. Employees by Joining Month
+
+Create a countplot:
+
+sns.countplot(
+    data=df,
+    x="Joining_Month"
+)
+
+This will also help you understand categorical data visualization.
+
+Part 9 — Correlation
+
+This is very important for ML.
+
+Select numerical columns:
+
+numeric_df = df.select_dtypes(include="number")
+
+Calculate:
+
+correlation = numeric_df.corr()
+print(correlation)
+
+Now visualize it:
+
+sns.heatmap(
+    correlation,
+    annot=True
+)
+Q16. Analyze the heatmap
+
+Find the relationship between:
+
+Age
+Experience
+Salary
+Performance_Score
+Projects_Completed
+Working_Hours
+
+Answer:
+
+Which two variables have the strongest positive correlation?
+Is Experience correlated with Salary?
+Is Performance correlated with Salary?
+Is Working_Hours correlated with Performance?
+Are there any variables with weak correlation?
+Part 10 — Multivariate Analysis
+
+Now combine multiple variables.
+
+Q17. Experience vs Salary
+
+Create a scatterplot:
+
+sns.scatterplot(
+    data=df,
+    x="Experience",
+    y="Salary",
+    hue="Department",
+    size="Performance_Score"
+)
+
+Now you are analyzing:
+
+Experience
+      ↓
+Salary
+      ↑
+Department
+      ↑
+Performance
+
+This is a good example of multivariate visualization.
+
+Part 11 — ML-Oriented Questions
+
+Now think like an ML practitioner.
+
+Q18. Feature Relationships
+
+Suppose:
+
+Target = Salary
+
+Which features might be useful?
+
+Consider:
+
+Age
+Experience
+Performance_Score
+Projects_Completed
+Working_Hours
+
+Use:
+
+Scatter plots
+Correlation
+Boxplots
+
+to investigate.
+
+Q19. Outlier Investigation
+
+Check whether there are potential salary outliers.
+
+Use:
+
+sns.boxplot(data=df, y="Salary")
+
+Then calculate the IQR manually.
+
+Don't simply remove an outlier.
+
+Ask:
+
+Is this actually an error, or could it be a genuine employee salary?
+
+This is an important ML/EDA habit.
+
+Part 12 — Final EDA Challenge ⭐
+
+Create an EDA report containing at least these 8 visualizations:
+
+Univariate
+
+1. Salary histogram
+
+Salary distribution
+
+2. Salary boxplot
+
+Salary outliers
+Bivariate
+
+3. Experience vs Salary
+
+Scatter plot
+
+4. Department vs Salary
+
+Boxplot
+
+5. Department vs Average Salary
+
+Bar chart
+Multivariate
+
+6. Correlation heatmap
+
+All numerical variables
+
+7. Experience vs Salary by Department
+
+Scatter + hue
+
+8. Performance vs Salary
+
+Scatter plot
+Your Visualization Roadmap
+
+For your ML preparation, I recommend learning the graphs in this order:
+
+                 Matplotlib
+                     ↓
+          ┌──────────┴──────────┐
+          ↓                     ↓
+       Histogram             Boxplot
+          ↓                     ↓
+    Distribution             Outliers
+          │                     │
+          └──────────┬──────────┘
+                     ↓
+                 Scatter
+                     ↓
+                Correlation
+                     ↓
+               Heatmap
+                     ↓
+               Bar / Count
+                     ↓
+                  Seaborn
+                     ↓
+             Multivariate EDA
+
+The most important graphs for your ML journey are:
+
+Graph	Main purpose
+Histogram	Distribution
+Boxplot	Outliers + distribution
+Scatterplot	Relationship between numerical variables
+Barplot	Comparing categories
+Countplot	Category frequency
+Heatmap	Correlation
+Line plot	Time-series/tren
