@@ -1,0 +1,12 @@
+1. WAP to implement Stack. [push, pop, peek, underflow, traverse,overflow]
+2. WAP to implement linked list[insert,delete, instert at position,delete at position, traverse]
+3. Detect cycle in linked list
+4.Remove Element
+Input:
+[3,2,2,3]
+remove 3
+Output:
+[2,2]
+
+5.WAP to evalute postfix expression
+[5, 6, 2, "+", "*", 12, 4, "/", "-"]
